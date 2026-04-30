@@ -1157,14 +1157,13 @@
         // Spread co-located markers so none is hidden behind another.
         // At low zoom: markers in the same geographic cluster are placed on a small
         // pixel-space circle so they remain individually visible.
-        // At low zoom markers are spread onto a small pixel-space circle so none is
-        // hidden. As zoom increases the spread is linearly interpolated toward the
-        // exact coordinates, completing the transition smoothly before the markers
-        // are far enough apart to look correct on their own.
-        // Listening to 'zoom' (not just 'zoomend') keeps repositioning continuous
-        // during animated zoom so there is no abrupt jump.
-        const BLEND_END = MIN_PIXEL_GAP * 2; // pixel separation at which spread = 0 (one zoom level above MIN_PIXEL_GAP)
-
+        // Scale each marker's offset from the group centroid by the smallest
+        // factor that keeps the closest pair at least MIN_PIXEL_GAP apart in
+        // pixel space. Motion is purely radial, so angular order is preserved
+        // and markers never cross. The scale is a continuous function of zoom
+        // (via minDist), so the transition is naturally smooth — no lerp, no
+        // threshold, no BLEND_END to tune. When natural separation is already
+        // large enough, scale = 1 and markers sit on their exact coordinates.
         function repositionMarkers() {
             proximityGroups.forEach(group => {
                 if (group.length === 1) {
@@ -1172,40 +1171,25 @@
                     return;
                 }
                 const N = group.length;
-                const exactPts = group.map(r => map.latLngToContainerPoint(L.latLng(r.coords)));
+                const pts = group.map(r => map.latLngToContainerPoint(L.latLng(r.coords)));
+                const cx = pts.reduce((s, p) => s + p.x, 0) / N;
+                const cy = pts.reduce((s, p) => s + p.y, 0) / N;
 
-                // Minimum pairwise pixel distance at the exact (true) coordinates
                 let minDist = Infinity;
                 for (let i = 0; i < N; i++) {
                     for (let j = i + 1; j < N; j++) {
-                        const d = exactPts[i].distanceTo(exactPts[j]);
+                        const d = pts[i].distanceTo(pts[j]);
                         if (d < minDist) minDist = d;
                     }
                 }
-
-                // t=0 → fully spread, t=1 → fully on exact coordinates
-                const t = Math.max(0, Math.min(1, (minDist - MIN_PIXEL_GAP) / (BLEND_END - MIN_PIXEL_GAP)));
-
-                if (t >= 1) {
-                    group.forEach(r => markers[r.id].setLatLng(r.coords));
-                    return;
-                }
-
-                // Compute pixel-space centroid and spread radius
-                const cx = exactPts.reduce((s, p) => s + p.x, 0) / N;
-                const cy = exactPts.reduce((s, p) => s + p.y, 0) / N;
-                const radius = MIN_PIXEL_GAP / (2 * Math.sin(Math.PI / N));
+                const scale = minDist > 0 ? Math.max(1, MIN_PIXEL_GAP / minDist) : 1;
 
                 group.forEach((r, i) => {
-                    const angle = (2 * Math.PI * i / N) - Math.PI / 2;
-                    const spreadPt = L.point(cx + radius * Math.cos(angle), cy + radius * Math.sin(angle));
-                    const exactPt  = exactPts[i];
-                    // Lerp in pixel space: start at spread, ease toward exact
-                    const blendPt  = L.point(
-                        spreadPt.x + t * (exactPt.x - spreadPt.x),
-                        spreadPt.y + t * (exactPt.y - spreadPt.y)
+                    const newPt = L.point(
+                        cx + (pts[i].x - cx) * scale,
+                        cy + (pts[i].y - cy) * scale
                     );
-                    markers[r.id].setLatLng(map.containerPointToLatLng(blendPt));
+                    markers[r.id].setLatLng(map.containerPointToLatLng(newPt));
                 });
             });
         }
