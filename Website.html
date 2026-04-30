@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Interface Researchers Map</title>
+    
+    <!-- Leaflet CSS for the map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #334155;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .header-divider {
+            width: 1px;
+            height: 2rem;
+            background: #334155;
+            flex-shrink: 0;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Filter Section */
+        .filters {
+            background: #1e293b;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #334155;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+
+        .filter-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .filter-label {
+            color: #94a3b8;
+            font-weight: 600;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .filter-btn {
+            background: #334155;
+            color: #e2e8f0;
+            border: 1px solid #475569;
+            padding: 0.4rem 0.6rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background: #475569;
+            transform: translateY(-1px);
+        }
+
+        .filter-btn.active {
+            background: #38bdf8;
+            color: #0f172a;
+            border-color: #38bdf8;
+            font-weight: 600;
+        }
+
+        .filter-btn.clear {
+            background: transparent;
+            border: 1px solid #ef4444;
+            color: #ef4444;
+            margin-left: auto;
+        }
+
+        .filter-btn.clear:hover {
+            background: #ef4444;
+            color: white;
+        }
+
+        /* Stats Counter */
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-left: 2rem;
+            padding-left: 2rem;
+            border-left: 1px solid #334155;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #38bdf8;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+
+        /* Map Container */
+        #map {
+            height: calc(100vh - 140px);
+            width: 100vw;
+            background: #0f172a;
+            z-index: 1;
+        }
+
+        /* Custom Popup Styling */
+        .leaflet-popup-content-wrapper {
+            background: #1e293b;
+            color: #e2e8f0;
+            border-radius: 12px;
+            padding: 0;
+            overflow: hidden;
+            border: 1px solid #334155;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .leaflet-popup-content {
+            margin: 0;
+            width: 300px !important;
+        }
+
+        .leaflet-popup-tip {
+            background: #1e293b;
+        }
+
+        .popup-header {
+            background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+            padding: 1rem;
+            border-bottom: 1px solid #334155;
+        }
+
+        .popup-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 0.25rem;
+        }
+
+        .popup-institution {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .popup-body {
+            padding: 1rem;
+        }
+
+        .popup-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        .popup-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            border: 1px solid #334155;
+        }
+
+        .popup-link {
+            display: inline-block;
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .popup-link:hover {
+            background: #0ea5e9;
+            transform: translateY(-1px);
+        }
+
+        /* Avatar (photo or initials fallback) */
+        .avatar {
+            border-radius: 50%;
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 2px solid #475569;
+            text-transform: uppercase;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .avatar--sm { width: 48px; height: 48px; font-size: 1rem; }
+        .avatar--lg { width: 88px; height: 88px; font-size: 1.75rem; }
+
+        .popup-header-row,
+        .modal-header-row {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .popup-topic {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            font-style: italic;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-topic {
+            color: #cbd5e1;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            line-height: 1.4;
+        }
+
+        /* Contact + link lists in modal */
+        .contact-list,
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-list li,
+        .link-list li {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .contact-list a,
+        .link-list a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        .contact-list a:hover,
+        .link-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* Custom Marker Styles - Gemini-style 4-point sparkle */
+        .custom-marker {
+            width: 26px;
+            height: 26px;
+            transition: transform 0.3s, filter 0.3s;
+            filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.6));
+        }
+
+        .custom-marker svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            overflow: visible;
+        }
+
+        .custom-marker:hover {
+            transform: scale(1.35) rotate(15deg);
+            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.95));
+        }
+
+        .custom-marker.filtered-out {
+            opacity: 0.2;
+            filter: none;
+        }
+
+        /* Lab List Sidebar (Mobile Alternative) */
+        .lab-list {
+            display: none;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .lab-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .lab-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            border-color: #38bdf8;
+        }
+
+        .lab-card.hidden {
+            display: none;
+        }
+
+        .lab-card h3 {
+            color: #38bdf8;
+            margin-bottom: 0.5rem;
+        }
+
+        .lab-card .location {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Modal for Detailed View */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #1e293b;
+            border-radius: 16px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid #334155;
+            position: relative;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+            padding: 2rem;
+            border-bottom: 1px solid #334155;
+        }
+
+        .modal-title {
+            font-size: 1.75rem;
+            color: #38bdf8;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-section h4 {
+            color: #38bdf8;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .modal-section p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #334155;
+            border: none;
+            color: #e2e8f0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .close-modal:hover {
+            background: #ef4444;
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.5rem; }
+            .header-content { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            .header-divider { display: none; }
+            .stats { display: none; }
+            #map { height: 50vh; }
+            .lab-list { display: block; }
+            .filter-container { gap: 0.25rem; }
+            .filter-btn { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>🧠 IMPLANT RADAR</h1>
+            <div class="header-divider"></div>
+            <p class="subtitle">Researchers developing neural implants and bioelectronics.</p>
+        </div>
+    </header>
+
+    <div class="filters">
+        <div class="filter-container">
+            <span class="filter-label">Filter by Focus:</span>
+            <button class="filter-btn active" data-filter="all">All Labs</button>
+            <button class="filter-btn" data-filter="BCI">Brain-Computer Interface</button>
+            <button class="filter-btn" data-filter="Biohybrid">Biohybrid Interfaces</button>
+            <button class="filter-btn" data-filter="Neurostimulation">Neurostimulation</button>
+            <button class="filter-btn" data-filter="Wireless">Wireless Implants</button>
+            <button class="filter-btn" data-filter="Materials">Advanced Materials</button>
+            <button class="filter-btn" data-filter="Clinical">Clinical Trials</button>
+            
+            <button class="filter-btn clear" onclick="resetFilters()">Clear Filters</button>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <div class="lab-list" id="labList">
+        <!-- Lab cards will be inserted here by JavaScript -->
+    </div>
+
+    <!-- Modal for detailed view -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div id="modalContent">
+                <!-- Content inserted by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        // Researchers Database. For each person:
+        //   photo:        URL to a portrait image (string). Empty -> initials avatar fallback.
+        //   email/phone:  Contact info. Empty string hides the row in the modal.
+        //   labWebsite:   Lab homepage URL.
+        //   scholar:      Google Scholar profile URL. Empty hides the row.
+        //   appearances:  Array of { label, url } for YouTube talks, podcast episodes, etc.
+        //                 Empty array hides the section.
+        //
+        // Personal contact info, photos, and external profile links are intentionally left
+        // blank — fill these in with verified data; do not guess or invent them.
+        const researchers = [
+            {
+                id: 1,
+                name: "Jacob Robinson",
+                photo: "https://static.wixstatic.com/media/6d7b7d_baffd081a058406b807eb70f66700447~mv2.jpg/v1/crop/x_0,y_0,w_2465,h_1645/fill/w_726,h_485,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Jacob_Lab_Headshot.jpg",
+                institution: "Rice University",
+                location: "Houston, TX, USA",
+                coords: [29.7174, -95.4018],
+                topic: "Wireless miniature brain stimulators powered by magnetoelectrics",
+                focus: ["Wireless", "Neurostimulation", "Clinical"],
+                description: "Developing the smallest implantable brain stimulator (DOT device) using magnetoelectric power transfer. Pea-sized device for treating drug-resistant depression and psychiatric disorders without batteries. Co-founder of Motif Neurotech.",
+                notable: "First-in-human demonstration of a miniature wireless cortical stimulator",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.robinsonlab.com/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 2,
+                name: "Duygu Kuzum",
+                photo: "https://neuroelectronics.ucsd.edu/wp-content/uploads/elementor/thumbs/duygu-rahzusslih6i4oc4doxtctwm1qucm0h9w42aiodsww.jpg",
+                institution: "UC San Diego",
+                location: "San Diego, CA, USA",
+                coords: [32.8801, -117.2340],
+                topic: "Transparent neural interfaces for multimodal brain monitoring",
+                focus: ["Materials", "BCI", "Wireless"],
+                description: "Leads the Neuroelectronics Lab, creating nanoelectronic devices that enable monitoring of brain activity at multiple spatial and temporal scales. Pioneering transparent electrode arrays that combine optical imaging with electrical recording.",
+                notable: "Transparent brain implants that can read deep neural activity from the surface",
+                email: "",
+                phone: "",
+                labWebsite: "https://neuroelectronics.ucsd.edu/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 3,
+                name: "Mahsa Shoaran",
+                photo: "https://actu.epfl.ch/image/98143/350x350.jpg",
+                institution: "EPFL",
+                location: "Lausanne, Switzerland",
+                coords: [46.5197, 6.5657],
+                topic: "Miniaturized brain–machine interface chips for neural disorders",
+                focus: ["BCI", "Wireless", "Clinical"],
+                description: "Heads the Integrated Neurotechnologies Laboratory (INL), developing next-generation miniaturized brain-machine interfaces on silicon chips and implantable systems for movement and communication recovery.",
+                notable: "NeuralTree chip for on-device brain disorder management; NIMH grant recipient",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.epfl.ch/labs/inl/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 4,
+                name: "Leigh Hochberg",
+                photo: "https://www.braingate.org/wp-content/uploads/2015/12/LRHpic_2022square.jpg",
+                institution: "Brown University / MGH / VA",
+                location: "Providence, RI, USA",
+                coords: [41.8268, -71.4025],
+                topic: "Intracortical BCIs for restoring communication and mobility",
+                focus: ["BCI", "Clinical", "Wireless"],
+                description: "Director of the BrainGate clinical trials, pioneering intracortical brain-computer interfaces since 2004. Using micro-electrode arrays to restore communication and mobility for people with paralysis, ALS, and spinal cord injury.",
+                notable: "First human use of intracortical BCI for communication and robotic control",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.braingate.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 5,
+                name: "Ken Shepard",
+                photo: "https://bioee.ee.columbia.edu/wp-content/uploads/2024/10/Ken-Shepard.jpeg",
+                institution: "Columbia University",
+                location: "New York, NY, USA",
+                coords: [40.8079, -73.9621],
+                topic: "Single-chip, tissue-thin BCI platforms",
+                focus: ["BCI", "Materials", "Wireless"],
+                description: "Leading the Biological Interface System to Cortex (BISC) project — a single-chip implant as thin as tissue paper that creates high-bandwidth brain-computer interfaces, in collaboration with Stanford and UPenn.",
+                notable: "Single-chip scalable BCI platform published in Nature Electronics",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.bioelectronic.columbia.edu/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 6,
+                name: "Matthew Willsey",
+                photo: "https://lh3.googleusercontent.com/sitesv/AA5AbUAsTU40jbv2IR5Jr15JrKBFy22W6SWfWNIcSKU4oodYZelejwN6tV6DKq1uoIkM7nrXLl2z2f6sjCq9qgV-xgfa_W5D-JZZkxogdXF_p1uFLyxgFta-Ehlbrxn7ugS5CR3ytgWxD92_AFIIGtk6saCpv8vtjMTLnKKFq6tStIzy4EtA6Hkkwk9XYrm-aFXn-sC1fXQsWQpy0Po3aCl8IE8R3Dkbp7c7iyOykKA=w1280",
+                institution: "University of Michigan",
+                location: "Ann Arbor, MI, USA",
+                coords: [42.2780, -83.7382],
+                topic: "High-channel-count wireless BCIs for speech and motor restoration",
+                focus: ["BCI", "Clinical", "Wireless"],
+                description: "Leading first-in-human trials of the Paradromics Connexus BCI. Developing wireless high-channel-count neural interfaces for speech and motor restoration in partnership with Blackrock Neurotech.",
+                notable: "First human recording from a 421-electrode wireless BCI",
+                email: "",
+                phone: "",
+                labWebsite: "https://medicine.umich.edu/dept/neurosurgery/research/willsey-lab",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 7,
+                name: "Nathan Crone",
+                photo: "https://cdn-images.kyruus.com/providermatch/johnshopkins/photos/orig/crone-nathan-1235186370.jpg",
+                institution: "Johns Hopkins University",
+                location: "Baltimore, MD, USA",
+                coords: [39.3299, -76.6205],
+                topic: "ECoG-based BCIs for speech decoding in paralysis",
+                focus: ["BCI", "Clinical", "Neurostimulation"],
+                description: "Co-leads the CortiCom clinical trials at Johns Hopkins, using high-density ECoG grids (128 electrodes) for speech decoding in locked-in syndrome patients.",
+                notable: "Fully implanted wireless BCI for home use by paralyzed patients",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.hopkinsmedicine.org/neurology-neurosurgery/clinical-trials/brain-computer-interface",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 8,
+                name: "Nick Ramsey",
+                photo: "https://utrecht-bci.nl/wp-content/uploads/2025/02/DSC_6538.png",
+                institution: "Johns Hopkins University (CortiCom collaboration)",
+                location: "Baltimore, MD, USA",
+                coords: [39.3399, -76.6305],
+                topic: "Implantable BCIs for home use by locked-in patients",
+                focus: ["BCI", "Clinical", "Neurostimulation"],
+                description: "Co-investigator on the CortiCom implantable BCI program. Long-standing work on fully-implanted BCIs that allow paralyzed users to communicate from home without external hardware.",
+                notable: "Pioneer of long-term, fully implanted home-use BCIs",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.hopkinsmedicine.org/neurology-neurosurgery/clinical-trials/brain-computer-interface",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 9,
+                name: "Deblina Sarkar",
+                photo: "https://web.mit.edu/deblina-sarkar/images/ds_newimage.png",
+                institution: "MIT Media Lab",
+                location: "Cambridge, MA, USA",
+                coords: [42.3601, -71.0942],
+                topic: "Injectable nano-bioelectronics that self-implant via the bloodstream",
+                focus: ["Materials", "Wireless", "Neurostimulation"],
+                description: "Leads the Nano-Cybernetic Biotrek group, developing 'Circulatronics' — microscopic wireless bioelectronics that travel through blood vessels and self-implant in the brain without surgery. Cell–electronics hybrids that cross the blood-brain barrier.",
+                notable: "Injectable neural implants that don't require surgery; Nature Biotechnology publication",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.media.mit.edu/research/groups/nano-cybernetic-biotrek",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 10,
+                name: "Michael Boninger",
+                photo: "https://www.rnel.pitt.edu/sites/default/files/styles/person_small/public/person-images/Boninger%20Headshot.jpg?itok=7aGNlpzS",
+                institution: "University of Pittsburgh",
+                location: "Pittsburgh, PA, USA",
+                coords: [40.4444, -79.9608],
+                topic: "In-home BCI systems for paralyzed users",
+                focus: ["BCI", "Clinical", "Neurostimulation"],
+                description: "Director of the Rehab Neural Engineering Labs (RNEL). Expanding access to BCI clinical trials through in-home systems, with miniaturized BCI hardware co-developed with Blackrock Neurotech.",
+                notable: "First in-home BCI system for high-complexity neural control",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.rnel.pitt.edu/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 11,
+                name: "Jennifer Collinger",
+                photo: "https://www.rnel.pitt.edu/sites/default/files/styles/person_small/public/person-images/4566_JenniferCollinger_0003a%20small.jpg?itok=vh9trK6O",
+                institution: "University of Pittsburgh",
+                location: "Pittsburgh, PA, USA",
+                coords: [40.4544, -79.9708],
+                topic: "Sensorimotor BCIs and neural control of prosthetics",
+                focus: ["BCI", "Clinical", "Neurostimulation"],
+                description: "Co-leads the RNEL group's BCI clinical work, focusing on sensorimotor restoration: using intracortical recording and stimulation to give paralyzed users dexterous prosthetic limb control with tactile feedback.",
+                notable: "Bidirectional BCIs combining motor decoding with somatosensory stimulation",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.rnel.pitt.edu/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 12,
+                name: "Alper Bozkurt",
+                photo: "https://ece.ncsu.edu/wp-content/photos/aybozkur.jpg",
+                institution: "NC State University",
+                location: "Raleigh, NC, USA",
+                coords: [35.7847, -78.6821],
+                topic: "Self-powered implantable wireless biomedical sensors",
+                focus: ["Materials", "Wireless", "Neurostimulation"],
+                description: "Co-director of the ASSIST Center (Advanced Self-Powered Systems of Integrated Sensors). Developing implantable wireless biomedical devices for functional bio-interfacing with the nervous system, including battery-free technologies.",
+                notable: "Self-powered implantable sensors and stimulation systems",
+                email: "",
+                phone: "",
+                labWebsite: "https://assistcenter.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 13,
+                name: "Abraham Vázquez-Guardado",
+                photo: "https://ece.ncsu.edu/wp-content/uploads/2022/07/Abraham-Web.jpg",
+                institution: "NC State University",
+                location: "Raleigh, NC, USA",
+                coords: [35.7947, -78.6721],
+                topic: "Battery-free implantable optoelectronic neural interfaces",
+                focus: ["Materials", "Wireless", "Neurostimulation"],
+                description: "Develops soft, battery-free implantable optoelectronic systems for wireless neural stimulation and recording, with a focus on optogenetic interfaces and miniaturized photonic devices.",
+                notable: "Wireless, battery-free optogenetic neural implants",
+                email: "",
+                phone: "",
+                labWebsite: "https://assistcenter.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 14,
+                name: "Krishna Shenoy",
+                photo: "https://profiles.stanford.edu/proxy/api/cap/profiles/9479/resources/profilephoto/350x350.1509542379734.jpg",
+                institution: "Stanford University",
+                location: "Stanford, CA, USA",
+                coords: [37.4275, -122.1697],
+                topic: "Algorithms for high-performance neural prosthetics",
+                focus: ["BCI", "Clinical", "Neurostimulation"],
+                description: "Co-led the Neural Prosthetics Translational Lab (NPTL) at Stanford, focused on algorithm development for neural prosthetics and understanding motor cortex dynamics. Part of the BrainGate consortium.",
+                notable: "High-performance BCI handwriting decoding",
+                email: "",
+                phone: "",
+                labWebsite: "https://nptl.stanford.edu/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 15,
+                name: "Jaimie Henderson",
+                photo: "https://profiles.stanford.edu/proxy/api/cap/profiles/6330/resources/profilephoto/350x350.1751302180914.jpg",
+                institution: "Stanford University",
+                location: "Stanford, CA, USA",
+                coords: [37.4175, -122.1597],
+                topic: "Neurosurgical implementation of intracortical BCIs",
+                focus: ["BCI", "Clinical", "Neurostimulation"],
+                description: "Co-director of NPTL and surgical lead for Stanford's BrainGate trials. Bridges neurosurgery and BCI engineering, leading implantation of intracortical arrays in human participants.",
+                notable: "Surgical lead for record-setting BCI speech and handwriting decoders",
+                email: "",
+                phone: "",
+                labWebsite: "https://nptl.stanford.edu/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 16,
+                name: "Tim Constandinou",
+                photo: "https://www.imperial.ac.uk/profile_image_proxy/profile_image_proxy.php?id=t.constandinou",
+                institution: "Imperial College London",
+                location: "London, UK",
+                coords: [51.4988, -0.1749],
+                topic: "Implantable neural interfaces for bioelectronic medicine",
+                focus: ["Neurostimulation", "BCI", "Materials"],
+                description: "Leads work at Imperial's Institute of Neurotechnology on bioelectronic medicines and neural interfaces for chronic disease, including vagus nerve stimulation and miniaturized implantable systems.",
+                notable: "Next-generation neural interfaces for bioelectronic medicine",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.imperial.ac.uk/neurotechnology/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 17,
+                name: "Christos Tolias",
+                photo: "https://objects-gb.cdn-topdoctors.com/provider/378720/image/profile/medium/prof_159_20240423085515.png?width=648&format=png",
+                institution: "Imperial College London",
+                location: "London, UK",
+                coords: [51.5088, -0.1649],
+                topic: "Closed-loop neuromodulation systems",
+                focus: ["Neurostimulation", "BCI", "Materials"],
+                description: "Works on closed-loop neuromodulation devices that adapt stimulation in response to recorded neural activity, with applications across psychiatric and neurological disorders.",
+                notable: "Closed-loop bioelectronic stimulation platforms",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.imperial.ac.uk/neurotechnology/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 18,
+                name: "Thomas Stieglitz",
+                photo: "https://www.imtek.de/resolveuid/e2eecb8e3af8a3144621cf8466c68f72",
+                institution: "University of Freiburg (IMTEK / IMBIT)",
+                location: "Freiburg, Germany",
+                coords: [48.01362, 7.83552],
+                topic: "MEMS-based microelectrode arrays for neural interfaces",
+                focus: ["Materials", "Neurostimulation", "BCI", "Biohybrid"],
+                description: "Heads the Laboratory for Biomedical Microtechnology at IMTEK and the Laboratory for Biohybrid Neural Interfaces at IMBIT. Develops MEMS-based microelectrode arrays, optogenetic stimulation tools, and biomedical microsystems for monitoring and modulating neuronal networks.",
+                notable: "ISO 13485 certified medical device development; developed °AirRay electrode technology",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.imtek.de/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 19,
+                name: "Simon Binder",
+                photo: "https://uni-freiburg.de/wp-content/uploads/Portrait-Simon-Binder-Annette-Mueck_quer.png",
+                institution: "University of Freiburg (IMBIT / BrainLinks-BrainTools)",
+                location: "Freiburg, Germany",
+                coords: [48.0036, 7.8455],
+                topic: "Biohybrid neural implants with soft hydrogel electrodes",
+                focus: ["Biohybrid", "Materials", "Neurostimulation", "BCI"],
+                description: "Leads the early-career research group 'Biohybrid Neuroimplants based on Soft Hydrogel Electrodes' at IMBIT, within the Soft Sensorics & Biohybrid Systems group of BrainLinks-BrainTools. Develops biohybrid neural implants that use cultured cells to integrate into brain tissue, creating a 'living' interface between local neurons and the read-out electronics — aiming for better biocompatibility, reduced rejection, and higher-resolution recordings.",
+                notable: "Carl Zeiss Foundation 1.5M EUR award to launch his early-career group on biohybrid neuroimplants",
+                email: "",
+                phone: "",
+                labWebsite: "https://brainlinks-braintools.uni-freiburg.de/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 20,
+                name: "Daniel T. Simon",
+                photo: "https://liu.se/-/media/employeeimages/08/employee_image_dansi08.jpeg?as=1&w=300&h=300&cr=1&crw=300&crh=300&bc=%23ffffff&hash=F9101D8F996761AD4FB0BDAE73C2C030",
+                institution: "Linköping University (Laboratory of Organic Electronics)",
+                location: "Norrköping, Sweden",
+                coords: [58.5895, 16.1965],
+                topic: "Organic bioelectronic interfaces between living tissue and electronics",
+                focus: ["Materials", "Neurostimulation", "BCI", "Biohybrid"],
+                description: "Group leader for Organic Bioelectronics at LiU's Laboratory of Organic Electronics. Develops in-situ polymerized organic electrodes for neural interfaces, organic electronic ion pumps for precise drug delivery (including for brain cancer), and bioelectronic tools for the enteric nervous system through the EnterBio EIC Pathfinder project.",
+                notable: "Organic electronic ion pump used to deliver chemotherapy directly to brain tumors",
+                email: "",
+                phone: "",
+                labWebsite: "https://liu.se/en/employee/dansi08",
+                scholar: "https://scholar.google.com/citations?user=J-KtfpwAAAAJ",
+                appearances: []
+            },
+            {
+                id: 21,
+                name: "Ilke Uguz",
+                photo: "https://images.stevens.edu/mviowpldu823/279dOcIF3vJAmuAphLJ3ub/de3a00151fee27419643f94f7a886e34/iuguz.jpg?w=1024&h=1024&f=center&q=75&fit=fill",
+                institution: "Stevens Institute of Technology",
+                location: "Hoboken, NJ, USA",
+                coords: [40.7448, -74.0245],
+                topic: "Ultra-flexible, lightweight neural implants for single-neuron resolution",
+                focus: ["BCI", "Materials", "Neurostimulation"],
+                description: "Assistant Professor of Biomedical Engineering at Stevens. Leads the InBrain Electronics Lab, designing ultra-flexible and lightweight neural implants that produce a more tissue-compatible interface — with the goal of large-scale recording and stimulation at single-neuron resolution over long timescales without causing tissue damage.",
+                notable: "Soft, flexible BCI devices targeting long-term, low-damage neural interfacing",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.stevens.edu/profile/iuguz",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 22,
+                name: "Pieter Roelfsema",
+                photo: "https://nin.nl/wp-content/uploads/2022/10/roelfsema-300x300.jpg",
+                institution: "Netherlands Institute for Neuroscience / Phosphoenix (co-founder)",
+                location: "Amsterdam, Netherlands",
+                coords: [52.3148, 4.9472],
+                topic: "Visual cortical prostheses to restore sight in blind people",
+                focus: ["Neurostimulation", "BCI", "Clinical", "Materials"],
+                description: "Group leader at the Netherlands Institute for Neuroscience (NIN; director 2007–2023) and professor at Vrije Universiteit Amsterdam and the Amsterdam UMC Neurosurgery Department. Studies visual perception, plasticity, memory and consciousness, and develops cortical prostheses that bypass the eyes and optic nerves by directly stimulating the visual cortex. Co-founded Phosphoenix in 2019 (with Bert Monna and Xing Chen) to translate the visual brain prosthesis toward clinical use.",
+                notable: "HBP Innovation Award recipient; co-founder of Phosphoenix",
+                email: "",
+                phone: "",
+                labWebsite: "https://nin.nl/research-groups/roelfsema/",
+                scholar: "",
+                appearances: [],
+                extraLinks: [
+                    { label: "Phosphoenix (company)", url: "https://www.phosphoenix.nl/" }
+                ]
+            }
+        ];
+
+
+        // World bounds (Web Mercator clips at ~±85.05 latitude)
+        const WORLD_BOUNDS = L.latLngBounds([-85.05, -180], [85.05, 180]);
+
+        // Compute the minimum zoom that makes the world fill BOTH width and height
+        // of the map container. The world is a square of 256 * 2^zoom pixels at any
+        // zoom level, so we need 256 * 2^z >= max(width, height).
+        function getMinZoom() {
+            const mapEl = document.getElementById('map');
+            const tileSize = 256;
+            const longestSide = Math.max(mapEl.clientWidth, mapEl.clientHeight);
+            return Math.log2(longestSide / tileSize);
+        }
+
+        const initialMinZoom = getMinZoom();
+
+        // Initialize map: centered on the world, locked inside world bounds
+        // (maxBoundsViscosity: 1.0 makes the edges hard, like Google Maps)
+        const map = L.map('map', {
+            center: [20, 0],
+            zoom: initialMinZoom,
+            minZoom: initialMinZoom,
+            maxZoom: 10,
+            maxBounds: WORLD_BOUNDS,
+            maxBoundsViscosity: 1.0,
+            worldCopyJump: false,
+            scrollWheelZoom: true,
+            zoomSnap: 0.25,
+            zoomDelta: 0.5,
+            attributionControl: false
+        });
+
+        // Dark theme map tiles - no wrapping
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19,
+            noWrap: true,
+            bounds: [[-90, -180], [90, 180]]
+        }).addTo(map);
+
+        // Re-lock the minimum zoom on resize so the world keeps filling the viewport
+        window.addEventListener('resize', () => {
+            const newMinZoom = getMinZoom();
+            map.setMinZoom(newMinZoom);
+            if (map.getZoom() < newMinZoom) {
+                map.setZoom(newMinZoom);
+            }
+        });
+
+        // Store markers for filtering
+        const markers = {};
+        let activeFilter = 'all';
+
+        // Gemini-style 4-point sparkle marker (concave-sided star)
+        const SPARKLE_SVG = `
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0 C12 8, 16 12, 24 12 C16 12, 12 16, 12 24 C12 16, 8 12, 0 12 C8 12, 12 8, 12 0 Z"
+                      fill="#38bdf8" stroke="white" stroke-width="0.8" stroke-linejoin="round"/>
+            </svg>
+        `;
+
+        function createCustomIcon() {
+            return L.divIcon({
+                className: 'custom-marker',
+                html: SPARKLE_SVG,
+                iconSize: [26, 26],
+                iconAnchor: [13, 13],
+                popupAnchor: [0, -13]
+            });
+        }
+
+        function getInitials(name) {
+            return name
+                .split(/\s+/)
+                .filter(Boolean)
+                .map(part => part[0])
+                .slice(0, 2)
+                .join('');
+        }
+
+        function escapeAttr(str) {
+            return String(str).replace(/"/g, '&quot;');
+        }
+
+        // Renders an <img> if a photo URL is set, else a colored circle with initials.
+        function renderAvatar(researcher, sizeClass) {
+            if (researcher.photo) {
+                return `<div class="avatar ${sizeClass}"><img src="${escapeAttr(researcher.photo)}" alt="${escapeAttr(researcher.name)}"></div>`;
+            }
+            return `<div class="avatar ${sizeClass}">${getInitials(researcher.name)}</div>`;
+        }
+
+        function renderTags(focus) {
+            return focus.map(tag => `<span class="tag">${tag}</span>`).join('');
+        }
+
+        // Initialize markers
+        function initMarkers() {
+            researchers.forEach(researcher => {
+                const marker = L.marker(researcher.coords, {
+                    icon: createCustomIcon()
+                }).addTo(map);
+
+                const popupContent = `
+                    <div class="popup-header">
+                        <div class="popup-header-row">
+                            ${renderAvatar(researcher, 'avatar--sm')}
+                            <div>
+                                <div class="popup-title">${researcher.name}</div>
+                                <div class="popup-institution">${researcher.institution}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup-body">
+                        <div class="popup-topic">${researcher.topic}</div>
+                        <div class="popup-tags">${renderTags(researcher.focus)}</div>
+                        <a href="#" class="popup-link" onclick="openModal(${researcher.id}); return false;">View Full Details</a>
+                    </div>
+                `;
+
+                marker.bindPopup(popupContent);
+                markers[researcher.id] = marker;
+            });
+        }
+
+        // Initialize the mobile-fallback list
+        function initResearcherList() {
+            const listContainer = document.getElementById('labList');
+            researchers.forEach(researcher => {
+                const card = document.createElement('div');
+                card.className = 'lab-card';
+                card.dataset.id = researcher.id;
+                card.dataset.focus = researcher.focus.join(' ');
+                card.innerHTML = `
+                    <div class="popup-header-row" style="margin-bottom: 0.75rem;">
+                        ${renderAvatar(researcher, 'avatar--sm')}
+                        <div>
+                            <h3>${researcher.name}</h3>
+                            <div class="location">📍 ${researcher.location} • ${researcher.institution}</div>
+                        </div>
+                    </div>
+                    <div class="popup-tags">${renderTags(researcher.focus)}</div>
+                    <p style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.9rem;">${researcher.topic}</p>
+                `;
+                card.onclick = () => openModal(researcher.id);
+                listContainer.appendChild(card);
+            });
+        }
+
+        // Filter functionality
+        document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Update active button
+                document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                
+                const filter = e.target.dataset.filter;
+                activeFilter = filter;
+                applyFilter(filter);
+            });
+        });
+
+        function applyFilter(filter) {
+            researchers.forEach(researcher => {
+                const marker = markers[researcher.id];
+                const card = document.querySelector(`.lab-card[data-id="${researcher.id}"]`);
+                const matches = filter === 'all' || researcher.focus.includes(filter);
+
+                if (matches) {
+                    marker.setOpacity(1);
+                    marker._icon.classList.remove('filtered-out');
+                    if (card) card.classList.remove('hidden');
+                } else {
+                    marker.setOpacity(0.2);
+                    marker._icon.classList.add('filtered-out');
+                    if (card) card.classList.add('hidden');
+                }
+            });
+        }
+
+        function resetFilters() {
+            document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
+            document.querySelector('[data-filter="all"]').classList.add('active');
+            applyFilter('all');
+        }
+
+        // Modal functionality
+        function openModal(researcherId) {
+            const researcher = researchers.find(r => r.id === researcherId);
+            if (!researcher) return;
+
+            const contactItems = [];
+            if (researcher.email) {
+                contactItems.push(`<li>📧 <a href="mailto:${escapeAttr(researcher.email)}">${researcher.email}</a></li>`);
+            }
+            if (researcher.phone) {
+                contactItems.push(`<li>📞 <a href="tel:${escapeAttr(researcher.phone.replace(/\s+/g, ''))}">${researcher.phone}</a></li>`);
+            }
+            const contactSection = contactItems.length ? `
+                <div class="modal-section">
+                    <h4>Contact</h4>
+                    <ul class="contact-list">${contactItems.join('')}</ul>
+                </div>
+            ` : '';
+
+            const linkItems = [];
+            if (researcher.labWebsite) {
+                linkItems.push(`<li><a href="${escapeAttr(researcher.labWebsite)}" target="_blank" rel="noopener">🌐 Lab homepage</a></li>`);
+            }
+            if (researcher.scholar) {
+                linkItems.push(`<li><a href="${escapeAttr(researcher.scholar)}" target="_blank" rel="noopener">🎓 Google Scholar</a></li>`);
+            }
+            (researcher.extraLinks || []).forEach(link => {
+                linkItems.push(`<li><a href="${escapeAttr(link.url)}" target="_blank" rel="noopener">🔗 ${link.label}</a></li>`);
+            });
+            const linksSection = linkItems.length ? `
+                <div class="modal-section">
+                    <h4>Links</h4>
+                    <ul class="link-list">${linkItems.join('')}</ul>
+                </div>
+            ` : '';
+
+            const appearancesSection = (researcher.appearances && researcher.appearances.length) ? `
+                <div class="modal-section">
+                    <h4>Talks & Appearances</h4>
+                    <ul class="link-list">
+                        ${researcher.appearances.map(a => `
+                            <li><a href="${escapeAttr(a.url)}" target="_blank" rel="noopener">▶️ ${a.label}</a></li>
+                        `).join('')}
+                    </ul>
+                </div>
+            ` : '';
+
+            const modal = document.getElementById('detailModal');
+            const content = document.getElementById('modalContent');
+
+            content.innerHTML = `
+                <div class="modal-header">
+                    <div class="modal-header-row">
+                        ${renderAvatar(researcher, 'avatar--lg')}
+                        <div>
+                            <div class="modal-title">${researcher.name}</div>
+                            <div class="modal-subtitle">${researcher.institution} • ${researcher.location}</div>
+                            <div class="modal-topic">${researcher.topic}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-section">
+                        <h4>Research Focus</h4>
+                        <div class="popup-tags" style="margin-top: 0.5rem;">${renderTags(researcher.focus)}</div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h4>About</h4>
+                        <p>${researcher.description}</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h4>Key Achievement</h4>
+                        <p style="color: #38bdf8;">${researcher.notable}</p>
+                    </div>
+
+                    ${contactSection}
+                    ${linksSection}
+                    ${appearancesSection}
+                </div>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('detailModal').classList.remove('active');
+        }
+
+        // Close modal on outside click
+        document.getElementById('detailModal').addEventListener('click', (e) => {
+            if (e.target.id === 'detailModal') closeModal();
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Initialize everything
+        initMarkers();
+        initResearcherList();
+    </script>
+</body>
+</html>
