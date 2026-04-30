@@ -1071,6 +1071,39 @@
             }
         ];
 
+        // --- Proximity grouping for overlap prevention ---
+        const MIN_PIXEL_GAP = 30; // minimum pixel distance between marker centers
+        const CLUSTER_KM = 120;   // geographic threshold to pre-group co-located markers
+
+        function haversineKm(c1, c2) {
+            const R = 6371;
+            const dLat = (c2[0] - c1[0]) * Math.PI / 180;
+            const dLon = (c2[1] - c1[1]) * Math.PI / 180;
+            const a = Math.sin(dLat / 2) ** 2
+                + Math.cos(c1[0] * Math.PI / 180) * Math.cos(c2[0] * Math.PI / 180)
+                * Math.sin(dLon / 2) ** 2;
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        }
+
+        function buildGroups() {
+            const assigned = new Set();
+            const groups = [];
+            researchers.forEach(r => {
+                if (assigned.has(r.id)) return;
+                const group = [r];
+                assigned.add(r.id);
+                researchers.forEach(other => {
+                    if (!assigned.has(other.id) && haversineKm(r.coords, other.coords) < CLUSTER_KM) {
+                        group.push(other);
+                        assigned.add(other.id);
+                    }
+                });
+                groups.push(group);
+            });
+            return groups;
+        }
+
+        const proximityGroups = buildGroups();
 
         // World bounds (Web Mercator clips at ~±85.05 latitude)
         const WORLD_BOUNDS = L.latLngBounds([-85.05, -180], [85.05, 180]);
@@ -1120,6 +1153,49 @@
                 map.setZoom(newMinZoom);
             }
         });
+
+        // Spread co-located markers so none is hidden behind another.
+        // At low zoom: markers in the same geographic cluster are placed on a small
+        // pixel-space circle so they remain individually visible.
+        // At high zoom: real geographic separation is large enough in pixels, so
+        // markers snap back to their exact coordinates.
+        function repositionMarkers() {
+            proximityGroups.forEach(group => {
+                if (group.length === 1) {
+                    markers[group[0].id].setLatLng(group[0].coords);
+                    return;
+                }
+                const N = group.length;
+                const pts = group.map(r => map.latLngToContainerPoint(L.latLng(r.coords)));
+
+                // Find the smallest pairwise pixel distance within this group
+                let minDist = Infinity;
+                for (let i = 0; i < N; i++) {
+                    for (let j = i + 1; j < N; j++) {
+                        const d = pts[i].distanceTo(pts[j]);
+                        if (d < minDist) minDist = d;
+                    }
+                }
+
+                if (minDist >= MIN_PIXEL_GAP) {
+                    // Already well-separated at this zoom — use exact coordinates
+                    group.forEach(r => markers[r.id].setLatLng(r.coords));
+                } else {
+                    // Spread onto a circle in pixel space so adjacent markers are
+                    // exactly MIN_PIXEL_GAP pixels apart
+                    const cx = pts.reduce((s, p) => s + p.x, 0) / N;
+                    const cy = pts.reduce((s, p) => s + p.y, 0) / N;
+                    const radius = N === 1 ? 0 : MIN_PIXEL_GAP / (2 * Math.sin(Math.PI / N));
+                    group.forEach((r, i) => {
+                        const angle = (2 * Math.PI * i / N) - Math.PI / 2;
+                        const offsetPt = L.point(cx + radius * Math.cos(angle), cy + radius * Math.sin(angle));
+                        markers[r.id].setLatLng(map.containerPointToLatLng(offsetPt));
+                    });
+                }
+            });
+        }
+
+        map.on('zoomend', repositionMarkers);
 
         // Store markers for filtering
         const markers = {};
@@ -1360,6 +1436,7 @@
 
         // Initialize everything
         initMarkers();
+        repositionMarkers();
         initResearcherList();
     </script>
 </body>
