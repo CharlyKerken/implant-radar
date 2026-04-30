@@ -1157,8 +1157,14 @@
         // Spread co-located markers so none is hidden behind another.
         // At low zoom: markers in the same geographic cluster are placed on a small
         // pixel-space circle so they remain individually visible.
-        // At high zoom: real geographic separation is large enough in pixels, so
-        // markers snap back to their exact coordinates.
+        // At low zoom markers are spread onto a small pixel-space circle so none is
+        // hidden. As zoom increases the spread is linearly interpolated toward the
+        // exact coordinates, completing the transition smoothly before the markers
+        // are far enough apart to look correct on their own.
+        // Listening to 'zoom' (not just 'zoomend') keeps repositioning continuous
+        // during animated zoom so there is no abrupt jump.
+        const BLEND_END = MIN_PIXEL_GAP * 6; // pixel separation at which spread = 0
+
         function repositionMarkers() {
             proximityGroups.forEach(group => {
                 if (group.length === 1) {
@@ -1166,36 +1172,45 @@
                     return;
                 }
                 const N = group.length;
-                const pts = group.map(r => map.latLngToContainerPoint(L.latLng(r.coords)));
+                const exactPts = group.map(r => map.latLngToContainerPoint(L.latLng(r.coords)));
 
-                // Find the smallest pairwise pixel distance within this group
+                // Minimum pairwise pixel distance at the exact (true) coordinates
                 let minDist = Infinity;
                 for (let i = 0; i < N; i++) {
                     for (let j = i + 1; j < N; j++) {
-                        const d = pts[i].distanceTo(pts[j]);
+                        const d = exactPts[i].distanceTo(exactPts[j]);
                         if (d < minDist) minDist = d;
                     }
                 }
 
-                if (minDist >= MIN_PIXEL_GAP) {
-                    // Already well-separated at this zoom — use exact coordinates
+                // t=0 → fully spread, t=1 → fully on exact coordinates
+                const t = Math.max(0, Math.min(1, (minDist - MIN_PIXEL_GAP) / (BLEND_END - MIN_PIXEL_GAP)));
+
+                if (t >= 1) {
                     group.forEach(r => markers[r.id].setLatLng(r.coords));
-                } else {
-                    // Spread onto a circle in pixel space so adjacent markers are
-                    // exactly MIN_PIXEL_GAP pixels apart
-                    const cx = pts.reduce((s, p) => s + p.x, 0) / N;
-                    const cy = pts.reduce((s, p) => s + p.y, 0) / N;
-                    const radius = N === 1 ? 0 : MIN_PIXEL_GAP / (2 * Math.sin(Math.PI / N));
-                    group.forEach((r, i) => {
-                        const angle = (2 * Math.PI * i / N) - Math.PI / 2;
-                        const offsetPt = L.point(cx + radius * Math.cos(angle), cy + radius * Math.sin(angle));
-                        markers[r.id].setLatLng(map.containerPointToLatLng(offsetPt));
-                    });
+                    return;
                 }
+
+                // Compute pixel-space centroid and spread radius
+                const cx = exactPts.reduce((s, p) => s + p.x, 0) / N;
+                const cy = exactPts.reduce((s, p) => s + p.y, 0) / N;
+                const radius = MIN_PIXEL_GAP / (2 * Math.sin(Math.PI / N));
+
+                group.forEach((r, i) => {
+                    const angle = (2 * Math.PI * i / N) - Math.PI / 2;
+                    const spreadPt = L.point(cx + radius * Math.cos(angle), cy + radius * Math.sin(angle));
+                    const exactPt  = exactPts[i];
+                    // Lerp in pixel space: start at spread, ease toward exact
+                    const blendPt  = L.point(
+                        spreadPt.x + t * (exactPt.x - spreadPt.x),
+                        spreadPt.y + t * (exactPt.y - spreadPt.y)
+                    );
+                    markers[r.id].setLatLng(map.containerPointToLatLng(blendPt));
+                });
             });
         }
 
-        map.on('zoomend', repositionMarkers);
+        map.on('zoom', repositionMarkers);
 
         // Store markers for filtering
         const markers = {};
