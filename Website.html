@@ -1126,7 +1126,7 @@
             center: [20, 0],
             zoom: initialMinZoom,
             minZoom: initialMinZoom,
-            maxZoom: 10,
+            maxZoom: 13,
             maxBounds: WORLD_BOUNDS,
             maxBoundsViscosity: 1.0,
             worldCopyJump: false,
@@ -1163,7 +1163,7 @@
         // are far enough apart to look correct on their own.
         // Listening to 'zoom' (not just 'zoomend') keeps repositioning continuous
         // during animated zoom so there is no abrupt jump.
-        const BLEND_END = MIN_PIXEL_GAP * 6; // pixel separation at which spread = 0
+        const BLEND_END = MIN_PIXEL_GAP * 2; // pixel separation at which spread = 0 (one zoom level above MIN_PIXEL_GAP)
 
         function repositionMarkers() {
             proximityGroups.forEach(group => {
