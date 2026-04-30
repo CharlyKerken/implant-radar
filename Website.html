@@ -337,7 +337,7 @@
         .custom-marker {
             width: 26px;
             height: 26px;
-            transition: transform 0.3s, filter 0.3s;
+            transition: filter 0.3s;
             filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.6));
         }
 
@@ -1154,47 +1154,40 @@
             }
         });
 
-        // Spread co-located markers so none is hidden behind another.
-        // At low zoom: markers in the same geographic cluster are placed on a small
-        // pixel-space circle so they remain individually visible.
-        // Scale each marker's offset from the group centroid by the smallest
-        // factor that keeps the closest pair at least MIN_PIXEL_GAP apart in
-        // pixel space. Motion is purely radial, so angular order is preserved
-        // and markers never cross. The scale is a continuous function of zoom
-        // (via minDist), so the transition is naturally smooth — no lerp, no
-        // threshold, no BLEND_END to tune. When natural separation is already
-        // large enough, scale = 1 and markers sit on their exact coordinates.
-        function repositionMarkers() {
+        // Each marker's lat/lng is pinned to its true coordinates (set once in
+        // initMarkers, never changed). To keep co-located markers visually
+        // distinguishable, we add a fixed pixel-space offset to each marker's
+        // icon via CSS margin — set once, never recomputed on zoom. The offset
+        // direction is the marker's true geographic direction from the group's
+        // centroid, so relative orientation (north/south/east/west) is preserved
+        // at every zoom level, and the marker is never "dancing" during zoom.
+        function applyMarkerOffsets() {
             proximityGroups.forEach(group => {
-                if (group.length === 1) {
-                    markers[group[0].id].setLatLng(group[0].coords);
-                    return;
-                }
+                if (group.length === 1) return;
                 const N = group.length;
-                const pts = group.map(r => map.latLngToContainerPoint(L.latLng(r.coords)));
-                const cx = pts.reduce((s, p) => s + p.x, 0) / N;
-                const cy = pts.reduce((s, p) => s + p.y, 0) / N;
+                const radius = MIN_PIXEL_GAP / (2 * Math.sin(Math.PI / N));
+                let avgLat = 0, avgLng = 0;
+                group.forEach(r => { avgLat += r.coords[0]; avgLng += r.coords[1]; });
+                avgLat /= N; avgLng /= N;
+                const cosLat = Math.cos(avgLat * Math.PI / 180);
 
-                let minDist = Infinity;
-                for (let i = 0; i < N; i++) {
-                    for (let j = i + 1; j < N; j++) {
-                        const d = pts[i].distanceTo(pts[j]);
-                        if (d < minDist) minDist = d;
+                group.forEach(r => {
+                    const icon = markers[r.id]._icon;
+                    if (!icon) return;
+                    const dx = (r.coords[1] - avgLng) * cosLat;
+                    const dy = -(r.coords[0] - avgLat); // screen Y points down
+                    const len = Math.sqrt(dx * dx + dy * dy);
+                    if (len < 1e-9) {
+                        // Marker sits exactly at the geographic centroid: leave at true coords
+                        icon.style.marginLeft = '0';
+                        icon.style.marginTop = '0';
+                    } else {
+                        icon.style.marginLeft = ((dx / len) * radius) + 'px';
+                        icon.style.marginTop = ((dy / len) * radius) + 'px';
                     }
-                }
-                const scale = minDist > 0 ? Math.max(1, MIN_PIXEL_GAP / minDist) : 1;
-
-                group.forEach((r, i) => {
-                    const newPt = L.point(
-                        cx + (pts[i].x - cx) * scale,
-                        cy + (pts[i].y - cy) * scale
-                    );
-                    markers[r.id].setLatLng(map.containerPointToLatLng(newPt));
                 });
             });
         }
-
-        map.on('zoom', repositionMarkers);
 
         // Store markers for filtering
         const markers = {};
@@ -1435,7 +1428,7 @@
 
         // Initialize everything
         initMarkers();
-        repositionMarkers();
+        applyMarkerOffsets();
         initResearcherList();
     </script>
 </body>
