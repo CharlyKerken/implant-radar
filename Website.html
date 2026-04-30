@@ -1072,7 +1072,7 @@
         ];
 
         // --- Proximity grouping for overlap prevention ---
-        const MIN_PIXEL_GAP = 30; // minimum pixel distance between marker centers
+        const MIN_PIXEL_GAP = 13; // minimum pixel distance between marker centers (half icon width — stars overlap but tips remain visible)
         const CLUSTER_KM = 120;   // geographic threshold to pre-group co-located markers
 
         function haversineKm(c1, c2) {
