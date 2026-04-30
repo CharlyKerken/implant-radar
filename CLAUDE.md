@@ -49,4 +49,6 @@ The map is Leaflet 1.9.4 with CARTO dark tiles. Key behaviours enforced in the `
 
 - Remote: `https://github.com/CharlyKerken/implant-radar`
 - Branch: `main`
-- Commit and push after every meaningful change. Use concise imperative commit messages (`Add photo for X`, `Fix filter bug`, `Update researcher description`).
+- **After every meaningful change, stage, commit, and push immediately.** Do not batch multiple unrelated changes into one commit. This ensures GitHub always reflects the current state and any change can be cleanly reverted.
+- Use concise imperative commit messages (`Add photo for X`, `Fix filter layout`, `Update Stieglitz description`).
+- Push with `git push` after every commit — local-only commits are not considered saved.
