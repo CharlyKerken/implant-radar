@@ -524,7 +524,9 @@
             <button class="filter-btn" data-filter="Wireless">Wireless Implants</button>
             <button class="filter-btn" data-filter="Materials">Advanced Materials</button>
             <button class="filter-btn" data-filter="Clinical">Clinical Trials</button>
-            
+            <button class="filter-btn" data-filter="Researcher">Researchers</button>
+            <button class="filter-btn" data-filter="Device">Devices</button>
+
             <button class="filter-btn clear" onclick="resetFilters()">Clear Filters</button>
         </div>
     </div>
@@ -1588,6 +1590,9 @@
                 appearances: []
             }
         ];
+
+        // Tag every entry as either "Researcher" (people, IDs 1–30) or "Device" (implants, IDs 31+)
+        researchers.forEach(r => r.focus.push(r.id <= 30 ? "Researcher" : "Device"));
 
         // --- Proximity grouping for overlap prevention ---
         const MIN_PIXEL_GAP = 5; // minimum pixel distance between marker centers (half icon width — stars overlap but tips remain visible)
