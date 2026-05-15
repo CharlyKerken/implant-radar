@@ -561,6 +561,23 @@
         //
         // Personal contact info, photos, and external profile links are intentionally left
         // blank — fill these in with verified data; do not guess or invent them.
+        // Faceted classification. Each facet is independent and has a controlled
+        // vocabulary. Items can hold many values across facets; "type" holds
+        // exactly one. Hierarchy is a UI concern only — not encoded here.
+        // Filter semantics: AND across facets, OR within a facet.
+        const FACETS = {
+            type:         { label: "Type",          values: ["Person","Lab","Company","Device","Conference","Funding","Publication","Clinical Trial"] },
+            invasiveness: { label: "Invasiveness",  values: ["Non-invasive","Minimally invasive","Endovascular","Epicortical (ECoG)","Intracortical","Peripheral nerve","Spinal","Deep brain"] },
+            modality:     { label: "Modality",      values: ["EEG","MEG","fMRI","fNIRS","ECoG","sEEG","Microelectrode array","Microwire","Optical recording","Optical stimulation","Ultrasound (fUSI)","TMS","Electrical stimulation"] },
+            formFactor:   { label: "Form factor",   values: ["Rigid","Flexible","Stretchable","Mesh","Fiber","Injectable","Wireless"] },
+            materials:    { label: "Materials",     values: ["Silicon","Parylene-C","Polyimide","PDMS","Liquid Crystal Polymer","Graphene","Carbon nanotube","PEDOT:PSS","Hydrogel","Pt/Ir thin-film","IrOx"] },
+            paradigm:     { label: "Paradigm",      values: ["Conventional","Biohybrid","Organic bioelectronics","Optogenetic","Sonogenetic","Magnetogenetic","Chemogenetic"] },
+            target:       { label: "Target system", values: ["Motor","Vision","Somatosensory","Auditory","Speech","Memory","Affective","Spinal cord","Peripheral nervous system","Autonomic"] },
+            indication:   { label: "Indication",    values: ["Paralysis","Communication","Blindness","Deafness","Parkinson's","Epilepsy","Depression","Chronic pain","OCD","Consumer / Augmentation","Research-only"] },
+            stage:        { label: "Stage",         values: ["Concept","Preclinical in vitro","Animal model","First-in-human","Clinical trial","Approved / Commercial"] },
+            topics:       { label: "Topics",        values: ["Biocompatibility / FBR","Glial scarring & wound healing","Chronic stability","Wireless power","Surgical robotics","Decoding","Closed-loop","Neurorights / Ethics","Regulation","Manufacturing"] }
+        };
+
         const researchers = [
             {
                 id: 1,
@@ -571,6 +588,18 @@
                 coords: [29.7174, -95.4018],
                 topic: "Wireless miniature brain stimulators powered by magnetoelectrics",
                 focus: ["Wireless", "Neurostimulation", "Clinical"],
+                tags: {
+                    type: "Person",
+                    invasiveness: ["Epicortical (ECoG)"],
+                    modality: ["Electrical stimulation"],
+                    formFactor: ["Wireless"],
+                    materials: [],
+                    paradigm: ["Conventional"],
+                    target: ["Affective"],
+                    indication: ["Depression"],
+                    stage: ["First-in-human"],
+                    topics: ["Wireless power"]
+                },
                 description: "Developing the smallest implantable brain stimulator (DOT device) using magnetoelectric power transfer. Pea-sized device for treating drug-resistant depression and psychiatric disorders without batteries. Co-founder of Motif Neurotech.",
                 notable: "First-in-human demonstration of a miniature wireless cortical stimulator",
                 email: "",
