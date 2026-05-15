@@ -99,50 +99,6 @@
             align-items: center;
         }
 
-        .filter-label {
-            color: #94a3b8;
-            font-weight: 600;
-            margin-right: 1rem;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .filter-btn {
-            background: #334155;
-            color: #e2e8f0;
-            border: 1px solid #475569;
-            padding: 0.4rem 0.6rem;
-            border-radius: 9999px;
-            cursor: pointer;
-            font-size: 0.75rem;
-            transition: all 0.2s;
-            font-weight: 500;
-        }
-
-        .filter-btn:hover {
-            background: #475569;
-            transform: translateY(-1px);
-        }
-
-        .filter-btn.active {
-            background: #38bdf8;
-            color: #0f172a;
-            border-color: #38bdf8;
-            font-weight: 600;
-        }
-
-        .filter-btn.clear {
-            background: transparent;
-            border: 1px solid #ef4444;
-            color: #ef4444;
-            margin-left: auto;
-        }
-
-        .filter-btn.clear:hover {
-            background: #ef4444;
-            color: white;
-        }
 
         /* Category selector */
         .category-bar { display: flex; gap: 0.5rem; width: 100%; margin-bottom: 1rem; flex-wrap: wrap; }
@@ -584,7 +540,6 @@
             #map { height: 50vh; }
             .lab-list { display: block; }
             .filter-container { gap: 0.25rem; }
-            .filter-btn { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
         }
     </style>
 </head>
@@ -691,7 +646,6 @@
                 location: "Houston, TX, USA",
                 coords: [29.7174, -95.4018],
                 topic: "Wireless miniature brain stimulators powered by magnetoelectrics",
-                focus: ["Wireless", "Neurostimulation", "Clinical"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia", "Industry"],
@@ -715,7 +669,6 @@
                 location: "San Diego, CA, USA",
                 coords: [32.8801, -117.2340],
                 topic: "Transparent neural interfaces for multimodal brain monitoring",
-                focus: ["Materials", "BCI", "Wireless"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -739,7 +692,6 @@
                 location: "Lausanne, Switzerland",
                 coords: [46.5197, 6.5657],
                 topic: "Miniaturized brain–machine interface chips for neural disorders",
-                focus: ["BCI", "Wireless", "Clinical"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -763,7 +715,6 @@
                 location: "Providence, RI, USA",
                 coords: [41.8268, -71.4025],
                 topic: "Intracortical BCIs for restoring communication and mobility",
-                focus: ["BCI", "Clinical", "Wireless"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia", "Hospital"],
@@ -787,7 +738,6 @@
                 location: "New York, NY, USA",
                 coords: [40.8079, -73.9621],
                 topic: "Single-chip, tissue-thin BCI platforms",
-                focus: ["BCI", "Materials", "Wireless"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -811,7 +761,6 @@
                 location: "Ann Arbor, MI, USA",
                 coords: [42.2780, -83.7382],
                 topic: "High-channel-count wireless BCIs for speech and motor restoration",
-                focus: ["BCI", "Clinical", "Wireless"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -835,7 +784,6 @@
                 location: "Baltimore, MD, USA",
                 coords: [39.3299, -76.6205],
                 topic: "ECoG-based BCIs for speech decoding in paralysis",
-                focus: ["BCI", "Clinical", "Neurostimulation"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -859,7 +807,6 @@
                 location: "Baltimore, MD, USA",
                 coords: [39.3399, -76.6305],
                 topic: "Implantable BCIs for home use by locked-in patients",
-                focus: ["BCI", "Clinical", "Neurostimulation"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -883,7 +830,6 @@
                 location: "Cambridge, MA, USA",
                 coords: [42.3601, -71.0942],
                 topic: "Injectable nano-bioelectronics that self-implant via the bloodstream",
-                focus: ["Materials", "Wireless", "Neurostimulation"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -907,7 +853,6 @@
                 location: "Pittsburgh, PA, USA",
                 coords: [40.4444, -79.9608],
                 topic: "In-home BCI systems for paralyzed users",
-                focus: ["BCI", "Clinical", "Neurostimulation"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -931,7 +876,6 @@
                 location: "Pittsburgh, PA, USA",
                 coords: [40.4544, -79.9708],
                 topic: "Sensorimotor BCIs and neural control of prosthetics",
-                focus: ["BCI", "Clinical", "Neurostimulation"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -955,7 +899,6 @@
                 location: "Raleigh, NC, USA",
                 coords: [35.7847, -78.6821],
                 topic: "Self-powered implantable wireless biomedical sensors",
-                focus: ["Materials", "Wireless", "Neurostimulation"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -979,7 +922,6 @@
                 location: "Raleigh, NC, USA",
                 coords: [35.7947, -78.6721],
                 topic: "Battery-free implantable optoelectronic neural interfaces",
-                focus: ["Materials", "Wireless", "Neurostimulation"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1003,7 +945,6 @@
                 location: "Stanford, CA, USA",
                 coords: [37.4275, -122.1697],
                 topic: "Algorithms for high-performance neural prosthetics",
-                focus: ["BCI", "Clinical", "Neurostimulation"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1027,7 +968,6 @@
                 location: "Stanford, CA, USA",
                 coords: [37.4175, -122.1597],
                 topic: "Neurosurgical implementation of intracortical BCIs",
-                focus: ["BCI", "Clinical", "Neurostimulation"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1051,7 +991,6 @@
                 location: "London, UK",
                 coords: [51.4988, -0.1749],
                 topic: "Implantable neural interfaces for bioelectronic medicine",
-                focus: ["Neurostimulation", "BCI", "Materials"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1075,7 +1014,6 @@
                 location: "London, UK",
                 coords: [51.5088, -0.1649],
                 topic: "Closed-loop neuromodulation systems",
-                focus: ["Neurostimulation", "BCI", "Materials"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1099,7 +1037,6 @@
                 location: "Freiburg, Germany",
                 coords: [48.01362, 7.83552],
                 topic: "MEMS-based microelectrode arrays for neural interfaces",
-                focus: ["Materials", "Neurostimulation", "BCI", "Biohybrid"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1123,7 +1060,6 @@
                 location: "Freiburg, Germany",
                 coords: [48.0036, 7.8455],
                 topic: "Biohybrid neural implants with soft hydrogel electrodes",
-                focus: ["Biohybrid", "Materials", "Neurostimulation", "BCI"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1147,7 +1083,6 @@
                 location: "Norrköping, Sweden",
                 coords: [58.5895, 16.1965],
                 topic: "Organic bioelectronic interfaces between living tissue and electronics",
-                focus: ["Materials", "Neurostimulation", "BCI", "Biohybrid"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1171,7 +1106,6 @@
                 location: "Hoboken, NJ, USA",
                 coords: [40.7448, -74.0245],
                 topic: "Ultra-flexible, lightweight neural implants for single-neuron resolution",
-                focus: ["BCI", "Materials", "Neurostimulation"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1195,7 +1129,6 @@
                 location: "Amsterdam, Netherlands",
                 coords: [52.3148, 4.9472],
                 topic: "Visual cortical prostheses to restore sight in blind people",
-                focus: ["Neurostimulation", "BCI", "Clinical", "Materials"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia", "Industry"],
@@ -1222,7 +1155,6 @@
                 location: "Lausanne, Switzerland",
                 coords: [46.5097, 6.5557],
                 topic: "Soft bioelectronic interfaces and stretchable neural implants",
-                focus: ["Materials", "Biohybrid", "Neurostimulation", "BCI"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1246,7 +1178,6 @@
                 location: "Gothenburg, Sweden",
                 coords: [57.6893, 11.9722],
                 topic: "Flexible polymer electrode materials for chronically stable neural implants",
-                focus: ["Materials", "Neurostimulation", "BCI", "Biohybrid"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1270,7 +1201,6 @@
                 location: "Gothenburg, Sweden",
                 coords: [57.6993, 11.9622],
                 topic: "Sensorimotor neuroprostheses and peripheral nerve interfaces for restored touch and limb control",
-                focus: ["BCI", "Neurostimulation", "Clinical"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1294,7 +1224,6 @@
                 location: "Lausanne, Switzerland",
                 coords: [46.5297, 6.5757],
                 topic: "Translational neural engineering for sensorimotor restoration via implantable neuroprostheses",
-                focus: ["BCI", "Clinical", "Neurostimulation", "Biohybrid"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1318,7 +1247,6 @@
                 location: "Norrköping, Sweden",
                 coords: [58.5795, 16.2065],
                 topic: "In vivo fabrication of organic bioelectronics grown directly in living tissue",
-                focus: ["Materials", "Biohybrid", "Neurostimulation"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1342,7 +1270,6 @@
                 location: "Elche, Spain",
                 coords: [38.2686, -0.6972],
                 topic: "Cortical visual neuroprostheses and human clinical trials for restoring sight in the blind",
-                focus: ["Clinical", "Neurostimulation", "BCI", "Materials"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1366,7 +1293,6 @@
                 location: "Elche, Spain",
                 coords: [38.2786, -0.6872],
                 topic: "Closed-loop stimulation strategies and phosphene perception in cortical visual prostheses",
-                focus: ["Clinical", "Neurostimulation", "BCI"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1390,7 +1316,6 @@
                 location: "Elche, Spain",
                 coords: [38.2586, -0.7072],
                 topic: "AI-driven visual encoding models and computational optimisation of cortical neuroprostheses",
-                focus: ["BCI", "Neurostimulation", "Clinical"],
                 category: "Researcher",
                 tags: {
                     affiliation: ["Academia"],
@@ -1414,7 +1339,6 @@
                 location: "Cambridge, MA, USA",
                 coords: [42.3770, -71.1167],
                 topic: "Syringe-injectable ultraflexible open-mesh electronics for gliosis-free chronic neural recording",
-                focus: ["Materials", "BCI", "Biohybrid"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Intracortical"],
@@ -1442,7 +1366,6 @@
                 location: "Austin, TX, USA",
                 coords: [30.2862, -97.7394],
                 topic: "Subcellular-scale ultraflexible probes >1,000× more compliant than silicon for scar-free single-neuron recording",
-                focus: ["Materials", "BCI"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Intracortical"],
@@ -1470,7 +1393,6 @@
                 location: "Cambridge, MA, USA",
                 coords: [42.3810, -71.1200],
                 topic: "Perfluoropolyether elastomer probes ~10,000× softer than polyimide that can grow with the developing brain",
-                focus: ["Materials", "Biohybrid"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Intracortical"],
@@ -1499,7 +1421,6 @@
                 location: "Lausanne, Switzerland",
                 coords: [46.5250, 6.5700],
                 topic: "Stretchable silicone spinal implant matched to dura mater mechanics, combining electrical stimulation with drug delivery",
-                focus: ["Materials", "Neurostimulation", "Clinical"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Spinal"],
@@ -1527,7 +1448,6 @@
                 location: "Lausanne, Switzerland",
                 coords: [46.5350, 6.5800],
                 topic: "Wireless digital bridge between motor cortex and lumbosacral spinal cord restoring volitional walking after SCI",
-                focus: ["BCI", "Neurostimulation", "Wireless", "Clinical"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Epicortical (ECoG)", "Spinal"],
@@ -1556,7 +1476,6 @@
                 location: "New York, NY, USA",
                 coords: [40.8150, -73.9550],
                 topic: "Ultra-conformable PEDOT:PSS organic ECoG mesh that resolves single-unit spikes from the cortical surface without penetration",
-                focus: ["BCI", "Materials"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Epicortical (ECoG)"],
@@ -1584,7 +1503,6 @@
                 location: "San Diego, CA, USA",
                 coords: [32.8900, -117.2400],
                 topic: "Up to 4,096-electrode ECoG array with nanostructured platinum for sub-millimetre resolution human brain mapping",
-                focus: ["BCI", "Materials", "Neurostimulation", "Clinical"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Epicortical (ECoG)"],
@@ -1613,7 +1531,6 @@
                 location: "Ashburn, VA, USA",
                 coords: [39.0438, -77.4874],
                 topic: "Fully integrated CMOS silicon probe with 960–5,000+ recording sites for simultaneous multi-region neural population recording",
-                focus: ["BCI", "Materials"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Intracortical"],
@@ -1641,7 +1558,6 @@
                 location: "Ann Arbor, MI, USA",
                 coords: [42.2850, -83.7450],
                 topic: "First photolithographically fabricated multichannel silicon intracortical probes — conceptual ancestor of all modern silicon neural probes",
-                focus: ["BCI", "Materials"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Intracortical"],
@@ -1669,7 +1585,6 @@
                 location: "Salt Lake City, UT, USA",
                 coords: [40.7649, -111.8421],
                 topic: "10×10 silicon 'bed-of-nails' — the only FDA-cleared high-channel intracortical platform with >30,000 human implant-days",
-                focus: ["BCI", "Clinical", "Neurostimulation"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Intracortical"],
@@ -1697,7 +1612,6 @@
                 location: "Providence, RI, USA",
                 coords: [41.8368, -71.4125],
                 topic: "Longest-running intracortical BCI clinical program — restoring communication and motor control in paralysis for 20+ years",
-                focus: ["BCI", "Clinical"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Intracortical"],
@@ -1725,7 +1639,6 @@
                 location: "New York, NY, USA",
                 coords: [40.8200, -73.9680],
                 topic: "65,536-electrode single CMOS chip as thin as tissue paper for subdural wireless cortical recording",
-                focus: ["BCI", "Wireless", "Materials"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Epicortical (ECoG)"],
@@ -1753,7 +1666,6 @@
                 location: "Stanford, CA, USA",
                 coords: [37.4350, -122.1750],
                 topic: "Soft ~0.25-mm polymer fibre with thousands of independent channels for multimodal sensing, stimulation, and drug delivery",
-                focus: ["Materials", "BCI", "Neurostimulation"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Intracortical", "Peripheral nerve"],
@@ -1781,7 +1693,6 @@
                 location: "Berkeley, CA, USA",
                 coords: [37.8724, -122.2595],
                 topic: "Sub-mm piezoelectric motes powered entirely by external ultrasound backscatter — batteryless wireless neural recording",
-                focus: ["Wireless", "BCI", "Materials"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Peripheral nerve"],
@@ -1809,7 +1720,6 @@
                 location: "Houston, TX, USA",
                 coords: [29.7250, -95.3950],
                 topic: "Pea-sized batteryless magnetoelectric cortical stimulator implanted through a 14-mm burr hole in 20 minutes",
-                focus: ["Neurostimulation", "Wireless", "Clinical"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Epicortical (ECoG)"],
@@ -1838,7 +1748,6 @@
                 location: "Geneva, Switzerland",
                 coords: [46.2044, 6.1432],
                 topic: "Fully implantable battery-free wireless BCI with high-speed optical transcutaneous data link for home use by locked-in patients",
-                focus: ["BCI", "Wireless", "Clinical"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Epicortical (ECoG)", "Intracortical"],
@@ -1866,7 +1775,6 @@
                 location: "Cambridge, UK",
                 coords: [52.2054, 0.1132],
                 topic: "Living iPSC-derived muscle cells on PEDOT:PSS electrodes prevent scar encapsulation at the nerve interface",
-                focus: ["Biohybrid", "Materials", "Neurostimulation"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Peripheral nerve"],
@@ -1894,7 +1802,6 @@
                 location: "Norrköping, Sweden",
                 coords: [58.5995, 16.2065],
                 topic: "Injectable nanoparticle dispersion self-assembling into a soft conducting electrode inside living brain tissue using body metabolites",
-                focus: ["Materials", "Biohybrid", "Neurostimulation"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Intracortical"],
@@ -1922,7 +1829,6 @@
                 location: "Pittsburgh, PA, USA",
                 coords: [40.4544, -79.9508],
                 topic: "~7-µm carbon fibres below the chronic gliosis threshold — single-neuron recording without foreign-body response",
-                focus: ["Materials", "BCI"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Intracortical"],
@@ -1950,7 +1856,6 @@
                 location: "Champaign, IL, USA",
                 coords: [40.1020, -88.2272],
                 topic: "Dissolvable silk substrate leaves a sub-micron flexible electrode film conforming intimately to brain surface gyri and sulci",
-                focus: ["Materials", "BCI"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Epicortical (ECoG)"],
@@ -1978,7 +1883,6 @@
                 location: "Elche, Spain",
                 coords: [38.2786, -0.7072],
                 topic: "96-channel Utah array implanted in primary visual cortex enabling letter recognition and shape detection in totally blind patients",
-                focus: ["Neurostimulation", "BCI", "Clinical"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Intracortical"],
@@ -2006,7 +1910,6 @@
                 location: "Cambridge, MA, USA",
                 coords: [42.3730, -71.1220],
                 topic: "Stretchable mesh electronics integrated into stem-cell layers before they fold into 3D brain organoids",
-                focus: ["Materials", "Biohybrid", "BCI"],
                 category: "Implant",
                 tags: {
                     invasiveness: [],
@@ -2034,7 +1937,6 @@
                 location: "Fremont, CA, USA",
                 coords: [37.5485, -121.9886],
                 topic: "~1,024-electrode fully wireless subcranial BCI inserted by automated robot for motor control and sensory restoration",
-                focus: ["BCI", "Wireless", "Clinical"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Intracortical"],
@@ -2062,7 +1964,6 @@
                 location: "Melbourne, Australia",
                 coords: [-37.7963, 144.9614],
                 topic: "16-electrode stent-electrode array delivered through the jugular vein into the brain vasculature — BCI without craniotomy",
-                focus: ["BCI", "Clinical", "Wireless"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Endovascular"],
@@ -2090,7 +1991,6 @@
                 location: "Austin, TX, USA",
                 coords: [30.2672, -97.7431],
                 topic: "Modular high-bandwidth intracortical BCI with >1,600 microelectrodes and >200 bps transfer for real-time speech restoration",
-                focus: ["BCI", "Clinical", "Wireless"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Intracortical"],
@@ -2118,7 +2018,6 @@
                 location: "New York, NY, USA",
                 coords: [40.7200, -74.0100],
                 topic: "4,096-electrode ultrathin flexible micro-electrode film conforming to the cortex without brain penetration — fully reversible",
-                focus: ["BCI", "Materials", "Clinical"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Epicortical (ECoG)"],
@@ -2146,7 +2045,6 @@
                 location: "Barcelona, Spain",
                 coords: [41.3851, 2.1734],
                 topic: "Graphene thin-film electrodes with AI-driven closed-loop neuromodulation for Parkinson's, epilepsy, and stroke rehab",
-                focus: ["Neurostimulation", "BCI", "Materials", "Clinical"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Epicortical (ECoG)"],
@@ -2174,7 +2072,6 @@
                 location: "Freiburg, Germany",
                 coords: [48.0236, 7.8455],
                 topic: "Fully implantable wireless simultaneous 32-channel record + 32-channel stimulate closed-loop neuromodulation platform",
-                focus: ["Neurostimulation", "BCI", "Wireless", "Clinical"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Epicortical (ECoG)"],
@@ -2202,7 +2099,6 @@
                 location: "Mountain View, CA, USA",
                 coords: [37.3861, -122.0839],
                 topic: "First FDA-approved closed-loop responsive neurostimulator — detects and aborts seizures in drug-resistant focal epilepsy",
-                focus: ["Neurostimulation", "Clinical"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Deep brain", "Epicortical (ECoG)"],
@@ -2230,7 +2126,6 @@
                 location: "Shanghai, China",
                 coords: [31.2304, 121.4737],
                 topic: "First Chinese fully implanted battery-integrated wireless flexible BCI in a human — 64–256-channel ultrathin polyimide mesh",
-                focus: ["BCI", "Materials", "Clinical", "Wireless"],
                 category: "Implant",
                 tags: {
                     invasiveness: ["Epicortical (ECoG)"],
@@ -2251,9 +2146,6 @@
                 appearances: []
             }
         ];
-
-        // Tag every entry as either "Researcher" (people, IDs 1–30) or "Device" (implants, IDs 31+)
-        researchers.forEach(r => r.focus.push(r.id <= 30 ? "Researcher" : "Device"));
 
         // --- Proximity grouping for overlap prevention ---
         const MIN_PIXEL_GAP = 5; // minimum pixel distance between marker centers (half icon width — stars overlap but tips remain visible)
@@ -2396,7 +2288,6 @@
 
         // Store markers for filtering
         const markers = {};
-        let activeFilter = 'all';
 
         // Gemini-style 4-point sparkle marker (concave-sided star)
         const SPARKLE_SVG = `
