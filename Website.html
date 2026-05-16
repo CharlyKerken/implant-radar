@@ -509,6 +509,29 @@
             line-height: 1.6;
         }
 
+        /* Device image gallery (main image + scrollable support images) */
+        .modal-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-height: 60vh;
+            overflow-y: auto;
+            padding-right: 0.25rem;
+        }
+        .modal-gallery img {
+            width: 100%;
+            border-radius: 0.6rem;
+            border: 1px solid #334155;
+            background: #0f172a;
+            display: block;
+        }
+        .modal-gallery-caption {
+            color: #64748b;
+            font-size: 0.72rem;
+            text-align: center;
+            margin-top: -0.4rem;
+        }
+
         .close-modal {
             position: absolute;
             top: 1rem;
@@ -2193,14 +2216,15 @@
                 scholar: "",
                 appearances: [],
                 extraLinks: [
-                    { label: "Neural Implant Podcast — YouTube", url: "https://www.youtube.com/channel/UCxEvz7YXYrx-wWZ3G5kmrbQ" },
+                    { label: "Neural Implant Podcast — YouTube", url: "https://www.youtube.com/@neuralimplant4131" },
                     { label: "Neural Implant Podcast — website", url: "https://neuralimplantpodcast.com/" }
                 ]
             },
             {
                 id: 63,
                 name: "Ultra-Thin LCP Neural Interface (Jiracek PhD)",
-                photo: "",
+                photo: "images/Graphics%20of%20the%20implant%20with%20some%20information.png",
+                gallery: ["images/image%20LCP%20implant.png"],
                 institution: "University of Florida — Judy Lab",
                 location: "Gainesville, FL, USA",
                 coords: [29.6420, -82.3470],
@@ -2737,6 +2761,25 @@
             return rows || '<p style="color:#64748b;">No classification tags.</p>';
         }
 
+        // Scrollable image gallery for the modal. Rendered only when an entry has
+        // explicit support images (gallery[]); the main photo is shown first.
+        // To add more images later: drop the files in images/ and append their
+        // (URL-encoded) paths to this entry's gallery array.
+        function renderGallery(r) {
+            if (!Array.isArray(r.gallery) || r.gallery.length === 0) return '';
+            const imgs = [r.photo, ...r.gallery].filter(Boolean);
+            const items = imgs.map((src, i) =>
+                `<img src="${escapeAttr(src)}" alt="${escapeAttr(r.name)} — image ${i + 1}" loading="lazy">`
+            ).join('');
+            return `
+                    <div class="modal-section">
+                        <h4>Images</h4>
+                        <div class="modal-gallery">${items}</div>
+                        <div class="modal-gallery-caption">Scroll for more images</div>
+                    </div>
+`;
+        }
+
         // Close any open facet dropdown when clicking elsewhere.
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.facet-dropdown')) {
@@ -2806,6 +2849,7 @@
                     </div>
                 </div>
                 <div class="modal-body">
+                    ${renderGallery(researcher)}
                     <div class="modal-section">
                         <h4>Classification</h4>
                         <div style="margin-top: 0.5rem;">${renderModalFacets(researcher)}</div>
