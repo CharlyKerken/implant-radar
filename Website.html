@@ -509,28 +509,74 @@
             line-height: 1.6;
         }
 
-        /* Device image gallery (main image + scrollable support images) */
+        /* Device image gallery: a horizontally scrollable strip of small
+           thumbnails; click a thumbnail to open it large in a lightbox. */
         .modal-gallery {
             display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            max-height: 60vh;
-            overflow-y: auto;
-            padding-right: 0.25rem;
+            flex-direction: row;
+            gap: 0.6rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding-bottom: 0.5rem;
+            scroll-snap-type: x proximity;
         }
         .modal-gallery img {
-            width: 100%;
-            border-radius: 0.6rem;
+            height: 96px;
+            width: auto;
+            flex: 0 0 auto;
+            border-radius: 0.5rem;
             border: 1px solid #334155;
             background: #0f172a;
             display: block;
+            cursor: zoom-in;
+            scroll-snap-align: start;
+            transition: border-color 0.15s, transform 0.15s;
+        }
+        .modal-gallery img:hover {
+            border-color: #38bdf8;
+            transform: translateY(-2px);
         }
         .modal-gallery-caption {
             color: #64748b;
             font-size: 0.72rem;
-            text-align: center;
-            margin-top: -0.4rem;
+            margin-top: 0.4rem;
         }
+
+        /* Lightbox: enlarged image, ~ size of the old inline images */
+        .img-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            cursor: zoom-out;
+        }
+        .img-lightbox.active { display: flex; }
+        .img-lightbox img {
+            max-width: min(700px, 92vw);
+            max-height: 85vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0.6rem;
+            border: 1px solid #334155;
+            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7);
+        }
+        .img-lightbox-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: #e2e8f0;
+            font-size: 2.5rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .img-lightbox-close:hover { color: #38bdf8; }
 
         .close-modal {
             position: absolute;
@@ -598,6 +644,12 @@
                 <!-- Content inserted by JavaScript -->
             </div>
         </div>
+    </div>
+
+    <!-- Lightbox for enlarged device images -->
+    <div class="img-lightbox" id="imgLightbox">
+        <button class="img-lightbox-close" onclick="closeLightbox()" aria-label="Close image">&times;</button>
+        <img id="imgLightboxImg" src="" alt="">
     </div>
 
     <!-- Leaflet JS -->
@@ -2223,8 +2275,8 @@
             {
                 id: 63,
                 name: "Ultra-Thin LCP Neural Interface (Jiracek PhD)",
-                photo: "images/Graphics%20of%20the%20implant%20with%20some%20information.png",
-                gallery: ["images/image%20LCP%20implant.png"],
+                photo: "images/image%20LCP%20implant.png",
+                gallery: ["images/Graphics%20of%20the%20implant%20with%20some%20information.png"],
                 institution: "University of Florida — Judy Lab",
                 location: "Gainesville, FL, USA",
                 coords: [29.6420, -82.3470],
@@ -2775,7 +2827,7 @@
                     <div class="modal-section">
                         <h4>Images</h4>
                         <div class="modal-gallery">${items}</div>
-                        <div class="modal-gallery-caption">Scroll for more images</div>
+                        <div class="modal-gallery-caption">Click an image to enlarge • scroll sideways for more</div>
                     </div>
 `;
         }
@@ -2877,8 +2929,29 @@
                 });
             });
 
+            content.querySelectorAll('.modal-gallery img').forEach(img => {
+                img.addEventListener('click', () => openLightbox(img.getAttribute('src'), img.alt));
+            });
+
             modal.classList.add('active');
         }
+
+        function openLightbox(src, alt) {
+            const box = document.getElementById('imgLightbox');
+            const img = document.getElementById('imgLightboxImg');
+            img.src = src;
+            img.alt = alt || '';
+            box.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const box = document.getElementById('imgLightbox');
+            box.classList.remove('active');
+            document.getElementById('imgLightboxImg').src = '';
+        }
+
+        // Click anywhere on the lightbox backdrop closes it
+        document.getElementById('imgLightbox').addEventListener('click', closeLightbox);
 
         function closeModal() {
             document.getElementById('detailModal').classList.remove('active');
@@ -2889,9 +2962,14 @@
             if (e.target.id === 'detailModal') closeModal();
         });
 
-        // Close modal on Escape key
+        // Close modal on Escape key (lightbox takes priority if open)
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
+            if (e.key !== 'Escape') return;
+            if (document.getElementById('imgLightbox').classList.contains('active')) {
+                closeLightbox();
+            } else {
+                closeModal();
+            }
         });
 
         // Initialize everything
