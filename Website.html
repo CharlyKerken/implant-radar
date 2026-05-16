@@ -694,6 +694,17 @@
                     topics:      { label: "Topics",       values: ["Materials","Decoding","Closed-loop","Surgical robotics","Wireless power","Biocompatibility / FBR","Glial scarring & wound healing","Chronic stability","Neurorights / Ethics"] }
                 }
             },
+            Trial: {
+                label: "Trials",
+                facets: {
+                    trialType:  { label: "Trial type",  values: ["Clinical","Preclinical"] },
+                    phase:      { label: "Phase",       values: ["Preclinical","Pilot / Feasibility","Phase 0","Phase 1","Phase 1/2","Phase 2","Phase 2/3","Phase 3","Phase 4","Not applicable"] },
+                    status:     { label: "Status",      values: ["Planned","Recruiting","Ongoing","Active, not recruiting","Completed","Terminated","Unknown"] },
+                    indication: { label: "Indication",  values: ["Paralysis","Communication","Blindness","Deafness","Parkinson's","Epilepsy","Chronic pain","Depression","OCD","Stroke rehabilitation","Consumer / Augmentation"] },
+                    target:     { label: "Target",      values: ["Motor","Vision","Somatosensory","Auditory","Speech","Memory","Spinal cord","Peripheral nervous system"] },
+                    sponsor:    { label: "Sponsor",     values: ["Academic","Hospital","Industry","Government"] }
+                }
+            },
             Conference: {
                 label: "Conferences",
                 facets: {
@@ -1958,16 +1969,14 @@
                 location: "Elche, Spain",
                 coords: [38.2786, -0.7072],
                 topic: "96-channel Utah array implanted in primary visual cortex enabling letter recognition and shape detection in totally blind patients",
-                category: "Implant",
+                category: "Trial",
                 tags: {
-                    invasiveness: ["Intracortical"],
-                    modality: ["Microelectrode array", "Electrical stimulation"],
-                    formFactor: ["Rigid"],
-                    materials: ["Silicon"],
-                    paradigm: ["Conventional"],
-                    target: ["Vision"],
+                    trialType: ["Clinical"],
+                    phase: ["Pilot / Feasibility"],
+                    status: ["Ongoing"],
                     indication: ["Blindness"],
-                    stage: ["Clinical trial"]
+                    target: ["Vision"],
+                    sponsor: ["Academic"]
                 },
                 description: "Developed by Eduardo Fernández, Richard Normann, Arnau Caravaca-Rodríguez, and colleagues at Universidad Miguel Hernández and the University of Utah / John A. Moran Eye Center, this system implants a 96-channel Utah array directly into primary visual cortex (V1) of totally blind patients — including those with optic-nerve damage where retinal prostheses cannot help. Over six months, participants reported discriminable phosphenes enabling letter recognition and shape detection, with stable stimulation thresholds throughout.",
                 notable: "First 96-channel intracortical V1 stimulation enabling letter and shape recognition in totally blind patients",
@@ -2558,11 +2567,12 @@
         }
 
         // ---- Category-scoped faceted filtering ----
-        const CATEGORY_ORDER = ['Implant', 'Researcher', 'Conference', 'Funding'];
+        const CATEGORY_ORDER = ['Implant', 'Researcher', 'Trial', 'Conference', 'Funding'];
         // First three (or fewer) facets shown by default; the rest live behind "More filters".
         const DEFAULT_VISIBLE_FACETS = {
             Implant:    ['invasiveness', 'stage', 'target'],
             Researcher: ['affiliation', 'target', 'topics'],
+            Trial:      ['trialType', 'phase', 'status'],
             Conference: ['scope', 'focus'],
             Funding:    ['type', 'focus']
         };
