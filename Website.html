@@ -767,8 +767,10 @@
                 label: "Conferences",
                 facets: {
                     scope:     { label: "Scope",     values: ["International","Regional","National"] },
-                    frequency: { label: "Frequency", values: ["Annual","Biennial","One-off"] },
-                    focus:     { label: "Focus",     values: ["General neurotech","Clinical","Engineering / Materials","Computational / Decoding","Ethics & Policy"] }
+                    frequency: { label: "Frequency", values: ["Annual","Biennial","One-off","Year-round"] },
+                    focus:     { label: "Focus",     values: ["General neurotech","Clinical","Engineering / Materials","Computational / Decoding","Hardware & Signal Processing","Translational","Ethics & Policy"] },
+                    timeline:  { label: "Timeline",  values: ["Happening soon","Upcoming this year","Later this year","Past — plan for next cycle","Biennial — varies","Ongoing"] },
+                    character: { label: "Character", values: ["Highly specialized","Massive scale","Intimate academic","Community & startups"] }
                 }
             },
             Funding: {
@@ -3078,6 +3080,176 @@
                     deadline: "Outline applications typically due in March; full applications typically due in June",
                     applyUrl: "https://www.vr.se/english.html"
                 }
+            },
+            // ───────── Conferences ─────────
+            // Timeline values are anchored to 2026-05-23.
+            {
+                id: 87,
+                name: "International BCI Meeting (BCI Society)",
+                photo: "",
+                institution: "BCI Society",
+                location: "Asilomar, CA / rotates globally",
+                coords: [36.6168, -121.9408],
+                topic: "8-11 June 2026 · the premier dedicated gathering of the BCI research community",
+                category: "Conference",
+                tags: {
+                    scope:     ["International"],
+                    frequency: ["Biennial"],
+                    focus:     ["General neurotech", "Engineering / Materials"],
+                    timeline:  ["Happening soon"],
+                    character: ["Highly specialized"]
+                },
+                description: "Premier dedicated meeting for the BCI community — programme covers soft-electrode materials through human-in-the-loop decoding for invasive motor and speech prostheses. Rotates between Asilomar (US years) and European venues.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://bcisociety.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 88,
+                name: "IEEE EMBC",
+                photo: "",
+                institution: "IEEE Engineering in Medicine and Biology Society",
+                location: "Toronto, Canada",
+                coords: [43.6532, -79.3832],
+                topic: "26-30 July 2026 · IEEE EMBS flagship engineering-in-medicine annual",
+                category: "Conference",
+                tags: {
+                    scope:     ["International"],
+                    frequency: ["Annual"],
+                    focus:     ["Engineering / Materials", "Hardware & Signal Processing"],
+                    timeline:  ["Upcoming this year"],
+                    character: ["Massive scale"]
+                },
+                description: "Massive engineering-first conference. The Neural Engineering tracks are the home venue for iBCI hardware — microelectrode design, chip architecture, and signal processing.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://embc.embs.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 89,
+                name: "Society for Neuroscience (SfN) Annual Meeting",
+                photo: "",
+                institution: "Society for Neuroscience",
+                location: "Rotates among major US cities",
+                coords: [38.9026, -77.0238],
+                topic: "Oct/Nov 2026 · the largest neuroscience gathering in the world",
+                category: "Conference",
+                tags: {
+                    scope:     ["International"],
+                    frequency: ["Annual"],
+                    focus:     ["General neurotech", "Clinical"],
+                    timeline:  ["Later this year"],
+                    character: ["Massive scale"]
+                },
+                description: "The largest neuroscience meeting in the world. The Brain-Machine Interfaces and Neuroprosthetics symposia are where leading academic labs unveil their newest non-human-primate and human iBCI data.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.sfn.org/meetings",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 90,
+                name: "North American Neuromodulation Society (NANS) Annual Meeting",
+                photo: "",
+                institution: "North American Neuromodulation Society",
+                location: "Las Vegas / Orlando (rotates), USA",
+                coords: [36.1147, -115.1728],
+                topic: "January (annual) · clinical home of DBS, SCS, and emerging iBCI surgical techniques",
+                category: "Conference",
+                tags: {
+                    scope:     ["Regional"],
+                    frequency: ["Annual"],
+                    focus:     ["Clinical"],
+                    timeline:  ["Past — plan for next cycle"],
+                    character: ["Highly specialized"]
+                },
+                description: "Highly clinical. Main gathering for neurosurgeons and clinical researchers working on implanted hardware, deep brain stimulation, spinal cord stimulation, and emerging iBCI surgical techniques. 2026 edition has passed — plan for January 2027.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.neuromodulation.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 91,
+                name: "GRC Neuroelectronic Interfaces",
+                photo: "",
+                institution: "Gordon Research Conferences",
+                location: "Galveston, TX / Tuscany, Italy (rotates)",
+                coords: [29.3013, -94.7977],
+                topic: "March (biennial) · off-the-record academic retreat at the bioelectronic interface",
+                category: "Conference",
+                tags: {
+                    scope:     ["International"],
+                    frequency: ["Biennial"],
+                    focus:     ["Engineering / Materials", "General neurotech"],
+                    timeline:  ["Past — plan for next cycle"],
+                    character: ["Intimate academic"]
+                },
+                description: "Highly exclusive, off-the-record GRC focused on the bio-electronic intersection — glial scarring, electrode failure, and the physics of the brain-machine interface.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.grc.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 92,
+                name: "IEEE NER (Neural Engineering Conference)",
+                photo: "",
+                institution: "IEEE Engineering in Medicine and Biology Society",
+                location: "Rotates globally",
+                coords: [40.5193, -74.4151],
+                topic: "April/May (biennial) · IEEE EMBS dedicated neural-engineering conference",
+                category: "Conference",
+                tags: {
+                    scope:     ["International"],
+                    frequency: ["Biennial"],
+                    focus:     ["Engineering / Materials", "Translational"],
+                    timeline:  ["Biennial — varies"],
+                    character: []
+                },
+                description: "Organized by the IEEE EMBS, NER isolates the neural-engineering tracks into a dedicated conference — heavy emphasis on brain implants, neural recording devices, and computational neuroscience.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.embs.org/conferences/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 93,
+                name: "NeuroTechX Hackathons & Chapter Gatherings",
+                photo: "",
+                institution: "NeuroTechX",
+                location: "SF / NY / London / Paris / Zurich (decentralized)",
+                coords: [37.7749, -122.4194],
+                topic: "Year-round · grassroots chapter meetups and hackathons across major hub cities",
+                category: "Conference",
+                tags: {
+                    scope:     ["International"],
+                    frequency: ["Year-round"],
+                    focus:     ["General neurotech"],
+                    timeline:  ["Ongoing"],
+                    character: ["Community & startups"]
+                },
+                description: "Grassroots community network with active chapters in major hub cities. Chapter meetings frequently host talks from stealth iBCI startups and engineers — useful for hiring and quiet-mode networking.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://neurotechx.com/",
+                scholar: "",
+                appearances: []
             }
         ];
 
