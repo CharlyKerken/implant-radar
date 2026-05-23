@@ -50,15 +50,28 @@
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 64px;
+        }
+
+        .header-brand {
+            display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .header-left { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
-        .header-center { display: flex; justify-content: center; align-items: center; }
-        .header-right { display: flex; justify-content: flex-end; align-items: center; }
+        .brand-word {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+        }
 
         .header-logo {
             height: 54px;
@@ -67,23 +80,11 @@
             filter: drop-shadow(0 2px 6px rgba(56, 189, 248, 0.25));
         }
 
-        h1 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            white-space: nowrap;
-        }
-
-        .subtitle {
-            color: #94a3b8;
-            font-size: 0.82rem;
-            line-height: 1.3;
-        }
-
         .contact-btn {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
             background: transparent;
             color: #38bdf8;
             border: 1px solid #38bdf8;
@@ -120,11 +121,12 @@
             flex-wrap: wrap;
             gap: 0.4rem;
             align-items: center;
+            justify-content: center;
         }
 
 
         /* Category selector */
-        .category-bar { display: flex; gap: 0.4rem; width: 100%; margin-bottom: 0.45rem; flex-wrap: wrap; }
+        .category-bar { display: flex; gap: 0.4rem; width: 100%; margin-bottom: 0.45rem; flex-wrap: wrap; justify-content: center; }
         .category-btn {
             background: #0f172a; color: #e2e8f0; border: 1px solid #334155;
             padding: 0.35rem 0.85rem; border-radius: 9999px; cursor: pointer;
@@ -136,7 +138,7 @@
         .cat-count { font-size: 0.7rem; opacity: 0.7; margin-left: 0.25rem; }
 
         /* Facet bar */
-        .facet-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; width: 100%; }
+        .facet-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; width: 100%; justify-content: center; }
         .facet-dropdown { position: relative; }
         .facet-toggle {
             background: #334155; color: #e2e8f0; border: 1px solid #475569;
@@ -174,7 +176,7 @@
         .search-input::placeholder { color: #64748b; }
 
         /* Active filter chips */
-        .active-chips { display: none; flex-wrap: wrap; gap: 0.5rem; align-items: center; width: 100%; margin-top: 0.5rem; }
+        .active-chips { display: none; flex-wrap: wrap; gap: 0.5rem; align-items: center; width: 100%; margin-top: 0.5rem; justify-content: center; }
         .chip {
             display: inline-flex; align-items: center; gap: 0.4rem; background: #0f172a; color: #e2e8f0;
             border: 1px solid #38bdf8; padding: 0.3rem 0.4rem 0.3rem 0.75rem; border-radius: 9999px; font-size: 0.78rem;
@@ -641,14 +643,10 @@
         .about-contact-line a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
-            h1 { font-size: 1.2rem; }
-            .header-content {
-                grid-template-columns: auto 1fr auto;
-                gap: 0.6rem;
-            }
-            .header-left .subtitle { display: none; }
-            .header-logo { height: 44px; }
-            .contact-btn { padding: 0.35rem 0.85rem; font-size: 0.8rem; }
+            .brand-word { font-size: 1.1rem; }
+            .header-brand { gap: 0.55rem; }
+            .header-logo { height: 40px; }
+            .contact-btn { padding: 0.3rem 0.75rem; font-size: 0.75rem; }
             .stats { display: none; }
             #map { height: 50vh; }
             .lab-list { display: block; }
@@ -660,16 +658,12 @@
 
     <header>
         <div class="header-content">
-            <div class="header-left">
-                <h1>IMPLANT RADAR</h1>
-                <p class="subtitle">Researchers developing neural implants and bioelectronics.</p>
-            </div>
-            <div class="header-center">
+            <div class="header-brand">
+                <span class="brand-word">IMPLANT</span>
                 <img class="header-logo" src="images/Logo.png" alt="Implant Radar logo">
+                <span class="brand-word">RADAR</span>
             </div>
-            <div class="header-right">
-                <button class="contact-btn" onclick="openContactModal()">Contact</button>
-            </div>
+            <button class="contact-btn" onclick="openContactModal()">About</button>
         </div>
     </header>
 
@@ -3452,7 +3446,6 @@
                 html += `<button type="button" id="moreFiltersBtn" class="more-filters-btn">${moreFiltersOpen ? '− Fewer filters' : '+ More filters'}</button>`;
                 html += `<div id="moreFacets" class="more-facets${moreFiltersOpen ? ' open' : ''}">${restHtml.join('')}</div>`;
             }
-            html += `<input type="search" id="searchInput" class="search-input" placeholder="Search ${escapeAttr(SCHEMA[activeCategory].label.toLowerCase())}…" value="${escapeAttr(searchQuery)}">`;
             bar.innerHTML = html;
 
             bar.querySelectorAll('.facet-dropdown').forEach(dd => {
@@ -3470,12 +3463,6 @@
             if (moreBtn) moreBtn.addEventListener('click', () => {
                 moreFiltersOpen = !moreFiltersOpen;
                 renderFacetBar();
-            });
-            const search = document.getElementById('searchInput');
-            if (search) search.addEventListener('input', () => {
-                searchQuery = search.value;
-                renderActiveChips();
-                applyFilters();
             });
         }
 
