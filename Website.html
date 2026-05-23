@@ -791,6 +791,16 @@
                     approach:   { label: "Approach",   values: ["Intracortical","Epicortical (subdural)","Skull-mounted","Endovascular","Spinal","Retinal","Optogenetic"] },
                     stage:      { label: "Stage",      values: ["Preclinical","First-in-human","Clinical trial","Approved / Commercial"] }
                 }
+            },
+            Society: {
+                label: "Societies",
+                facets: {
+                    type:       { label: "Type",       values: ["Scientific society","Professional / Clinical","Community / Grassroots","Advocacy / Ethics","Patient-led","Federation"] },
+                    scope:      { label: "Scope",      values: ["International","National","Regional"] },
+                    focus:      { label: "Focus",      values: ["BCI / Neural engineering","Neuromodulation / Surgical","Decoding / Signal processing","Neuroethics / Policy","Patient experience","General neuroscience"] },
+                    activity:   { label: "Activity",   values: ["Conferences","Hackathons","Standards","Trial coordination","Regulatory pathways","Grants & training","Policy advocacy","Patient outreach","Networking"] },
+                    indication: { label: "Indication", values: ["Paralysis","Communication","Blindness","Deafness","Parkinson's","Epilepsy","Chronic pain","ALS","Stroke rehabilitation"] }
+                }
             }
         };
 
@@ -3653,6 +3663,275 @@
                 labWebsite: "https://spinallymedical.com/",
                 scholar: "",
                 appearances: []
+            },
+            // ───────── Societies ─────────
+            // Curated list of professional societies, scientific bodies, advocacy
+            // groups, and grassroots communities that anchor the iBCI ecosystem.
+            // Indication tags are reserved for societies focused on a specific
+            // condition; entries focused on iBCI broadly leave it empty.
+            {
+                id: 111,
+                name: "Brain-Computer Interface Society",
+                photo: "",
+                institution: "BCI Society",
+                location: "Netherlands (global membership)",
+                coords: [52.3676, 4.9041],
+                topic: "The primary scientific body for BCI research; hosts the biennial International BCI Meeting",
+                category: "Society",
+                tags: {
+                    type:       ["Scientific society"],
+                    scope:      ["International"],
+                    focus:      ["BCI / Neural engineering"],
+                    activity:   ["Conferences", "Networking"],
+                    indication: []
+                },
+                description: "Defines terminology for the BCI field, hosts the definitive International BCI Meeting, and connects global academic labs working on invasive and non-invasive brain-computer interfaces.",
+                notable: "Host of the International BCI Meeting — the field's flagship academic gathering",
+                email: "",
+                phone: "",
+                labWebsite: "https://bcisociety.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 112,
+                name: "IEEE Brain Community",
+                photo: "",
+                institution: "IEEE",
+                location: "Piscataway, NJ, USA (global chapters)",
+                coords: [40.5187, -74.4121],
+                topic: "Cross-disciplinary IEEE community uniting engineers and computer scientists around neurotechnology standards",
+                category: "Society",
+                tags: {
+                    type:       ["Scientific society", "Professional / Clinical"],
+                    scope:      ["International"],
+                    focus:      ["BCI / Neural engineering"],
+                    activity:   ["Standards", "Conferences"],
+                    indication: []
+                },
+                description: "Cross-disciplinary IEEE technical community working to standardize neural data formats and hardware interfaces. Hosts the IEEE NER (Neural Engineering Conference) and coordinates IEEE's neurotechnology activities across societies.",
+                notable: "Hosts IEEE NER and coordinates neural-data standardization efforts",
+                email: "",
+                phone: "",
+                labWebsite: "https://brain.ieee.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 113,
+                name: "iBCI-CC (Implantable BCI Collaborative Community)",
+                photo: "",
+                institution: "iBCI Collaborative Community",
+                location: "United States (virtual / global stakeholders)",
+                coords: [42.3358, -71.1060],
+                topic: "FDA-recognised collaborative community syncing researchers, clinicians, and regulators around invasive BCI trial pathways",
+                category: "Society",
+                tags: {
+                    type:       ["Professional / Clinical"],
+                    scope:      ["International"],
+                    focus:      ["BCI / Neural engineering"],
+                    activity:   ["Trial coordination", "Regulatory pathways"],
+                    indication: []
+                },
+                description: "Highly specialized hub aligning iBCI researchers, clinicians, manufacturers, and regulatory bodies. Builds shared pathways for human surgical trials and FDA approval of implantable BCIs.",
+                notable: "First FDA-recognised collaborative community focused on implantable BCIs",
+                email: "",
+                phone: "",
+                labWebsite: "https://ibci-cc.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 114,
+                name: "NeuroTechX (NTX)",
+                photo: "",
+                institution: "NeuroTechX",
+                location: "Global (30+ city chapters: SF, NY, London, Paris, Zurich)",
+                coords: [45.5017, -73.5673],
+                topic: "The largest grassroots community for neurotech innovators — hackathons, student clubs, and professional networking",
+                category: "Society",
+                tags: {
+                    type:       ["Community / Grassroots"],
+                    scope:      ["International"],
+                    focus:      ["BCI / Neural engineering"],
+                    activity:   ["Hackathons", "Networking"],
+                    indication: []
+                },
+                description: "Largest global grassroots community for neurotech innovators. Runs 30+ city chapters, NeuroTech Open hackathons, student clubs, and an active job board — useful for hiring, quiet-mode networking, and meeting stealth-mode iBCI startups.",
+                notable: "30+ city chapters and annual NeuroTech Open hackathons",
+                email: "",
+                phone: "",
+                labWebsite: "https://neurotechx.com/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 115,
+                name: "International Neuromodulation Society (INS)",
+                photo: "",
+                institution: "International Neuromodulation Society",
+                location: "San Francisco, CA, USA (33 global chapters)",
+                coords: [37.7849, -122.4094],
+                topic: "Multidisciplinary global network of neurosurgeons and engineers shaping neuromodulation hardware (DBS, SCS, iBCI)",
+                category: "Society",
+                tags: {
+                    type:       ["Professional / Clinical"],
+                    scope:      ["International"],
+                    focus:      ["Neuromodulation / Surgical"],
+                    activity:   ["Conferences", "Networking"],
+                    indication: []
+                },
+                description: "Multidisciplinary global network of neurosurgeons, engineers, and clinicians focused on scientific development and clinical delivery of neuromodulation hardware — deep brain stimulation, spinal cord stimulation, and emerging iBCI systems.",
+                notable: "33 global chapters spanning the major neuromodulation device markets",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.neuromodulation.com/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 116,
+                name: "American Society for Stereotactic and Functional Neurosurgery (ASSFN)",
+                photo: "",
+                institution: "ASSFN",
+                location: "Schaumburg, IL, USA",
+                coords: [42.0334, -88.0834],
+                topic: "Professional home for the functional neurosurgeons who physically implant invasive BCIs and closed-loop stimulators",
+                category: "Society",
+                tags: {
+                    type:       ["Professional / Clinical"],
+                    scope:      ["National"],
+                    focus:      ["Neuromodulation / Surgical"],
+                    activity:   ["Conferences", "Trial coordination"],
+                    indication: []
+                },
+                description: "The primary professional society for functional neurosurgeons in the US — the clinicians who physically implant invasive BCI arrays, DBS leads, and responsive neurostimulators. Sets surgical training standards and convenes biennial scientific meetings.",
+                notable: "Convenes the surgeons performing first-in-human iBCI implantations",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.assfn.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 117,
+                name: "International Society for Brain Electromagnetic Topography (ISBET)",
+                photo: "",
+                institution: "ISBET",
+                location: "Rotates globally",
+                coords: [52.5200, 13.4050],
+                topic: "Academic society targeting high-density spatial/temporal mapping and signal decoding for multi-electrode arrays",
+                category: "Society",
+                tags: {
+                    type:       ["Scientific society"],
+                    scope:      ["International"],
+                    focus:      ["Decoding / Signal processing"],
+                    activity:   ["Conferences"],
+                    indication: []
+                },
+                description: "Academic society focused on high-density spatial and temporal mapping of brain electromagnetic activity, and on the advanced signal-decoding algorithms required for multi-electrode ECoG and EEG arrays.",
+                notable: "Convenes the signal-processing community behind multi-electrode decoding",
+                email: "",
+                phone: "",
+                labWebsite: "https://isbet.info/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 118,
+                name: "BCI Pioneers Coalition",
+                photo: "",
+                institution: "BCI Pioneers",
+                location: "Global (digital forum)",
+                coords: [40.4506, -79.9059],
+                topic: "Coalition of the world's first iBCI research participants collaborating on ethical trial design and patient care",
+                category: "Society",
+                tags: {
+                    type:       ["Patient-led"],
+                    scope:      ["International"],
+                    focus:      ["Patient experience", "Neuroethics / Policy"],
+                    activity:   ["Patient outreach", "Policy advocacy"],
+                    indication: []
+                },
+                description: "Unique coalition led by the world's first implantable BCI research participants. Brings lived-experience perspectives into trial design, informed-consent practice, post-trial device support, and the ethics of explant and chronic care.",
+                notable: "First patient-led coalition organised around invasive BCI lived experience",
+                email: "",
+                phone: "",
+                labWebsite: "https://bcipioneers.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 119,
+                name: "Neurorights Foundation",
+                photo: "",
+                institution: "Neurorights Foundation",
+                location: "New York, NY, USA",
+                coords: [40.7589, -73.9851],
+                topic: "Advocates for international legal frameworks protecting neural data, mental privacy, and cognitive liberty in the iBCI era",
+                category: "Society",
+                tags: {
+                    type:       ["Advocacy / Ethics"],
+                    scope:      ["International"],
+                    focus:      ["Neuroethics / Policy"],
+                    activity:   ["Policy advocacy"],
+                    indication: []
+                },
+                description: "Advocates for international legal frameworks to guard neural data, protect mental privacy, and regulate cognitive liberty as implantable BCIs scale. Engages with the UN, national legislatures, and industry to push neurorights into law.",
+                notable: "Drove the world's first neurorights legislation (Chile, 2021)",
+                email: "",
+                phone: "",
+                labWebsite: "https://neurorightsfoundation.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 120,
+                name: "IBRO (International Brain Research Organization)",
+                photo: "",
+                institution: "International Brain Research Organization",
+                location: "Paris, France (global network)",
+                coords: [48.8566, 2.3522],
+                topic: "Global federation of 90+ neuroscience societies supporting the basic neurobiology that underpins implant engineering",
+                category: "Society",
+                tags: {
+                    type:       ["Federation", "Scientific society"],
+                    scope:      ["International"],
+                    focus:      ["General neuroscience"],
+                    activity:   ["Grants & training", "Networking"],
+                    indication: []
+                },
+                description: "Global federation of 90+ regional neuroscience societies. Funds early-career training, runs schools and workshops across underserved regions, and supports the foundational animal-model and basic-neurobiology work that implant engineering depends on.",
+                notable: "Federation umbrella for 90+ national neuroscience societies",
+                email: "",
+                phone: "",
+                labWebsite: "https://ibro.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 121,
+                name: "ANST Neurotechnology Focus Group (SCN)",
+                photo: "",
+                institution: "Society for Clinical Neuropsychology — ANST",
+                location: "United States (virtual)",
+                coords: [38.9072, -77.0369],
+                topic: "Special-interest community for trainees working at the intersection of cognitive testing, data, and implantable tech",
+                category: "Society",
+                tags: {
+                    type:       ["Professional / Clinical"],
+                    scope:      ["National"],
+                    focus:      ["General neuroscience"],
+                    activity:   ["Grants & training", "Networking"],
+                    indication: []
+                },
+                description: "Special interest community within the Association of Neuropsychology Students in Training for trainees and students working at the intersection of clinical neuropsychology, cognitive assessment, and implantable neurotechnology.",
+                notable: "Bridges clinical neuropsychology trainees into the iBCI assessment pipeline",
+                email: "",
+                phone: "",
+                labWebsite: "https://scn40.org/",
+                scholar: "",
+                appearances: []
             }
         ];
 
@@ -3909,14 +4188,15 @@
         }
 
         // ---- Category-scoped faceted filtering ----
-        const CATEGORY_ORDER = ['Implant', 'Researcher', 'Industry', 'Trial', 'Conference', 'Funding'];
+        const CATEGORY_ORDER = ['Implant', 'Researcher', 'Industry', 'Trial', 'Conference', 'Funding', 'Society'];
         // First three (or fewer) facets shown by default; the rest live behind "More filters".
         const DEFAULT_VISIBLE_FACETS = {
             Implant:    ['invasiveness', 'stage', 'target'],
             Researcher: ['affiliation', 'target', 'topics'],
             Trial:      ['trialType', 'phase', 'status'],
             Conference: ['scope', 'focus'],
-            Funding:    ['type', 'eligibility', 'timeline']
+            Funding:    ['type', 'eligibility', 'timeline'],
+            Society:    ['type', 'focus', 'activity']
         };
         let activeCategory = 'Implant';
         let activeFilters = {};   // facetKey -> Set of selected values (reset on category switch)
