@@ -804,8 +804,10 @@
                 label: "Funding",
                 facets: {
                     type:        { label: "Type",        values: ["Government grant","Foundation / Non-profit","Prize / Challenge","VC / Private","Fellowship"] },
-                    careerStage: { label: "Career stage",values: ["PhD","Postdoc","Early career PI","Established PI","Any"] },
-                    focus:       { label: "Focus",       values: ["Basic research","Translational","Clinical trial","Hardware / Materials","Consumer / Augmentation"] }
+                    sector:      { label: "Sector",      values: ["Academia","Industry","Both"] },
+                    eligibility: { label: "Eligibility", values: ["Undergraduate","Graduate / Master's","PhD","Postdoc","Early career PI","Established PI","Industry / Startup"] },
+                    focus:       { label: "Focus",       values: ["Basic research","Translational","Clinical trial","Hardware / Materials","Consumer / Augmentation"] },
+                    timeline:    { label: "Timeline",    values: ["Open now","Opens within 10 months","Opens in 10+ months","Rolling","Closed for cycle"] }
                 }
             }
         };
@@ -2451,6 +2453,257 @@
                 extraLinks: [
                     { label: "Science Advances — Ultraflexible nanoelectronic probes (2017)", url: "https://www.science.org/doi/10.1126/sciadv.1601966" }
                 ]
+            },
+            // ───────── Funding programmes ─────────
+            // Timelines tagged as of 2026-05-23. Specific cycle dates change year
+            // to year; always confirm on the official programme page before applying.
+            {
+                id: 66,
+                name: "NIH BRAIN Initiative",
+                photo: "",
+                institution: "U.S. National Institutes of Health",
+                location: "Bethesda, MD, USA",
+                coords: [38.9959, -77.1027],
+                topic: "Federal funding portfolio for tools and technologies to map and modulate the brain — multiple grant mechanisms running year-round",
+                category: "Funding",
+                tags: {
+                    type:        ["Government grant"],
+                    sector:      ["Both"],
+                    eligibility: ["Postdoc", "Early career PI", "Established PI", "Industry / Startup"],
+                    focus:       ["Basic research", "Translational", "Hardware / Materials", "Clinical trial"],
+                    timeline:    ["Rolling"]
+                },
+                description: "The NIH BRAIN Initiative (Brain Research through Advancing Innovative Neurotechnologies) funds a wide portfolio of grant mechanisms across the 10 participating NIH Institutes. Programmes span R01 hypothesis-driven research, U-series cooperative agreements for tool development, K mentored career awards, F fellowships, and SBIR/STTR awards for small businesses. Calls are released throughout the year as individual Funding Opportunity Announcements (FOAs), each with its own deadline.",
+                notable: "Largest federal funding source for neural-interface tool development in the United States",
+                email: "",
+                phone: "",
+                labWebsite: "https://braininitiative.nih.gov/funding",
+                scholar: "",
+                appearances: [],
+                funding: {
+                    amount: "Mechanism-dependent. R01: ~$250K-500K/yr × 5 yrs. U-series: up to several $M total. SBIR Phase II: up to ~$2M.",
+                    support: "Direct + indirect costs. Some FOAs include collaborative-team budgets and dedicated tool-dissemination supplements.",
+                    openWindow: "Multiple FOAs published throughout the year on NIH Guide for Grants and Contracts",
+                    deadline: "Per-FOA — standard NIH receipt dates are Feb 5, Jun 5, Oct 5 for R-series; check each notice",
+                    applyUrl: "https://braininitiative.nih.gov/funding"
+                }
+            },
+            {
+                id: 67,
+                name: "NSF Graduate Research Fellowship Program (GRFP)",
+                photo: "",
+                institution: "U.S. National Science Foundation",
+                location: "Alexandria, VA, USA",
+                coords: [38.8048, -77.0469],
+                topic: "Three-year fellowship for graduate students in STEM, including neuroscience, neuroengineering, and materials for bioelectronics",
+                category: "Funding",
+                tags: {
+                    type:        ["Fellowship"],
+                    sector:      ["Academia"],
+                    eligibility: ["Undergraduate", "Graduate / Master's", "PhD"],
+                    focus:       ["Basic research"],
+                    timeline:    ["Opens within 10 months"]
+                },
+                description: "The NSF GRFP supports outstanding graduate students pursuing research-based master's and doctoral degrees in NSF-funded STEM fields. Open to U.S. citizens, nationals, and permanent residents in their final year of undergrad, first or second year of graduate study, or returning to graduate study. Provides three years of stipend support within a five-year fellowship window.",
+                notable: "Single largest US fellowship pipeline for early-career neuroscience and neuroengineering researchers",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.nsfgrfp.org/",
+                scholar: "",
+                appearances: [],
+                funding: {
+                    amount: "$37,000/yr stipend + $16,000 cost-of-education allowance to the institution, × 3 years",
+                    support: "Access to XSEDE/ACCESS supercomputing time, international research and professional development opportunities, alumni network",
+                    openWindow: "Application portal typically opens late July / early August",
+                    deadline: "Annual — typically mid-to-late October (varies by field; check each year)",
+                    applyUrl: "https://www.nsfgrfp.org/applicants/"
+                }
+            },
+            {
+                id: 68,
+                name: "ERC Starting Grant",
+                photo: "",
+                institution: "European Research Council",
+                location: "Brussels, Belgium",
+                coords: [50.8466, 4.3528],
+                topic: "Frontier-research grants for early-career principal investigators 2-7 years post-PhD, based anywhere in the EU or associated countries",
+                category: "Funding",
+                tags: {
+                    type:        ["Government grant"],
+                    sector:      ["Academia"],
+                    eligibility: ["Early career PI"],
+                    focus:       ["Basic research", "Translational", "Hardware / Materials"],
+                    timeline:    ["Opens within 10 months"]
+                },
+                description: "The ERC Starting Grant funds excellent early-career researchers anywhere in the EU and associated countries to build their own independent group. Applicants must be 2-7 years past their PhD at the call deadline. The selection is single-PI and panel-based, evaluated solely on scientific excellence — no thematic constraints, including for neurotechnology.",
+                notable: "Highly portable single-PI grant — winners can move their funding between European host institutions",
+                email: "",
+                phone: "",
+                labWebsite: "https://erc.europa.eu/apply-grant/starting-grant",
+                scholar: "",
+                appearances: [],
+                funding: {
+                    amount: "Up to €1.5M over 5 years; up to €1M additional for startup costs, eligible equipment, or access to large facilities",
+                    support: "Full salary for the PI and team, equipment, consumables, travel, and a portion of indirect costs",
+                    openWindow: "Annual — call typically opens in July",
+                    deadline: "Typically early-to-mid October",
+                    applyUrl: "https://erc.europa.eu/apply-grant/starting-grant"
+                }
+            },
+            {
+                id: 69,
+                name: "MSCA Postdoctoral Fellowships",
+                photo: "",
+                institution: "European Commission — Marie Skłodowska-Curie Actions",
+                location: "Brussels, Belgium",
+                coords: [50.8430, 4.3787],
+                topic: "Mobility-driven postdoctoral fellowships for researchers ≤8 years past their PhD relocating to or from Europe",
+                category: "Funding",
+                tags: {
+                    type:        ["Fellowship"],
+                    sector:      ["Academia"],
+                    eligibility: ["Postdoc"],
+                    focus:       ["Basic research", "Translational"],
+                    timeline:    ["Open now"]
+                },
+                description: "MSCA Postdoctoral Fellowships fund early-stage researchers (≤8 years post-PhD) to undertake a 1-2 year project at a host institution in an EU/associated country (European Fellowships) or, in a Global Fellowships variant, at a host outside Europe with a mandatory return phase. Open to any discipline including neuroscience and bioelectronics. The applicant and a host supervisor co-write the proposal.",
+                notable: "Generous, fully portable postdoc package — covers salary plus mobility, family, and research allowances",
+                email: "",
+                phone: "",
+                labWebsite: "https://marie-sklodowska-curie-actions.ec.europa.eu/actions/postdoctoral-fellowships",
+                scholar: "",
+                appearances: [],
+                funding: {
+                    amount: "~€87,000/yr base unit cost (host-country adjusted) over 12-24 months; plus mobility and family allowances",
+                    support: "Salary, mobility allowance, family allowance, research/training/networking costs, indirect costs",
+                    openWindow: "Annual — call typically opens in April",
+                    deadline: "Annual — typically mid-September",
+                    applyUrl: "https://marie-sklodowska-curie-actions.ec.europa.eu/actions/postdoctoral-fellowships"
+                }
+            },
+            {
+                id: 70,
+                name: "HHMI Investigator Program",
+                photo: "",
+                institution: "Howard Hughes Medical Institute",
+                location: "Chevy Chase, MD, USA",
+                coords: [38.9847, -77.0786],
+                topic: "Long-tenure, full-package support for established investigators at US host institutions — people, not projects",
+                category: "Funding",
+                tags: {
+                    type:        ["Foundation / Non-profit"],
+                    sector:      ["Academia"],
+                    eligibility: ["Established PI"],
+                    focus:       ["Basic research"],
+                    timeline:    ["Opens in 10+ months"]
+                },
+                description: "HHMI selects scientists who are remaking their fields rather than evaluating individual projects. Investigators remain employees of their host university but are paid and resourced by HHMI for a renewable 7-year appointment. Competitions are held only every few years; recent cycles include 2018, 2021, and 2024.",
+                notable: "Funds people, not projects — recipients get the freedom to pivot mid-appointment without writing new grants",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.hhmi.org/scientists/investigator-program",
+                scholar: "",
+                appearances: [],
+                funding: {
+                    amount: "Full salary + ~$1M/yr research budget (typical), renewable 7-year appointments",
+                    support: "Equipment, technician/postdoc support, sabbatical-style flexibility, HHMI scientific community",
+                    openWindow: "Periodic open competitions — not annual",
+                    nextCycle: "Last competition: 2024. No active call as of 2026-05-23 — check programme page",
+                    applyUrl: "https://www.hhmi.org/scientists/investigator-program"
+                }
+            },
+            {
+                id: 71,
+                name: "DARPA Biological Technologies Office (BTO)",
+                photo: "",
+                institution: "U.S. Defense Advanced Research Projects Agency",
+                location: "Arlington, VA, USA",
+                coords: [38.8783, -77.1067],
+                topic: "High-risk, high-reward neural-interface and bioelectronics programmes funded through rolling Broad Agency Announcements",
+                category: "Funding",
+                tags: {
+                    type:        ["Government grant"],
+                    sector:      ["Both"],
+                    eligibility: ["Early career PI", "Established PI", "Industry / Startup"],
+                    focus:       ["Hardware / Materials", "Translational", "Consumer / Augmentation"],
+                    timeline:    ["Rolling"]
+                },
+                description: "DARPA's Biological Technologies Office has been the single largest historical driver of high-risk neural-interface research — funding programmes such as Reliable Neural-Interface Technology (RE-NET), Hand Proprioception and Touch Interfaces (HAPTIX), Neural Engineering System Design (NESD), and Next-Generation Nonsurgical Neurotechnology (N3). Calls are issued as Broad Agency Announcements (BAAs) targeting specific technical objectives, plus a standing BAA for unsolicited white papers.",
+                notable: "Programmes have repeatedly compressed neural-interface roadmaps by 5-10 years through milestone-driven, multi-team contracts",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.darpa.mil/about-us/offices/bto",
+                scholar: "",
+                appearances: [],
+                funding: {
+                    amount: "Varies widely. Typical performer share: ~$500K-$10M+ over 2-5 years; programmes can total $50-100M across teams",
+                    support: "Government-furnished resources for some programmes; access to consortia, regulatory pathway support, transition partners",
+                    openWindow: "Rolling — programme-specific BAAs published year-round on SAM.gov and the DARPA website",
+                    deadline: "Per-BAA; standing BTO Office-Wide BAA accepts white papers continuously",
+                    applyUrl: "https://www.darpa.mil/work-with-us/opportunities"
+                }
+            },
+            {
+                id: 72,
+                name: "Y Combinator",
+                photo: "",
+                institution: "Y Combinator",
+                location: "Mountain View, CA, USA",
+                coords: [37.3861, -122.0839],
+                topic: "Seed-stage accelerator and standard $500K deal — has funded multiple neurotech, BCI, and medical-device startups",
+                category: "Funding",
+                tags: {
+                    type:        ["VC / Private"],
+                    sector:      ["Industry"],
+                    eligibility: ["Industry / Startup"],
+                    focus:       ["Hardware / Materials", "Translational", "Consumer / Augmentation"],
+                    timeline:    ["Open now"]
+                },
+                description: "Y Combinator runs two batches per year (typically Winter and Summer) supporting early-stage startups across all sectors, including bioelectronics and BCI hardware. The 3-month programme includes investment, mentorship from partners and alumni, weekly office hours, group dinners with founders/operators/investors, and demo day to a curated investor list. Applications are open continuously — companies are placed into the next batch with capacity.",
+                notable: "Standard deal applies uniformly; alumni network includes hundreds of healthtech and hardware founders",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.ycombinator.com/",
+                scholar: "",
+                appearances: [],
+                funding: {
+                    amount: "$500,000 standard deal: $125K for 7% equity + $375K on a post-money uncapped SAFE with MFN",
+                    support: "3-month programme, weekly partner office hours, alumni network, demo day, ongoing support post-batch",
+                    openWindow: "Rolling — two batches/year; applications for the next batch reviewed continuously",
+                    deadline: "Per-batch cutoff dates; late applications are still reviewed for the following batch",
+                    applyUrl: "https://www.ycombinator.com/apply"
+                }
+            },
+            {
+                id: 73,
+                name: "Wellcome Discovery Awards",
+                photo: "",
+                institution: "Wellcome Trust",
+                location: "London, United Kingdom",
+                coords: [51.5260, -0.1335],
+                topic: "Long, flexible discovery research awards open to PIs at any career stage working anywhere in the world",
+                category: "Funding",
+                tags: {
+                    type:        ["Foundation / Non-profit"],
+                    sector:      ["Academia"],
+                    eligibility: ["Early career PI", "Established PI"],
+                    focus:       ["Basic research", "Translational"],
+                    timeline:    ["Opens within 10 months"]
+                },
+                description: "Wellcome Discovery Awards fund mid-career and established researchers with bold, transformative ideas in any area within Wellcome's remit (which includes human health and the technologies that enable it — covering neuroscience and neurotechnology). Open to applicants anywhere in the world. Awards are intentionally long (up to 8 years) to enable risk-taking and direction changes.",
+                notable: "Long-horizon, flexible funding — designed to support the strategy rather than the project",
+                email: "",
+                phone: "",
+                labWebsite: "https://wellcome.org/grant-funding/schemes/discovery-awards",
+                scholar: "",
+                appearances: [],
+                funding: {
+                    amount: "Up to £3M typically (no fixed ceiling) over 5-8 years",
+                    support: "Salary contributions, research costs, equipment; flexible budget reallocation across the lifetime of the award",
+                    openWindow: "Multiple rounds per year — preliminary applications accepted within published windows",
+                    deadline: "Round-specific (typically several rounds per calendar year); check the scheme page",
+                    applyUrl: "https://wellcome.org/grant-funding/schemes/discovery-awards"
+                }
             }
         ];
 
@@ -2714,7 +2967,7 @@
             Researcher: ['affiliation', 'target', 'topics'],
             Trial:      ['trialType', 'phase', 'status'],
             Conference: ['scope', 'focus'],
-            Funding:    ['type', 'focus']
+            Funding:    ['type', 'eligibility', 'timeline']
         };
         let activeCategory = 'Implant';
         let activeFilters = {};   // facetKey -> Set of selected values (reset on category switch)
@@ -3036,6 +3289,35 @@
                 </div>
             ` : '';
 
+            // Funding-specific blocks: award/support facts + timeline + apply CTA.
+            // Rendered only when category === 'Funding' AND the optional `funding`
+            // object is present on the entry.
+            const f = researcher.funding;
+            const fundingAwardSection = (researcher.category === 'Funding' && f && (f.amount || f.support)) ? `
+                <div class="modal-section">
+                    <h4>Award & support</h4>
+                    <ul class="contact-list">
+                        ${f.amount  ? `<li><strong style="color:#38bdf8;">Amount:</strong> ${escapeHtml(f.amount)}</li>` : ''}
+                        ${f.support ? `<li><strong style="color:#38bdf8;">Support:</strong> ${escapeHtml(f.support)}</li>` : ''}
+                    </ul>
+                </div>
+            ` : '';
+            const fundingTimelineSection = (researcher.category === 'Funding' && f && (f.openWindow || f.deadline || f.nextCycle)) ? `
+                <div class="modal-section">
+                    <h4>Timeline</h4>
+                    <ul class="contact-list">
+                        ${f.openWindow ? `<li><strong style="color:#38bdf8;">Application window:</strong> ${escapeHtml(f.openWindow)}</li>` : ''}
+                        ${f.deadline   ? `<li><strong style="color:#38bdf8;">Deadline:</strong> ${escapeHtml(f.deadline)}</li>` : ''}
+                        ${f.nextCycle  ? `<li><strong style="color:#38bdf8;">Next cycle:</strong> ${escapeHtml(f.nextCycle)}</li>` : ''}
+                    </ul>
+                </div>
+            ` : '';
+            const fundingApplySection = (researcher.category === 'Funding' && f && f.applyUrl) ? `
+                <div class="modal-section">
+                    <a href="${escapeAttr(f.applyUrl)}" target="_blank" rel="noopener" class="popup-link" style="display:inline-block;width:auto;padding:0.55rem 1.25rem;">Apply / Programme page →</a>
+                </div>
+            ` : '';
+
             const modal = document.getElementById('detailModal');
             const content = document.getElementById('modalContent');
 
@@ -3062,11 +3344,16 @@
                         <p>${researcher.description}</p>
                     </div>
 
+                    ${researcher.notable ? `
                     <div class="modal-section">
-                        <h4>Key Achievement</h4>
+                        <h4>${researcher.category === 'Funding' ? 'Highlight' : 'Key Achievement'}</h4>
                         <p style="color: #38bdf8;">${researcher.notable}</p>
                     </div>
+                    ` : ''}
 
+                    ${fundingAwardSection}
+                    ${fundingTimelineSection}
+                    ${fundingApplySection}
                     ${contactSection}
                     ${linksSection}
                     ${appearancesSection}
