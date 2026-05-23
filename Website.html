@@ -782,6 +782,15 @@
                     focus:       { label: "Focus",       values: ["Basic research","Translational","Clinical trial","Hardware / Materials","Consumer / Augmentation"] },
                     timeline:    { label: "Timeline",    values: ["Open now","Opens within 10 months","Opens in 10+ months","Rolling","Closed for cycle"] }
                 }
+            },
+            Industry: {
+                label: "Industry",
+                facets: {
+                    region:     { label: "Region",     values: ["North America","Europe","Asia","Other"] },
+                    indication: { label: "Indication", values: ["Motor restoration","Speech","Paralysis","Spinal cord injury","ALS","Vision restoration","Tumor / Oncology","Epilepsy","Stroke rehabilitation","Parkinson's / DBS","Treatment-resistant depression","Psychiatric","Tinnitus","Autonomic recovery","Neuromonitoring"] },
+                    approach:   { label: "Approach",   values: ["Intracortical","Epicortical (subdural)","Skull-mounted","Endovascular","Spinal","Retinal","Optogenetic"] },
+                    stage:      { label: "Stage",      values: ["Preclinical","First-in-human","Clinical trial","Approved / Commercial"] }
+                }
             }
         };
 
@@ -3250,6 +3259,306 @@
                 labWebsite: "https://neurotechx.com/",
                 scholar: "",
                 appearances: []
+            },
+            // ───────── Industry ─────────
+            {
+                id: 94,
+                name: "Neuralink",
+                photo: "",
+                institution: "Neuralink Corp.",
+                location: "Fremont, CA, USA",
+                coords: [37.5500, -121.9870],
+                topic: "N1 fully implantable BCI — flexible threads inserted by surgical robot, first humans implanted",
+                category: "Industry",
+                tags: {
+                    region:     ["North America"],
+                    indication: ["Motor restoration","Vision restoration","Spinal cord injury"],
+                    approach:   ["Intracortical"],
+                    stage:      ["First-in-human"]
+                },
+                description: "Developing a fully implantable, high-channel-count (N1) system using flexible thread electrodes inserted via a surgical robot. Initial human trials target tetraplegia; the Blindsight programme targets visual restoration.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://neuralink.com/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 95,
+                name: "Paradromics",
+                photo: "",
+                institution: "Paradromics Inc.",
+                location: "Austin, TX, USA",
+                coords: [30.2672, -97.7431],
+                topic: "Connexus Direct Data Interface — high-data-rate cortical implant for ALS communication and computer control",
+                category: "Industry",
+                tags: {
+                    region:     ["North America"],
+                    indication: ["Motor restoration","Speech","ALS"],
+                    approach:   ["Intracortical"],
+                    stage:      ["First-in-human"]
+                },
+                description: "Building the Connexus Direct Data Interface — a high-data-rate cortical implant using arrays of penetrating microwires to translate neural signals into text and computer control for patients with severe paralysis.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://paradromics.com/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 96,
+                name: "Precision Neuroscience",
+                photo: "",
+                institution: "Precision Neuroscience",
+                location: "New York City, NY, USA",
+                coords: [40.7128, -74.0060],
+                topic: "Layer 7 Cortical Interface — reversible high-density surface electrode array for mapping and motor restoration",
+                category: "Industry",
+                tags: {
+                    region:     ["North America"],
+                    indication: ["Motor restoration","Tumor / Oncology","Paralysis"],
+                    approach:   ["Epicortical (subdural)"],
+                    stage:      ["First-in-human"]
+                },
+                description: "Layer 7 Cortical Interface — a reversible, high-density microelectrode array that sits on the surface of the brain without penetrating tissue. Used in human trials for mapping during tumor resection; moving toward chronic motor restoration.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://precisionneuro.io/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 97,
+                name: "Science Corp",
+                photo: "",
+                institution: "Science Corp",
+                location: "Alameda, CA, USA",
+                coords: [37.7652, -122.2416],
+                topic: "Science Eye — optogenetic + micro-LED visual prosthesis for retinitis pigmentosa and macular degeneration",
+                category: "Industry",
+                tags: {
+                    region:     ["North America"],
+                    indication: ["Vision restoration"],
+                    approach:   ["Retinal","Optogenetic"],
+                    stage:      ["Clinical trial"]
+                },
+                description: "Building the \"Science Eye\" — a visual prosthesis for retinitis pigmentosa and macular degeneration that combines gene therapy (optogenetics) with a thin-film micro-LED display implanted over the retina.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://science.xyz/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 98,
+                name: "Blackrock Neurotech",
+                photo: "",
+                institution: "Blackrock Neurotech",
+                location: "Salt Lake City, UT, USA",
+                coords: [40.7608, -111.8910],
+                topic: "Utah Array originator — chronic intracortical recording with the longest in-human track record",
+                category: "Industry",
+                tags: {
+                    region:     ["North America"],
+                    indication: ["Motor restoration","Speech","ALS"],
+                    approach:   ["Intracortical"],
+                    stage:      ["First-in-human","Clinical trial"]
+                },
+                description: "Pioneers of the Utah Array with decades of in-human chronic implant experience. Developing the fully implantable Neuralace and MoveAgain systems for severe paralysis and communication.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://blackrockneurotech.com/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 99,
+                name: "Synchron",
+                photo: "",
+                institution: "Synchron Inc.",
+                location: "New York City, NY, USA",
+                coords: [40.7308, -73.9973],
+                topic: "Stentrode — endovascular BCI delivered through the jugular vein, no open-brain surgery",
+                category: "Industry",
+                tags: {
+                    region:     ["North America"],
+                    indication: ["Motor restoration","Speech","ALS"],
+                    approach:   ["Endovascular"],
+                    stage:      ["Clinical trial"]
+                },
+                description: "Technically minimally invasive but a major iBCI player. The Stentrode device is delivered via the jugular vein into the motor cortex, avoiding open brain surgery to restore digital communication.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://synchron.com/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 100,
+                name: "Motif Neurotech",
+                photo: "",
+                institution: "Motif Neurotech",
+                location: "Houston, TX, USA",
+                coords: [29.7604, -95.3698],
+                topic: "Skull-mounted battery-free brain stimulator for treatment-resistant depression — no tissue penetration",
+                category: "Industry",
+                tags: {
+                    region:     ["North America"],
+                    indication: ["Treatment-resistant depression","Psychiatric"],
+                    approach:   ["Skull-mounted"],
+                    stage:      ["First-in-human"]
+                },
+                description: "Miniature, battery-free brain stimulator implanted in the skull (above the dura). Provides targeted cortical stimulation for mental-health disorders without penetrating brain tissue.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 101,
+                name: "CorTec",
+                photo: "",
+                institution: "CorTec GmbH",
+                location: "Freiburg, Germany",
+                coords: [47.9990, 7.8421],
+                topic: "Brain Interchange — fully implantable bidirectional closed-loop platform; FDA-approved trial for stroke rehab",
+                category: "Industry",
+                tags: {
+                    region:     ["Europe"],
+                    indication: ["Stroke rehabilitation","Epilepsy","Motor restoration"],
+                    approach:   ["Epicortical (subdural)"],
+                    stage:      ["Clinical trial"]
+                },
+                description: "Makers of the Brain Interchange system — a fully implantable, bidirectional (read/write) closed-loop platform. Currently in FDA-approved clinical evaluation for stroke rehabilitation using adaptive cortical stimulation.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.cortec-neuro.com/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 102,
+                name: "Inbrain Neuroelectronics",
+                photo: "",
+                institution: "Inbrain Neuroelectronics",
+                location: "Barcelona, Spain",
+                coords: [41.3851, 2.1734],
+                topic: "Graphene-based neural interfaces for high-resolution tumor mapping and targeted DBS",
+                category: "Industry",
+                tags: {
+                    region:     ["Europe"],
+                    indication: ["Tumor / Oncology","Parkinson's / DBS","Epilepsy"],
+                    approach:   ["Epicortical (subdural)"],
+                    stage:      ["First-in-human","Clinical trial"]
+                },
+                description: "Replacing traditional platinum-iridium electrodes with graphene-based neural interfaces. The high-resolution platform is used for precision mapping during brain tumor resections and targeted deep brain stimulation.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.inbrain-neuroelectronics.com/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 103,
+                name: "Neurosoft Bioelectronics",
+                photo: "",
+                institution: "Neurosoft Bioelectronics",
+                location: "Geneva, Switzerland",
+                coords: [46.2044, 6.1432],
+                topic: "Stretchable, soft subdural electrodes that conform to the brain's folds",
+                category: "Industry",
+                tags: {
+                    region:     ["Europe"],
+                    indication: ["Tinnitus","Epilepsy","Neuromonitoring"],
+                    approach:   ["Epicortical (subdural)"],
+                    stage:      ["Clinical trial"]
+                },
+                description: "Highly stretchable, soft subdural electrodes that conform seamlessly to the folds of the brain. Moving through clinical trials for severe neurological conditions and minimally invasive monitoring.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 104,
+                name: "Onward Medical",
+                photo: "",
+                institution: "Onward Medical",
+                location: "Eindhoven, Netherlands / Lausanne, Switzerland",
+                coords: [51.4416, 5.4697],
+                topic: "ARC-IM — implantable epidural spinal stimulation for SCI mobility and blood-pressure recovery",
+                category: "Industry",
+                tags: {
+                    region:     ["Europe"],
+                    indication: ["Spinal cord injury","Motor restoration","Autonomic recovery"],
+                    approach:   ["Spinal"],
+                    stage:      ["Clinical trial"]
+                },
+                description: "Focused on the ARC-IM system — an implantable pulse generator connected to a lead placed on the spinal cord. Delivers epidural electrical stimulation to restore mobility and blood-pressure regulation post-SCI.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 105,
+                name: "Coherence Neuro",
+                photo: "",
+                institution: "Coherence Neuro",
+                location: "Cambridge, UK / San Francisco, CA",
+                coords: [52.2053, 0.1218],
+                topic: "Electro-oncology — SOMA-1 BCI implanted at tumor resection to disrupt residual glioma cell division",
+                category: "Industry",
+                tags: {
+                    region:     ["Europe"],
+                    indication: ["Tumor / Oncology"],
+                    approach:   ["Epicortical (subdural)"],
+                    stage:      ["Preclinical","First-in-human"]
+                },
+                description: "Pioneering \"electro-oncology.\" Developing SOMA-1 — a BCI implanted during tumor resection that monitors bioelectronic signals and delivers targeted electrical stimulation to disrupt remaining cancer cell division.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 106,
+                name: "Phosphenix",
+                photo: "",
+                institution: "Phosphenix",
+                location: "Alicante, Spain",
+                coords: [38.3452, -0.4810],
+                topic: "Cortical visual prosthesis — penetrating microelectrode arrays in V1 to bypass the eyes and optic nerves",
+                category: "Industry",
+                tags: {
+                    region:     ["Europe"],
+                    indication: ["Vision restoration"],
+                    approach:   ["Intracortical"],
+                    stage:      ["Preclinical","First-in-human"]
+                },
+                description: "Spin-off focused on restoring sight to the blind through penetrating microelectrode arrays implanted directly into the visual cortex — bypassing the eyes and optic nerves completely.",
+                notable: "",
+                email: "",
+                phone: "",
+                labWebsite: "",
+                scholar: "",
+                appearances: []
             }
         ];
 
@@ -3506,7 +3815,7 @@
         }
 
         // ---- Category-scoped faceted filtering ----
-        const CATEGORY_ORDER = ['Implant', 'Researcher', 'Trial', 'Conference', 'Funding'];
+        const CATEGORY_ORDER = ['Implant', 'Researcher', 'Industry', 'Trial', 'Conference', 'Funding'];
         // First three (or fewer) facets shown by default; the rest live behind "More filters".
         const DEFAULT_VISIBLE_FACETS = {
             Implant:    ['invasiveness', 'stage', 'target'],
