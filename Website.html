@@ -215,11 +215,12 @@
         }
 
         /* Map Container */
+        /* No explicit z-index: a z-index here would create a stacking context
+           that traps Leaflet popups below the floating top bar (z-index 1000). */
         #map {
             height: 100vh;
             width: 100vw;
             background: #0f172a;
-            z-index: 1;
         }
 
         /* Custom Popup Styling — black / white / cyan, matches top bar */
