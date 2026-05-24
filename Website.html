@@ -745,73 +745,50 @@
             Implant: {
                 label: "Implants",
                 facets: {
-                    invasiveness: { label: "Invasiveness", values: ["Non-invasive","Minimally invasive","Endovascular","Epicortical (ECoG)","Intracortical","Peripheral nerve","Spinal","Deep brain"] },
-                    modality:     { label: "Modality",     values: ["EEG","ECoG","sEEG","Microelectrode array","Microwire","Optical recording","Optical stimulation","Ultrasound (fUSI)","Electrical stimulation"] },
-                    formFactor:   { label: "Form factor",  values: ["Rigid","Flexible","Stretchable","Mesh","Fiber","Injectable","Wireless"] },
-                    materials:    { label: "Materials",    values: ["Silicon","Parylene-C","Polyimide","PDMS","Liquid Crystal Polymer","Graphene","Carbon nanotube","PEDOT:PSS","Hydrogel","Pt/Ir thin-film","IrOx"] },
-                    paradigm:     { label: "Paradigm",     values: ["Conventional","Biohybrid","Organic bioelectronics","Optogenetic"] },
-                    target:       { label: "Target",       values: ["Motor","Vision","Somatosensory","Auditory","Speech","Memory","Spinal cord","Peripheral nervous system"] },
-                    indication:   { label: "Indication",   values: ["Paralysis","Communication","Blindness","Deafness","Parkinson's","Epilepsy","Chronic pain","Consumer / Augmentation","Research-only"] },
-                    stage:        { label: "Stage",        values: ["Concept","Preclinical","Animal model","First-in-human","Clinical trial","Approved / Commercial"] }
+                    approach: { label: "Approach", values: ["Intracortical","ECoG / Surface","Endovascular","Spinal","Optical / Optogenetic"] },
+                    stage:    { label: "Stage",    values: ["Preclinical","Clinical trial","Approved"] }
                 }
             },
             Researcher: {
                 label: "Researchers",
                 facets: {
-                    affiliation: { label: "Affiliation",  values: ["Academia","Industry","Hospital","Government"] },
-                    paradigm:    { label: "Paradigm",     values: ["Conventional","Biohybrid","Organic bioelectronics","Optogenetic"] },
-                    target:      { label: "Target",       values: ["Motor","Vision","Somatosensory","Auditory","Speech","Memory","Spinal cord","Peripheral nervous system"] },
-                    topics:      { label: "Topics",       values: ["Materials","Decoding","Closed-loop","Surgical robotics","Wireless power","Biocompatibility / FBR","Glial scarring & wound healing","Chronic stability","Neurorights / Ethics"] }
+                    focus: { label: "Focus", values: ["Motor","Speech / Language","Vision","Materials","Decoding","Wireless","Biohybrid","Optogenetic","Ethics"] }
                 }
             },
             Trial: {
                 label: "Trials",
                 facets: {
-                    trialType:  { label: "Trial type",  values: ["Clinical","Preclinical"] },
-                    phase:      { label: "Phase",       values: ["Preclinical","Pilot / Feasibility","Phase 0","Phase 1","Phase 1/2","Phase 2","Phase 2/3","Phase 3","Phase 4","Not applicable"] },
-                    status:     { label: "Status",      values: ["Planned","Recruiting","Ongoing","Active, not recruiting","Completed","Terminated","Unknown"] },
-                    indication: { label: "Indication",  values: ["Paralysis","Communication","Blindness","Deafness","Parkinson's","Epilepsy","Chronic pain","Depression","OCD","Stroke rehabilitation","Consumer / Augmentation"] },
-                    target:     { label: "Target",      values: ["Motor","Vision","Somatosensory","Auditory","Speech","Memory","Spinal cord","Peripheral nervous system"] },
-                    sponsor:    { label: "Sponsor",     values: ["Academic","Hospital","Industry","Government"] }
+                    phase:  { label: "Phase",  values: ["Preclinical","Pilot / Phase 1","Phase 2-3","Approved"] },
+                    status: { label: "Status", values: ["Recruiting","Ongoing","Completed"] }
                 }
             },
             Conference: {
                 label: "Conferences",
                 facets: {
-                    scope:     { label: "Scope",     values: ["International","Regional","National"] },
-                    frequency: { label: "Frequency", values: ["Annual","Biennial","One-off","Year-round"] },
-                    focus:     { label: "Focus",     values: ["General neurotech","Clinical","Engineering / Materials","Computational / Decoding","Hardware & Signal Processing","Translational","Ethics & Policy"] },
-                    timeline:  { label: "Timeline",  values: ["Happening soon","Upcoming this year","Later this year","Past — plan for next cycle","Biennial — varies","Ongoing"] },
-                    character: { label: "Character", values: ["Highly specialized","Massive scale","Intimate academic","Community & startups"] }
+                    timeline: { label: "Timeline", values: ["Happening soon","Upcoming","Past — plan for next cycle","Year-round"] },
+                    focus:    { label: "Focus",    values: ["BCI / Neural engineering","Clinical","Hardware","General"] }
                 }
             },
             Funding: {
                 label: "Funding",
                 facets: {
-                    type:        { label: "Type",        values: ["Government grant","Foundation / Non-profit","Prize / Challenge","VC / Private","Fellowship"] },
-                    sector:      { label: "Sector",      values: ["Academia","Industry","Both"] },
-                    eligibility: { label: "Eligibility", values: ["Undergraduate","Graduate / Master's","PhD","Postdoc","Early career PI","Established PI","Industry / Startup"] },
-                    focus:       { label: "Focus",       values: ["Basic research","Translational","Clinical trial","Hardware / Materials","Consumer / Augmentation"] },
-                    timeline:    { label: "Timeline",    values: ["Open now","Opens within 10 months","Opens in 10+ months","Rolling","Closed for cycle"] }
+                    type:        { label: "Type",        values: ["Government","Foundation","Prize","Fellowship","VC / Private"] },
+                    eligibility: { label: "Eligibility", values: ["Student","PhD / Postdoc","PI","Industry / Startup"] }
                 }
             },
             Industry: {
                 label: "Industry",
                 facets: {
-                    region:     { label: "Region",     values: ["North America","Europe","Asia","Other"] },
-                    indication: { label: "Indication", values: ["Motor restoration","Speech","Paralysis","Spinal cord injury","ALS","Vision restoration","Tumor / Oncology","Epilepsy","Stroke rehabilitation","Parkinson's / DBS","Treatment-resistant depression","Psychiatric","Tinnitus","Chronic pain","Autonomic recovery","Neuromonitoring"] },
-                    approach:   { label: "Approach",   values: ["Intracortical","Epicortical (subdural)","Skull-mounted","Endovascular","Spinal","Retinal","Optogenetic"] },
-                    stage:      { label: "Stage",      values: ["Preclinical","First-in-human","Clinical trial","Approved / Commercial"] }
+                    region: { label: "Region", values: ["North America","Europe","Asia","Other"] },
+                    stage:  { label: "Stage",  values: ["Preclinical","Clinical trial","Approved"] },
+                    focus:  { label: "Focus",  values: ["Motor","Vision","Pain / Spinal"] }
                 }
             },
             Society: {
                 label: "Societies",
                 facets: {
-                    type:       { label: "Type",       values: ["Scientific society","Professional / Clinical","Community / Grassroots","Advocacy / Ethics","Patient-led","Federation"] },
-                    scope:      { label: "Scope",      values: ["International","National","Regional"] },
-                    focus:      { label: "Focus",      values: ["BCI / Neural engineering","Neuromodulation / Surgical","Decoding / Signal processing","Neuroethics / Policy","Patient experience","General neuroscience"] },
-                    activity:   { label: "Activity",   values: ["Conferences","Hackathons","Standards","Trial coordination","Regulatory pathways","Grants & training","Policy advocacy","Patient outreach","Networking"] },
-                    indication: { label: "Indication", values: ["Paralysis","Communication","Blindness","Deafness","Parkinson's","Epilepsy","Chronic pain","ALS","Stroke rehabilitation"] }
+                    type:     { label: "Type",     values: ["Scientific","Clinical","Community","Advocacy","Patient-led"] },
+                    activity: { label: "Activity", values: ["Conferences","Standards","Trial coordination","Networking","Advocacy"] }
                 }
             }
         };
@@ -827,10 +804,7 @@
                 topic: "Wireless miniature brain stimulators powered by magnetoelectrics",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia", "Industry"],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    topics: ["Wireless power"]
+                    focus: ["Wireless"]
                 },
                 description: "Developing the smallest implantable brain stimulator (DOT device) using magnetoelectric power transfer. Pea-sized device for treating drug-resistant depression and psychiatric disorders without batteries. Co-founder of Motif Neurotech.",
                 notable: "First-in-human demonstration of a miniature wireless cortical stimulator",
@@ -850,10 +824,7 @@
                 topic: "Transparent neural interfaces for multimodal brain monitoring",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    topics: ["Materials"]
+                    focus: ["Materials"]
                 },
                 description: "Leads the Neuroelectronics Lab, creating nanoelectronic devices that enable monitoring of brain activity at multiple spatial and temporal scales. Pioneering transparent electrode arrays that combine optical imaging with electrical recording.",
                 notable: "Transparent brain implants that can read deep neural activity from the surface",
@@ -873,10 +844,7 @@
                 topic: "Miniaturized brain–machine interface chips for neural disorders",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Motor", "Speech"],
-                    topics: ["Decoding", "Closed-loop"]
+                    focus: ["Decoding", "Motor", "Speech / Language"]
                 },
                 description: "Heads the Integrated Neurotechnologies Laboratory (INL), developing next-generation miniaturized brain-machine interfaces on silicon chips and implantable systems for movement and communication recovery.",
                 notable: "NeuralTree chip for on-device brain disorder management; NIMH grant recipient",
@@ -896,10 +864,7 @@
                 topic: "Intracortical BCIs for restoring communication and mobility",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia", "Hospital"],
-                    paradigm: ["Conventional"],
-                    target: ["Motor", "Speech"],
-                    topics: ["Decoding"]
+                    focus: ["Decoding", "Motor", "Speech / Language"]
                 },
                 description: "Director of the BrainGate clinical trials, pioneering intracortical brain-computer interfaces since 2004. Using micro-electrode arrays to restore communication and mobility for people with paralysis, ALS, and spinal cord injury.",
                 notable: "First human use of intracortical BCI for communication and robotic control",
@@ -919,10 +884,7 @@
                 topic: "Single-chip, tissue-thin BCI platforms",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    topics: ["Materials"]
+                    focus: ["Materials"]
                 },
                 description: "Leading the Biological Interface System to Cortex (BISC) project — a single-chip implant as thin as tissue paper that creates high-bandwidth brain-computer interfaces, in collaboration with Stanford and UPenn.",
                 notable: "Single-chip scalable BCI platform published in Nature Electronics",
@@ -942,10 +904,7 @@
                 topic: "High-channel-count wireless BCIs for speech and motor restoration",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Motor", "Speech"],
-                    topics: ["Decoding"]
+                    focus: ["Decoding", "Motor", "Speech / Language"]
                 },
                 description: "Leading first-in-human trials of the Paradromics Connexus BCI. Developing wireless high-channel-count neural interfaces for speech and motor restoration in partnership with Blackrock Neurotech.",
                 notable: "First human recording from a 421-electrode wireless BCI",
@@ -965,10 +924,7 @@
                 topic: "ECoG-based BCIs for speech decoding in paralysis",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Speech"],
-                    topics: ["Decoding"]
+                    focus: ["Decoding", "Speech / Language"]
                 },
                 description: "Co-leads the CortiCom clinical trials at Johns Hopkins, using high-density ECoG grids (128 electrodes) for speech decoding in locked-in syndrome patients.",
                 notable: "Fully implanted wireless BCI for home use by paralyzed patients",
@@ -988,10 +944,7 @@
                 topic: "Implantable BCIs for home use by locked-in patients",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Speech"],
-                    topics: ["Decoding"]
+                    focus: ["Decoding", "Speech / Language"]
                 },
                 description: "Co-investigator on the CortiCom implantable BCI program. Long-standing work on fully-implanted BCIs that allow paralyzed users to communicate from home without external hardware.",
                 notable: "Pioneer of long-term, fully implanted home-use BCIs",
@@ -1011,10 +964,7 @@
                 topic: "Injectable nano-bioelectronics that self-implant via the bloodstream",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Biohybrid"],
-                    target: [],
-                    topics: ["Materials"]
+                    focus: ["Biohybrid", "Materials"]
                 },
                 description: "Leads the Nano-Cybernetic Biotrek group, developing 'Circulatronics' — microscopic wireless bioelectronics that travel through blood vessels and self-implant in the brain without surgery. Cell–electronics hybrids that cross the blood-brain barrier.",
                 notable: "Injectable neural implants that don't require surgery; Nature Biotechnology publication",
@@ -1034,10 +984,7 @@
                 topic: "In-home BCI systems for paralyzed users",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Motor"],
-                    topics: ["Decoding"]
+                    focus: ["Decoding", "Motor"]
                 },
                 description: "Director of the Rehab Neural Engineering Labs (RNEL). Expanding access to BCI clinical trials through in-home systems, with miniaturized BCI hardware co-developed with Blackrock Neurotech.",
                 notable: "First in-home BCI system for high-complexity neural control",
@@ -1057,10 +1004,7 @@
                 topic: "Sensorimotor BCIs and neural control of prosthetics",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Motor", "Somatosensory"],
-                    topics: ["Decoding", "Closed-loop"]
+                    focus: ["Decoding", "Motor"]
                 },
                 description: "Co-leads the RNEL group's BCI clinical work, focusing on sensorimotor restoration: using intracortical recording and stimulation to give paralyzed users dexterous prosthetic limb control with tactile feedback.",
                 notable: "Bidirectional BCIs combining motor decoding with somatosensory stimulation",
@@ -1080,10 +1024,7 @@
                 topic: "Self-powered implantable wireless biomedical sensors",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    topics: ["Materials", "Wireless power"]
+                    focus: ["Materials", "Wireless"]
                 },
                 description: "Co-director of the ASSIST Center (Advanced Self-Powered Systems of Integrated Sensors). Developing implantable wireless biomedical devices for functional bio-interfacing with the nervous system, including battery-free technologies.",
                 notable: "Self-powered implantable sensors and stimulation systems",
@@ -1103,10 +1044,7 @@
                 topic: "Battery-free implantable optoelectronic neural interfaces",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Optogenetic"],
-                    target: [],
-                    topics: ["Materials", "Wireless power"]
+                    focus: ["Materials", "Optogenetic", "Wireless"]
                 },
                 description: "Develops soft, battery-free implantable optoelectronic systems for wireless neural stimulation and recording, with a focus on optogenetic interfaces and miniaturized photonic devices.",
                 notable: "Wireless, battery-free optogenetic neural implants",
@@ -1126,10 +1064,7 @@
                 topic: "Algorithms for high-performance neural prosthetics",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Motor"],
-                    topics: ["Decoding"]
+                    focus: ["Decoding", "Motor"]
                 },
                 description: "Co-led the Neural Prosthetics Translational Lab (NPTL) at Stanford, focused on algorithm development for neural prosthetics and understanding motor cortex dynamics. Part of the BrainGate consortium.",
                 notable: "High-performance BCI handwriting decoding",
@@ -1149,10 +1084,7 @@
                 topic: "Neurosurgical implementation of intracortical BCIs",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Motor", "Speech"],
-                    topics: ["Decoding"]
+                    focus: ["Decoding", "Motor", "Speech / Language"]
                 },
                 description: "Co-director of NPTL and surgical lead for Stanford's BrainGate trials. Bridges neurosurgery and BCI engineering, leading implantation of intracortical arrays in human participants.",
                 notable: "Surgical lead for record-setting BCI speech and handwriting decoders",
@@ -1172,10 +1104,7 @@
                 topic: "Implantable neural interfaces for bioelectronic medicine",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Peripheral nervous system"],
-                    topics: ["Materials"]
+                    focus: ["Materials"]
                 },
                 description: "Leads work at Imperial's Institute of Neurotechnology on bioelectronic medicines and neural interfaces for chronic disease, including vagus nerve stimulation and miniaturized implantable systems.",
                 notable: "Next-generation neural interfaces for bioelectronic medicine",
@@ -1195,10 +1124,7 @@
                 topic: "Closed-loop neuromodulation systems",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    topics: ["Closed-loop", "Materials"]
+                    focus: ["Decoding", "Materials"]
                 },
                 description: "Works on closed-loop neuromodulation devices that adapt stimulation in response to recorded neural activity, with applications across psychiatric and neurological disorders.",
                 notable: "Closed-loop bioelectronic stimulation platforms",
@@ -1218,10 +1144,7 @@
                 topic: "MEMS-based microelectrode arrays for neural interfaces",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Biohybrid", "Optogenetic"],
-                    target: [],
-                    topics: ["Materials"]
+                    focus: ["Biohybrid", "Materials", "Optogenetic"]
                 },
                 description: "Heads the Laboratory for Biomedical Microtechnology at IMTEK and the Laboratory for Biohybrid Neural Interfaces at IMBIT. Develops MEMS-based microelectrode arrays, optogenetic stimulation tools, and biomedical microsystems for monitoring and modulating neuronal networks.",
                 notable: "ISO 13485 certified medical device development; developed °AirRay electrode technology",
@@ -1241,10 +1164,7 @@
                 topic: "Biohybrid neural implants with soft hydrogel electrodes",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Biohybrid"],
-                    target: [],
-                    topics: ["Materials", "Biocompatibility / FBR"]
+                    focus: ["Biohybrid", "Materials"]
                 },
                 description: "Leads the early-career research group 'Biohybrid Neuroimplants based on Soft Hydrogel Electrodes' at IMBIT, within the Soft Sensorics & Biohybrid Systems group of BrainLinks-BrainTools. Develops biohybrid neural implants that use cultured cells to integrate into brain tissue, creating a 'living' interface between local neurons and the read-out electronics — aiming for better biocompatibility, reduced rejection, and higher-resolution recordings.",
                 notable: "Carl Zeiss Foundation 1.5M EUR award to launch his early-career group on biohybrid neuroimplants",
@@ -1264,10 +1184,7 @@
                 topic: "Organic bioelectronic interfaces between living tissue and electronics",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Organic bioelectronics"],
-                    target: [],
-                    topics: ["Materials"]
+                    focus: ["Materials"]
                 },
                 description: "Group leader for Organic Bioelectronics at LiU's Laboratory of Organic Electronics. Develops in-situ polymerized organic electrodes for neural interfaces, organic electronic ion pumps for precise drug delivery (including for brain cancer), and bioelectronic tools for the enteric nervous system through the EnterBio EIC Pathfinder project.",
                 notable: "Organic electronic ion pump used to deliver chemotherapy directly to brain tumors",
@@ -1287,10 +1204,7 @@
                 topic: "Ultra-flexible, lightweight neural implants for single-neuron resolution",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    topics: ["Materials", "Biocompatibility / FBR", "Chronic stability"]
+                    focus: ["Materials"]
                 },
                 description: "Assistant Professor of Biomedical Engineering at Stevens. Leads the InBrain Electronics Lab, designing ultra-flexible and lightweight neural implants that produce a more tissue-compatible interface — with the goal of large-scale recording and stimulation at single-neuron resolution over long timescales without causing tissue damage.",
                 notable: "Soft, flexible BCI devices targeting long-term, low-damage neural interfacing",
@@ -1310,10 +1224,7 @@
                 topic: "Visual cortical prostheses to restore sight in blind people",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia", "Industry"],
-                    paradigm: ["Conventional"],
-                    target: ["Vision"],
-                    topics: ["Materials"]
+                    focus: ["Materials", "Vision"]
                 },
                 description: "Group leader at the Netherlands Institute for Neuroscience (NIN; director 2007–2023) and professor at Vrije Universiteit Amsterdam and the Amsterdam UMC Neurosurgery Department. Studies visual perception, plasticity, memory and consciousness, and develops cortical prostheses that bypass the eyes and optic nerves by directly stimulating the visual cortex. Co-founded Phosphoenix in 2019 (with Bert Monna and Xing Chen) to translate the visual brain prosthesis toward clinical use.",
                 notable: "HBP Innovation Award recipient; co-founder of Phosphoenix",
@@ -1336,10 +1247,7 @@
                 topic: "Soft bioelectronic interfaces and stretchable neural implants",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Biohybrid"],
-                    target: ["Spinal cord"],
-                    topics: ["Materials"]
+                    focus: ["Biohybrid", "Materials", "Motor"]
                 },
                 description: "Holds the Bertarelli Foundation Chair in Neuroprosthetic Technology and leads the Laboratory of Soft Bioelectronic Interfaces (LSBI) at EPFL. Designs electronic devices whose mechanical properties closely match those of biological tissue, enabling long-term reliable and minimally invasive neural interfaces. Research spans stretchable conductors, electronic skins, soft electrode arrays, and active neuroprostheses — with applications from spinal cord implants to robotic skins.",
                 notable: "Developer of the e-dura soft spinal cord implant; director of EPFL's Center for Neuroprosthetics",
@@ -1359,10 +1267,7 @@
                 topic: "Flexible polymer electrode materials for chronically stable neural implants",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Biohybrid"],
-                    target: ["Spinal cord", "Vision"],
-                    topics: ["Materials", "Glial scarring & wound healing", "Chronic stability"]
+                    focus: ["Biohybrid", "Materials", "Motor", "Vision"]
                 },
                 description: "Professor of Bioelectronic Microtechnology at Chalmers. Specialises in electrode materials for safe and efficient charge injection across the full clinical range — from wound healing to deep brain implants. Develops flexible polymer electrodes and nano-scale neuron-sized implants in collaboration with the University of Freiburg and Netherlands Institute for Neuroscience. Also investigates bioelectronic spinal cord repair using electrical fields as axon guidance cues.",
                 notable: "Led development of nano-scale vision implants with electrodes the size of a single neuron",
@@ -1382,10 +1287,7 @@
                 topic: "Sensorimotor neuroprostheses and peripheral nerve interfaces for restored touch and limb control",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Motor", "Somatosensory", "Peripheral nervous system"],
-                    topics: ["Decoding"]
+                    focus: ["Decoding", "Motor"]
                 },
                 description: "Assistant Professor in Bionics at Chalmers, leading the Neural Bionics Lab. Develops sensorimotor neuroprostheses using peripheral nerve interfaces to restore natural touch and motor control in prosthetic limb users. Works on encoding tactile signals for bionic hands and collaborates with the Cortical Bionics Research Group (University of Pittsburgh, University of Chicago, Northwestern University) on next-generation intracortical BCIs for paralysis.",
                 notable: "Lead author of a landmark Science paper on most advanced artificial touch for brain-controlled bionic hands",
@@ -1405,10 +1307,7 @@
                 topic: "Translational neural engineering for sensorimotor restoration via implantable neuroprostheses",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Biohybrid"],
-                    target: ["Motor", "Somatosensory", "Peripheral nervous system", "Spinal cord"],
-                    topics: ["Decoding"]
+                    focus: ["Biohybrid", "Decoding", "Motor"]
                 },
                 description: "Holds the Bertarelli Foundation Chair in Translational Neuroengineering at EPFL and is also Full Professor at Scuola Superiore Sant'Anna in Pisa. Directs the Translational Neural Engineering Lab (TNE). Develops hybrid neuroprosthetic systems that combine implantable neural interfaces with the peripheral and central nervous systems, robotic devices, and machine learning to restore sensorimotor function after spinal cord injury, stroke, and limb amputation.",
                 notable: "IEEE Fellow; 2021 IEEE EMBS Technical Achievement Award; restored sensation in upper-limb amputees using transversal intrafascicular electrodes (TIMEs)",
@@ -1428,10 +1327,7 @@
                 topic: "In vivo fabrication of organic bioelectronics grown directly in living tissue",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Organic bioelectronics", "Biohybrid"],
-                    target: [],
-                    topics: ["Materials"]
+                    focus: ["Biohybrid", "Materials"]
                 },
                 description: "Assistant Professor at Linköping University's Laboratory of Organic Electronics. Investigates transduction between electronic and ionic/molecular signals in electroactive surfaces, iontronic drug delivery, biosensing, and next-generation neural therapy. Co-authored a landmark Science paper demonstrating electrodes grown directly inside living brain tissue using the body's own metabolites as triggers — bypassing the need to surgically insert rigid electrodes.",
                 notable: "Co-author of Science paper on metabolite-induced in vivo fabrication of substrate-free organic bioelectronics in living brain tissue",
@@ -1451,10 +1347,7 @@
                 topic: "Cortical visual neuroprostheses and human clinical trials for restoring sight in the blind",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Vision"],
-                    topics: ["Materials", "Closed-loop"]
+                    focus: ["Decoding", "Materials", "Vision"]
                 },
                 description: "Group leader of the Neuroengineering Biomedical Research Group (nBio) at UMH's Institute of Bioengineering and Director of the CIBER-BBN Neural Engineering Group. Has led four human clinical trials testing cortical visual prostheses in blind volunteers. Developed the Neurolight high-channel-count cortical implant, achieving closed-loop bidirectional communication with the visual cortex — with one participant partially recovering natural vision after more than three years of total blindness.",
                 notable: "First human clinical demonstration of a closed-loop cortical visual neuroprosthesis; participant partially recovered natural vision (Science Advances, 2025)",
@@ -1474,10 +1367,7 @@
                 topic: "Closed-loop stimulation strategies and phosphene perception in cortical visual prostheses",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Vision"],
-                    topics: ["Closed-loop"]
+                    focus: ["Decoding", "Vision"]
                 },
                 description: "Associate Professor at UMH's Department of Histology and Anatomy and co-investigator in the nBio group. Research focuses on adaptive and closed-loop stimulation strategies for visual cortex neuroprostheses, the neural mechanisms underlying electrically-evoked phosphene perception, and how feedback circuits in the visual system can be harnessed to improve stimulation safety and long-term stability. Co-investigator on multiple clinical trials in blind volunteers.",
                 notable: "Co-developer of closed-loop bidirectional cortical visual neuroprosthesis validated in human clinical trials",
@@ -1497,10 +1387,7 @@
                 topic: "AI-driven visual encoding models and computational optimisation of cortical neuroprostheses",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Vision"],
-                    topics: ["Decoding"]
+                    focus: ["Decoding", "Vision"]
                 },
                 description: "Researcher in the nBio group at UMH, with a background spanning computational neuroscience, deep learning, and cortical visual neuroprosthetics. Developed AI-based models of biological retinal responses to encode natural images for artificial vision systems. Completed a postdoc at Pieter Roelfsema's Vision & Cognition lab (Netherlands Institute for Neuroscience), gaining expertise in high-electrode-count cortical implants before returning to UMH. Contributor to the EU-funded NeuraViPeR project.",
                 notable: "Applied deep learning to model retinal neural responses for encoding natural images in cortical visual prostheses",
@@ -1520,14 +1407,8 @@
                 topic: "Syringe-injectable ultraflexible open-mesh electronics for gliosis-free chronic neural recording",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Intracortical"],
-                    modality: ["Microelectrode array"],
-                    formFactor: ["Mesh", "Injectable", "Flexible"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    indication: ["Research-only"],
-                    stage: ["Animal model"]
+                    approach: ["Intracortical"],
+                    stage: ["Preclinical"]
                 },
                 description: "Developed by Charles M. Lieber, Jia Liu, Guosong Hong, Tao Zhou, and Tian-Ming Fu at Harvard, this ultraflexible open-mesh electronics platform is rolled inside a syringe needle and injected directly into the brain. Once deployed, it unfurls and neurons grow through the mesh — creating a gliosis-free, tissue-integrated interface that bridges the mechanical mismatch between rigid probes and soft brain tissue. Enables chronic single-neuron recording without the inflammatory scarring that degrades conventional implants.",
                 notable: "First injectable electronics platform for scar-free, tissue-integrated chronic neural recording",
@@ -1547,14 +1428,8 @@
                 topic: "Subcellular-scale ultraflexible probes >1,000× more compliant than silicon for scar-free single-neuron recording",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Intracortical"],
-                    modality: ["Microelectrode array"],
-                    formFactor: ["Flexible", "Fiber"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    indication: ["Research-only"],
-                    stage: ["Animal model"]
+                    approach: ["Intracortical"],
+                    stage: ["Preclinical"]
                 },
                 description: "Developed by Chong Xie and Lan Luan at UT Austin (and later Rice), NET probes are ultraflexible nanoelectronic threads with subcellular cross-sections (~1 µm thick) — more than 1,000× more flexible than conventional probes. Their cellular-scale surgical footprint produces glial-scar-free integration, enabling long-term, stable recording of individual cortical neurons without triggering the chronic immune response that degrades rigid silicon or metal electrodes.",
                 notable: "1,000× more flexible than conventional probes with demonstrated glial-scar-free chronic integration",
@@ -1574,14 +1449,8 @@
                 topic: "Perfluoropolyether elastomer probes ~10,000× softer than polyimide that can grow with the developing brain",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Intracortical"],
-                    modality: ["Microelectrode array"],
-                    formFactor: ["Flexible"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    indication: ["Research-only"],
-                    stage: ["Animal model"]
+                    approach: ["Intracortical"],
+                    stage: ["Preclinical"]
                 },
                 description: "Developed by Jia Liu, Paul Le Floch, Tianyang Ye, Hao Sheng, and colleagues at Harvard SEAS, Fleuron probes use a perfluoropolyether-dimethacrylate (PFPE) elastomer ~10,000× softer than polyimide and ~10⁶× softer than silicon — approaching the mechanical properties of brain tissue itself. In a landmark 'cyborg tadpole' study, these probes were implanted into a tadpole embryo's neural plate and grew with the developing brain, demonstrating true biomechanical compatibility over time. Commercialized through Axoft.",
                 notable: "First implant soft enough to grow with a developing brain; commercialized as Axoft",
@@ -1602,14 +1471,8 @@
                 topic: "Stretchable silicone spinal implant matched to dura mater mechanics, combining electrical stimulation with drug delivery",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Spinal"],
-                    modality: ["Electrical stimulation"],
-                    formFactor: ["Stretchable"],
-                    materials: ["PDMS"],
-                    paradigm: ["Conventional"],
-                    target: ["Spinal cord"],
-                    indication: ["Paralysis"],
-                    stage: ["Animal model"]
+                    approach: ["Spinal"],
+                    stage: ["Preclinical"]
                 },
                 description: "Developed by Stéphanie Lacour, Grégoire Courtine, Ivan Minev, and Arthur Hirsch at EPFL, e-Dura is a flexible spinal cord implant on a stretchable silicone substrate with cracked-gold conductive tracks and platinum-microbead electrodes. Its mechanical properties are matched to the dura mater, eliminating the friction-induced inflammation that destroys conventional rigid implants under the moving spinal cord. Uniquely combines electrical stimulation with microfluidic drug delivery in a single thin-film device.",
                 notable: "First implant mechanically matched to dura mater — combines electrical stimulation with microfluidic drug delivery",
@@ -1629,14 +1492,8 @@
                 topic: "Wireless digital bridge between motor cortex and lumbosacral spinal cord restoring volitional walking after SCI",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Epicortical (ECoG)", "Spinal"],
-                    modality: ["ECoG", "Electrical stimulation"],
-                    formFactor: ["Wireless"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: ["Motor", "Spinal cord"],
-                    indication: ["Paralysis"],
-                    stage: ["First-in-human"]
+                    approach: ["ECoG / Surface", "Spinal"],
+                    stage: ["Clinical trial"]
                 },
                 description: "Developed by Grégoire Courtine, Jocelyne Bloch, Henri Lorach, Guillaume Charvet, and colleagues at EPFL and CHUV, the Brain–Spine Interface uses two 64-electrode epidural ECoG arrays over the sensorimotor cortex to wirelessly drive a lumbosacral spinal stimulator. In a landmark 2023 Nature paper, patient Gert-Jan Oskam used the system to climb stairs and walk on rough terrain — the first thought-driven digital bridge restoring natural locomotion after complete spinal cord injury. Commercialized through Onward Medical.",
                 notable: "First thought-driven digital bridge restoring natural walking after complete spinal cord injury (Nature, 2023)",
@@ -1657,14 +1514,8 @@
                 topic: "Ultra-conformable PEDOT:PSS organic ECoG mesh that resolves single-unit spikes from the cortical surface without penetration",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Epicortical (ECoG)"],
-                    modality: ["ECoG"],
-                    formFactor: ["Flexible", "Mesh"],
-                    materials: ["PEDOT:PSS"],
-                    paradigm: ["Organic bioelectronics"],
-                    target: [],
-                    indication: ["Research-only"],
-                    stage: ["Animal model"]
+                    approach: ["ECoG / Surface"],
+                    stage: ["Preclinical"]
                 },
                 description: "Developed by Dion Khodagholy, Jennifer Gelinas, György Buzsáki, and colleagues at Columbia and NYU, NeuroGrid is an ultra-conformable ECoG mesh using PEDOT:PSS organic electrodes with mixed ionic-electronic conductivity. Its very low impedance enables it to resolve individual action potentials (single-unit spikes) from the pia surface without piercing brain tissue — a non-penetrating, flexible approach to high-resolution cortical recording previously achievable only with penetrating probes.",
                 notable: "First surface ECoG array to resolve single-unit action potentials without brain penetration",
@@ -1684,14 +1535,8 @@
                 topic: "Up to 4,096-electrode ECoG array with nanostructured platinum for sub-millimetre resolution human brain mapping",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Epicortical (ECoG)"],
-                    modality: ["ECoG", "Electrical stimulation"],
-                    formFactor: ["Flexible"],
-                    materials: ["Parylene-C", "Pt/Ir thin-film"],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    indication: ["Research-only"],
-                    stage: ["First-in-human"]
+                    approach: ["ECoG / Surface"],
+                    stage: ["Clinical trial"]
                 },
                 description: "Developed by Shadi Dayeh, Youngbin Tchoe, Andrew Bourhis, Daniel Cleary, and colleagues at UC San Diego, PtNRGrids are ~6-µm-thick parylene-C films carrying up to 4,096 platinum nanorod ECoG electrodes plus 256 stimulators. Nanostructured platinum provides very low impedance and high charge injection capacity. The reconfigurable pitch enables both sub-millimetre spatial resolution and broad cortical coverage — demonstrated in human brain mapping. Spun off as Precision Neurotech Inc.",
                 notable: "Record 4,096-electrode human ECoG recording with nanostructured platinum across a reconfigurable pitch",
@@ -1712,14 +1557,8 @@
                 topic: "Fully integrated CMOS silicon probe with 960–5,000+ recording sites for simultaneous multi-region neural population recording",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Intracortical"],
-                    modality: ["Microelectrode array"],
-                    formFactor: ["Rigid"],
-                    materials: ["Silicon"],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    indication: ["Research-only"],
-                    stage: ["Animal model"]
+                    approach: ["Intracortical"],
+                    stage: ["Preclinical"]
                 },
                 description: "Developed through a collaboration between HHMI Janelia (Timothy Harris, Karel Svoboda, Albert Lee), UCL (Matteo Carandini, Kenneth Harris), Allen Institute (Christof Koch), and IMEC (James Jun, Bill Lambert), Neuropixels is a stiff silicon probe with a 10-mm shank carrying 960 to 5,000+ recording sites and on-chip multiplexing and digitization. Version 2.0 enables stable chronic recordings tracking the same neurons for more than two months — setting the gold standard for acute and chronic neuroscience recordings across multiple brain regions simultaneously.",
                 notable: "Thousands of neurons recorded simultaneously across multiple brain regions; >2-month stable single-unit tracking",
@@ -1739,14 +1578,8 @@
                 topic: "First photolithographically fabricated multichannel silicon intracortical probes — conceptual ancestor of all modern silicon neural probes",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Intracortical"],
-                    modality: ["Microelectrode array"],
-                    formFactor: ["Rigid"],
-                    materials: ["Silicon"],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    indication: ["Research-only"],
-                    stage: ["Approved / Commercial"]
+                    approach: ["Intracortical"],
+                    stage: ["Approved"]
                 },
                 description: "Developed by Kensall Wise, Khalil Najafi, Daryl Kipke, David Anderson, and colleagues at the University of Michigan, Michigan probes are silicon-shank planar probes fabricated using photolithography, featuring multiple recording sites per shank with on-chip amplification and multiplexing. As stiff silicon implants, they were the first scalable, batch-fabricated multichannel intracortical electrodes — the canonical platform for intracortical neuroscience and the direct conceptual ancestor of Neuropixels. Commercialized through NeuroNexus.",
                 notable: "First photolithographically fabricated multichannel intracortical probe — the ancestor of all modern silicon probes",
@@ -1766,14 +1599,8 @@
                 topic: "10×10 silicon 'bed-of-nails' — the only FDA-cleared high-channel intracortical platform with >30,000 human implant-days",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Intracortical"],
-                    modality: ["Microelectrode array"],
-                    formFactor: ["Rigid"],
-                    materials: ["Silicon"],
-                    paradigm: ["Conventional"],
-                    target: ["Motor"],
-                    indication: ["Paralysis", "Communication"],
-                    stage: ["Approved / Commercial"]
+                    approach: ["Intracortical"],
+                    stage: ["Approved"]
                 },
                 description: "Developed by Richard Normann, Patrick Rousche, Florian Solzbacher, and colleagues at the University of Utah, the Utah Array (NeuroPort) is a 10×10 silicon 'bed-of-nails' with 100 penetrating stiff microelectrodes. It is the only FDA-cleared high-channel-count intracortical electrode platform and has accumulated more than 30,000 cumulative implant-days in human participants — the foundation for BrainGate and the majority of all human cortical BCI research worldwide. Commercialized through Blackrock Neurotech.",
                 notable: "Only FDA-cleared high-channel intracortical array; >30,000 cumulative human implant-days",
@@ -1793,13 +1620,7 @@
                 topic: "Longest-running intracortical BCI clinical program — restoring communication and motor control in paralysis for 20+ years",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Intracortical"],
-                    modality: ["Microelectrode array"],
-                    formFactor: ["Rigid"],
-                    materials: ["Silicon"],
-                    paradigm: ["Conventional"],
-                    target: ["Motor", "Speech"],
-                    indication: ["Paralysis", "Communication"],
+                    approach: ["Intracortical"],
                     stage: ["Clinical trial"]
                 },
                 description: "Led by John Donoghue, Leigh Hochberg, Krishna Shenoy, Jaimie Henderson, Robert Kirsch, Sydney Cash, Frank Willett, and collaborators across Brown, Massachusetts General Hospital/Harvard Medical School, Stanford, Case Western Reserve, and the Providence VA, BrainGate is the world's longest-running intracortical BCI clinical program with over 20 years of safety and longevity data. Using Utah Arrays implanted in motor cortex, it has demonstrated cursor control, robotic arm use, handwriting at 90 characters/minute, and speech decoding in people with ALS, brainstem stroke, and spinal cord injury.",
@@ -1820,14 +1641,8 @@
                 topic: "65,536-electrode single CMOS chip as thin as tissue paper for subdural wireless cortical recording",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Epicortical (ECoG)"],
-                    modality: ["ECoG"],
-                    formFactor: ["Wireless", "Flexible"],
-                    materials: ["Silicon"],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    indication: ["Research-only"],
-                    stage: ["Animal model"]
+                    approach: ["ECoG / Surface"],
+                    stage: ["Preclinical"]
                 },
                 description: "Developed by Ken Shepard (Columbia), Andreas Tolias (Stanford), Bijan Pesaran (UPenn), Taesung Jung, Nanyu Zeng, and colleagues, BISC is a single CMOS silicon chip thin enough to slide between brain and skull — resting like wet tissue paper. Its 65,536 electrodes with on-chip wireless power and data transmission enable massive-channel-count wireless cortical recording with minimal foreign-body volume. Demonstrated stable chronic in-vivo recordings. Commercialized through Kampto Neurotech.",
                 notable: "65,536-electrode single-chip wireless BCI — highest channel count per chip of any implant reported",
@@ -1847,14 +1662,8 @@
                 topic: "Soft ~0.25-mm polymer fibre with thousands of independent channels for multimodal sensing, stimulation, and drug delivery",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Intracortical", "Peripheral nerve"],
-                    modality: ["Electrical stimulation"],
-                    formFactor: ["Fiber", "Flexible"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: ["Peripheral nervous system"],
-                    indication: ["Research-only"],
-                    stage: ["Animal model"]
+                    approach: ["Intracortical"],
+                    stage: ["Preclinical"]
                 },
                 description: "Developed by Zhenan Bao, Jeffrey Tok, Yuanwen Jiang, and colleagues at Stanford, NeuroString is a ~0.25-mm-diameter soft polymer fibre carrying hundreds to thousands of independent channels enabling simultaneous multimodal sensing, stimulation, and drug delivery in soft, moving tissues — brain, gut, and peripheral nerves. Tracked single neurons in mouse brain over months and monitored intestinal activity in pigs, demonstrating a flexible minimally invasive platform for chronic multimodal interfacing across diverse body sites.",
                 notable: "Sub-mm soft polymer fibre combining sensing, stimulation, and drug delivery across brain, gut, and peripheral nerve",
@@ -1874,14 +1683,7 @@
                 topic: "Sub-mm piezoelectric motes powered entirely by external ultrasound backscatter — batteryless wireless neural recording",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Peripheral nerve"],
-                    modality: ["Microelectrode array"],
-                    formFactor: ["Wireless"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: ["Peripheral nervous system"],
-                    indication: ["Research-only"],
-                    stage: ["Animal model"]
+                    stage: ["Preclinical"]
                 },
                 description: "Developed by Michel Maharbiz, Jose Carmena, Dongjin Seo, Ryan Neely, Rikky Muller, and colleagues at UC Berkeley, Neural Dust motes are sub-millimetre piezoelectric sensors powered and read out entirely by external ultrasound via backscatter — no internal battery, no transcranial RF. Demonstrated on rat peripheral nerve, the platform offers a path to truly wireless, batteryless, implantable sensors distributed across the body for chronic peripheral and (eventually) cortical recording.",
                 notable: "First batteryless sub-mm neural implant powered entirely by ultrasound backscatter",
@@ -1901,14 +1703,8 @@
                 topic: "Pea-sized batteryless magnetoelectric cortical stimulator implanted through a 14-mm burr hole in 20 minutes",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Epicortical (ECoG)"],
-                    modality: ["Electrical stimulation"],
-                    formFactor: ["Wireless"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    indication: [],
-                    stage: ["First-in-human"]
+                    approach: ["ECoG / Surface"],
+                    stage: ["Clinical trial"]
                 },
                 description: "Developed by Jacob Robinson, Sameer Sheth, Sunil Sheth, Kaiyuan Yang, and colleagues at Rice University and Baylor College of Medicine, the DOT (Digitally programmable Over-brain Therapeutic) is a pea-sized, batteryless, leadless cortical implant placed above the dura through a 14-mm burr hole in an outpatient ~20-minute procedure. Powered by magnetoelectric wireless energy transfer through the skull, it targets treatment-resistant depression, OCD, and other psychiatric disorders — eliminating the battery bulk and lead-related complications of conventional neuromodulation devices. Commercialized through Motif Neurotech.",
                 notable: "World's smallest wireless cortical stimulator; 14-mm burr-hole implant powered by magnetoelectric transfer",
@@ -1929,14 +1725,8 @@
                 topic: "Fully implantable battery-free wireless BCI with high-speed optical transcutaneous data link for home use by locked-in patients",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Epicortical (ECoG)", "Intracortical"],
-                    modality: ["ECoG", "Microelectrode array"],
-                    formFactor: ["Wireless"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: ["Speech"],
-                    indication: ["Communication", "Paralysis"],
-                    stage: ["First-in-human"]
+                    approach: ["ECoG / Surface", "Intracortical"],
+                    stage: ["Clinical trial"]
                 },
                 description: "Developed by Jonas Zimmermann, George Kouvas, Shenandoah Montamat, Nick Ramsey (UMC Utrecht), and CorTec partners at the Wyss Center for Bio and Neuroengineering in Geneva, ABILITY (Active Brain Implant Live Information Transfer sYstem) is a fully implantable, battery-free wireless BCI with a high-speed optical transcutaneous data link. It streams 128 channels of raw neural data at high bandwidth and interfaces with multiple electrode types (MEAs, ECoG), designed to enable communication for patients with locked-in ALS or brain-stem stroke from their own home — no external hardware required.",
                 notable: "Fully implantable battery-free BCI with optical wireless link — designed for home use without external hardware",
@@ -1956,14 +1746,7 @@
                 topic: "Living iPSC-derived muscle cells on PEDOT:PSS electrodes prevent scar encapsulation at the nerve interface",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Peripheral nerve"],
-                    modality: ["Microelectrode array"],
-                    formFactor: ["Flexible"],
-                    materials: ["PEDOT:PSS"],
-                    paradigm: ["Biohybrid"],
-                    target: ["Peripheral nervous system"],
-                    indication: ["Research-only"],
-                    stage: ["Animal model"]
+                    stage: ["Preclinical"]
                 },
                 description: "Developed by George Malliaras, Damiano Barone, Amy Rochford, Alejandro Carnicer-Lombarte, Mark Kotter, and colleagues at the University of Cambridge, this biohybrid peripheral neural interface layers opti-ox-reprogrammed human iPSC-derived muscle cells on a flexible PEDOT:PSS electrode. The living cellular layer acts as a biological 'buffer' between the metal and the nerve, preventing the scar-tissue encapsulation that degrades chronic implants. Recordings remained stable for 30 days in rat — a genuine biohybrid approach to the foreign-body response problem.",
                 notable: "First biohybrid interface using human iPSC-derived cells to prevent scar encapsulation; stable 30-day recordings in rat",
@@ -1983,14 +1766,8 @@
                 topic: "Injectable nanoparticle dispersion self-assembling into a soft conducting electrode inside living brain tissue using body metabolites",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Intracortical"],
-                    modality: ["Electrical stimulation"],
-                    formFactor: ["Injectable"],
-                    materials: ["Hydrogel"],
-                    paradigm: ["Organic bioelectronics"],
-                    target: [],
-                    indication: ["Research-only"],
-                    stage: ["Animal model"]
+                    approach: ["Intracortical"],
+                    stage: ["Preclinical"]
                 },
                 description: "Developed by Magnus Berggren, Daniel Simon, Xenofon Strakosas, Hanne Biesmans, Klas Tybrandt, Roger Olsson, and colleagues at Linköping and Lund Universities, this technology injects an aqueous nanoparticle dispersion through a hair-thin capillary. Inside the brain, it self-assembles into a soft, brain-matched, mixed ionic-electronic conducting hydrogel electrode — triggered by the body's own metabolites. Variants include enzymatic (GOx/LOx), photopolymerisation, and Au@Ag nanowire-catalysed approaches. The resulting electrode is bioresorbable. Published in Science.",
                 notable: "First electrode grown inside living brain tissue using body metabolites as triggers — no device insertion",
@@ -2010,14 +1787,8 @@
                 topic: "~7-µm carbon fibres below the chronic gliosis threshold — single-neuron recording without foreign-body response",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Intracortical"],
-                    modality: ["Microelectrode array"],
-                    formFactor: ["Fiber", "Flexible"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    indication: ["Research-only"],
-                    stage: ["Animal model"]
+                    approach: ["Intracortical"],
+                    stage: ["Preclinical"]
                 },
                 description: "Developed across multiple labs including Cynthia Chestek (Michigan), Takashi Kozai and X. Tracy Cui (Pittsburgh), Sam Kassegne (SDSU), Hillel Adesnik and Loren Frank (UC Berkeley/UCSF), carbon-fibre arrays use ~7-µm-diameter fibres thin enough to fall below the tissue-damage threshold that triggers chronic gliosis with conventional silicon shanks. Some variants combine extracellular recording with electrochemical neurotransmitter detection. Glassy-carbon ultra-capacitive probes (Kassegne) extend the platform to high charge-injection stimulation. A flexible, minimally invasive answer to probe-induced scarring.",
                 notable: "~7-µm fibres below the chronic gliosis threshold — combining single-neuron recording with neurotransmitter sensing",
@@ -2037,14 +1808,8 @@
                 topic: "Dissolvable silk substrate leaves a sub-micron flexible electrode film conforming intimately to brain surface gyri and sulci",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Epicortical (ECoG)"],
-                    modality: ["ECoG"],
-                    formFactor: ["Flexible"],
-                    materials: ["Polyimide"],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    indication: ["Research-only"],
-                    stage: ["Animal model"]
+                    approach: ["ECoG / Surface"],
+                    stage: ["Preclinical"]
                 },
                 description: "Developed by John Rogers, Brian Litt, Jonathan Viventi, David Kaplan, Fiorenzo Omenetto, and colleagues across UIUC, Northwestern, Penn, and Tufts, these arrays deposit metal/polyimide electrodes on a dissolvable silk fibroin substrate. After placement on the brain surface, the silk dissolves, leaving a sub-micron film that conforms intimately to gyri and sulci — eliminating wrinkling and mechanical mismatch. Silk variants also serve as biodegradable insertion stiffeners for parylene probes. A flexible, bioresorbable platform that solves the cortical conformation problem.",
                 notable: "Dissolvable silk backing allows sub-micron electrode film to conform perfectly to brain surface gyri and sulci",
@@ -2064,12 +1829,8 @@
                 topic: "96-channel Utah array implanted in primary visual cortex enabling letter recognition and shape detection in totally blind patients",
                 category: "Trial",
                 tags: {
-                    trialType: ["Clinical"],
-                    phase: ["Pilot / Feasibility"],
-                    status: ["Ongoing"],
-                    indication: ["Blindness"],
-                    target: ["Vision"],
-                    sponsor: ["Academic"]
+                    phase: ["Pilot / Phase 1"],
+                    status: ["Ongoing"]
                 },
                 description: "Developed by Eduardo Fernández, Richard Normann, Arnau Caravaca-Rodríguez, and colleagues at Universidad Miguel Hernández and the University of Utah / John A. Moran Eye Center, this system implants a 96-channel Utah array directly into primary visual cortex (V1) of totally blind patients — including those with optic-nerve damage where retinal prostheses cannot help. Over six months, participants reported discriminable phosphenes enabling letter recognition and shape detection, with stable stimulation thresholds throughout.",
                 notable: "First 96-channel intracortical V1 stimulation enabling letter and shape recognition in totally blind patients",
@@ -2089,13 +1850,6 @@
                 topic: "Stretchable mesh electronics integrated into stem-cell layers before they fold into 3D brain organoids",
                 category: "Implant",
                 tags: {
-                    invasiveness: [],
-                    modality: ["Microelectrode array"],
-                    formFactor: ["Mesh", "Stretchable"],
-                    materials: [],
-                    paradigm: ["Biohybrid"],
-                    target: [],
-                    indication: ["Research-only"],
                     stage: ["Preclinical"]
                 },
                 description: "Developed by Jia Liu, Hao Sheng, Yichun He, Qiang Li, and colleagues at Harvard SEAS, cyborg-organoid mesh electrodes are stretchable meshes integrated into a 2D stem-cell layer before it self-organises into a 3D brain organoid. As the organoid develops, the embedded electrodes distribute themselves throughout the growing tissue — enabling recording from inside a developing 3D neural tissue from day zero, without any insertion damage. A biohybrid platform at the intersection of developmental biology and bioelectronics.",
@@ -2116,14 +1870,8 @@
                 topic: "~1,024-electrode fully wireless subcranial BCI inserted by automated robot for motor control and sensory restoration",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Intracortical"],
-                    modality: ["Microelectrode array", "Microwire"],
-                    formFactor: ["Flexible", "Wireless"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: ["Motor", "Vision"],
-                    indication: ["Paralysis", "Blindness"],
-                    stage: ["First-in-human"]
+                    approach: ["Intracortical"],
+                    stage: ["Clinical trial"]
                 },
                 description: "Developed by Neuralink's founding team including Max Hodak, Benjamin Rapoport, DJ Seo, Vanessa Tolosa, Paul Merolla, Tim Hanson, Tim Gardner, Philip Sabes, and CEO Elon Musk, the N1 chip (Telepathy) places ~1,024 electrodes on 64 ultra-thin (~5 µm) flexible threads inserted by a custom automated robotic system. The fully wireless, battery-powered device sits subcranially. First human implanted in January 2024 — the participant demonstrated cursor control and gaming by thought. The Blindsight programme targets visual restoration in the blind.",
                 notable: "First fully wireless 1,024-electrode robotic-insertion BCI in a human; participant controlled a cursor by thought",
@@ -2143,13 +1891,7 @@
                 topic: "16-electrode stent-electrode array delivered through the jugular vein into the brain vasculature — BCI without craniotomy",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Endovascular"],
-                    modality: ["Microelectrode array"],
-                    formFactor: ["Flexible"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: ["Motor", "Speech"],
-                    indication: ["Paralysis", "Communication"],
+                    approach: ["Endovascular"],
                     stage: ["Clinical trial"]
                 },
                 description: "Developed by Thomas Oxley, Nicholas Opie, Rahul Sharma, and colleagues at the University of Melbourne's Vascular Bionics Laboratory (DARPA-funded) and commercialized through Synchron Inc., the Stentrode is a 16-electrode platinum array embedded in a self-expanding nitinol stent. Delivered endovascularly through the jugular vein into the superior sagittal sinus over motor cortex, it requires no craniotomy or open-brain surgery. Clinical trials have demonstrated its use for communication and device control in ALS and stroke patients from home — a flexible endovascular approach to BCI access.",
@@ -2170,14 +1912,8 @@
                 topic: "Modular high-bandwidth intracortical BCI with >1,600 microelectrodes and >200 bps transfer for real-time speech restoration",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Intracortical"],
-                    modality: ["Microelectrode array"],
-                    formFactor: ["Wireless"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: ["Speech"],
-                    indication: ["Paralysis", "Communication"],
-                    stage: ["First-in-human"]
+                    approach: ["Intracortical"],
+                    stage: ["Clinical trial"]
                 },
                 description: "Developed by Matt Angle and a team with roots in DARPA, Janelia, and UT Austin at Paradromics Inc., the Connexus BCI is a modular high-bandwidth intracortical platform with more than 1,600 microelectrodes across linked modules and reported data transfer rates above 200 bps. The fully implantable system uses a subclavicular wireless transmitter and is designed to restore real-time speech for people with ALS, brain-stem stroke, or severe paralysis — competing on channel count and bandwidth with established platforms.",
                 notable: "Modular intracortical platform with >1,600 electrodes and >200 bps wireless data rate for speech restoration",
@@ -2197,14 +1933,8 @@
                 topic: "4,096-electrode ultrathin flexible micro-electrode film conforming to the cortex without brain penetration — fully reversible",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Epicortical (ECoG)"],
-                    modality: ["ECoG"],
-                    formFactor: ["Flexible"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    indication: ["Paralysis"],
-                    stage: ["First-in-human"]
+                    approach: ["ECoG / Surface"],
+                    stage: ["Clinical trial"]
                 },
                 description: "Founded by Benjamin Rapoport (ex-Neuralink) and Michael Mager, Precision Neuroscience's Layer 7 Cortical Interface is an ultrathin, flexible micro-electrode film that conforms to the cortex without penetrating brain tissue — fully reversible and removable through a standard craniotomy slot. Achieved a record-setting 4,096-electrode human cortical recording, offering high-resolution ECoG-style brain mapping without the risks associated with penetrating implants.",
                 notable: "Record 4,096-electrode human cortical recording without brain penetration — fully reversible",
@@ -2224,14 +1954,8 @@
                 topic: "Graphene thin-film electrodes with AI-driven closed-loop neuromodulation for Parkinson's, epilepsy, and stroke rehab",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Epicortical (ECoG)"],
-                    modality: ["ECoG", "Electrical stimulation"],
-                    formFactor: ["Flexible"],
-                    materials: ["Graphene"],
-                    paradigm: ["Conventional"],
-                    target: ["Motor"],
-                    indication: ["Parkinson's", "Epilepsy"],
-                    stage: ["First-in-human"]
+                    approach: ["ECoG / Surface"],
+                    stage: ["Clinical trial"]
                 },
                 description: "Founded by Carolina Aguilar (CEO) and Jos Garrido (CSO) with science from ICN2, ICREA, and the Graphene Flagship, INBRAIN Neuroelectronics uses graphene thin-film electrodes (~10 µm thick, thinner than a human hair) with high charge-injection capacity and low impedance. An AI-driven adaptive closed-loop platform enables selective, high-resolution neuromodulation for Parkinson's disease, epilepsy, and stroke rehabilitation — reducing the metal-related side effects of conventional implants. Performed the world's first human graphene-based BCI procedure in 2024.",
                 notable: "World's first human graphene-based BCI procedure (2024); AI-driven adaptive closed-loop neuromodulation",
@@ -2251,13 +1975,7 @@
                 topic: "Fully implantable wireless simultaneous 32-channel record + 32-channel stimulate closed-loop neuromodulation platform",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Epicortical (ECoG)"],
-                    modality: ["ECoG", "Electrical stimulation"],
-                    formFactor: ["Wireless"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: ["Motor"],
-                    indication: ["Epilepsy", "Chronic pain"],
+                    approach: ["ECoG / Surface"],
                     stage: ["Clinical trial"]
                 },
                 description: "Developed by Martin Schuettler, Frank Desiere, Thomas Stieglitz, and colleagues at CorTec GmbH in Freiburg (with origins in University of Freiburg / IMTEK), the Brain Interchange is a fully implantable, cable-free wireless platform for closed-loop bidirectional neuromodulation. It simultaneously records from 32 channels and stimulates 32 channels, enabling real-time adaptive therapies for stroke rehabilitation, epilepsy, and chronic pain. Received FDA Breakthrough Device designation in 2025.",
@@ -2278,14 +1996,8 @@
                 topic: "First FDA-approved closed-loop responsive neurostimulator — detects and aborts seizures in drug-resistant focal epilepsy",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Deep brain", "Epicortical (ECoG)"],
-                    modality: ["ECoG", "Electrical stimulation"],
-                    formFactor: [],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    indication: ["Epilepsy"],
-                    stage: ["Approved / Commercial"]
+                    approach: ["ECoG / Surface"],
+                    stage: ["Approved"]
                 },
                 description: "Developed by Martha Morrell (CMO) and Frank Fischer (CEO) and their team at NeuroPace Inc. in Mountain View, CA, the RNS System is the first FDA-approved closed-loop (responsive) neurostimulator for drug-resistant focal epilepsy. A cranially mounted neurostimulator with depth or cortical leads continuously monitors electrocorticographic activity, detects early ictal patterns in real time, and delivers targeted electrical pulses to abort seizures before clinical onset — demonstrating the clinical viability of responsive closed-loop neural stimulation.",
                 notable: "First FDA-approved closed-loop responsive neurostimulator — detects and aborts seizures in real time",
@@ -2305,14 +2017,8 @@
                 topic: "First Chinese fully implanted battery-integrated wireless flexible BCI in a human — 64–256-channel ultrathin polyimide mesh",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Epicortical (ECoG)"],
-                    modality: ["ECoG"],
-                    formFactor: ["Flexible", "Mesh", "Wireless"],
-                    materials: ["Polyimide"],
-                    paradigm: ["Conventional"],
-                    target: ["Speech"],
-                    indication: ["Communication", "Epilepsy", "Paralysis"],
-                    stage: ["First-in-human"]
+                    approach: ["ECoG / Surface"],
+                    stage: ["Clinical trial"]
                 },
                 description: "Developed by Tao Hu (founder/chief scientist) with surgical lead Mao Ying and collaborators from Huashan Hospital / Fudan University and the Shanghai Institute of Microsystem and Information Technology (CAS), NeuroXess is a 64- to 256-channel ultrathin polyimide/metal flexible mesh BCI sitting on the cortex without brain penetration. Fully implanted with a subcutaneous chest battery, it became the first Chinese fully implanted, battery-integrated wireless BCI demonstrated in a human (2025), targeting communication and device control in ALS, epilepsy, and paralysis.",
                 notable: "First Chinese fully implanted battery-integrated wireless flexible BCI in a human (2025)",
@@ -2332,10 +2038,7 @@
                 topic: "Reliable chronic neural interfaces and neurotechnology",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Peripheral nervous system"],
-                    topics: ["Chronic stability", "Biocompatibility / FBR", "Materials"]
+                    focus: ["Materials"]
                 },
                 description: "Director of the Nanoscience Institute for Medical & Engineering Technology (NIMET) and Intel Nanotechnology Endowed Chair, with appointments in Electrical & Computer Engineering and Neurology at the University of Florida. Formerly a program manager in DARPA's Microsystems Technology Office, where he created and led the Reliable Neural-Interface Technology (RE-NET) program. His research spans reliable high-performance peripheral-nerve interfaces, advanced deep-brain-stimulation technologies, implantable chemical sensors, wireless neural telemetry, and BioMEMS/NEMS.",
                 notable: "Created and managed DARPA's RE-NET program addressing the chronic reliability of neural-recording interfaces",
@@ -2357,10 +2060,7 @@
                 topic: "Longevity and reliability of liquid-crystal-polymer neural implants",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    topics: ["Materials", "Chronic stability", "Biocompatibility / FBR"]
+                    focus: ["Materials"]
                 },
                 description: "PhD researcher in Electrical & Computer Engineering at the University of Florida (Jack Judy's group), focusing on the longevity and reliability of chronic neural implants. During his PhD thesis he developed ultra-thin liquid-crystal-polymer (LCP) neural interfaces. He is also the host of the Neural Implant Podcast, where he has interviewed roughly 250 experts across neurotechnology and brain-machine interfaces.",
                 notable: "Host of the Neural Implant Podcast (~250 expert interviews); developed ultra-thin LCP neural interfaces",
@@ -2385,13 +2085,6 @@
                 topic: "Ultra-thin embossed and bonded liquid-crystal-polymer sheets with sputtered metal traces for chronically reliable neural recording and stimulation",
                 category: "Implant",
                 tags: {
-                    invasiveness: [],
-                    modality: ["Microelectrode array", "Electrical stimulation"],
-                    formFactor: ["Flexible"],
-                    materials: ["Liquid Crystal Polymer"],
-                    paradigm: ["Conventional"],
-                    target: [],
-                    indication: ["Research-only"],
                     stage: ["Preclinical"]
                 },
                 description: "Developed by Ladan Jiracek with Ryan S. Wilkerson and Jack Judy at the University of Florida during Jiracek's PhD thesis. An ultra-thin LCP–metal–LCP sandwich: 500-nm sputtered Cr/Au traces (down to 8 µm wide) patterned on embossed high-temperature liquid-crystal polymer, thermally bonded (285 °C) to low-temperature LCP for hermetic encapsulation, then reactive-ion-etched to roughly 5 µm total thickness. The conformal thin metal interlocks with the embossed LCP for stronger adhesion. Designed for chronically reliable neural recording and stimulation; validated in vitro via accelerated-aging (saline/H₂O₂ at 87 °C) and electrochemical characterization.",
@@ -2415,10 +2108,7 @@
                 topic: "Ultraflexible nanoelectronic thread (NET) probes for glial-scar-free chronic neural interfaces",
                 category: "Researcher",
                 tags: {
-                    affiliation: ["Academia"],
-                    paradigm: ["Conventional"],
-                    target: ["Spinal cord", "Peripheral nervous system"],
-                    topics: ["Materials", "Chronic stability", "Glial scarring & wound healing"]
+                    focus: ["Materials", "Motor"]
                 },
                 description: "Associate Professor of Electrical & Computer Engineering, Bioengineering and Neuroengineering at Rice University. His lab develops ultraflexible nanoelectronic thread (NET) probes with subcellular cross-sections that integrate into neural tissue without chronic glial scarring, enabling stable long-term single-neuron recording. Previously assistant professor at UT Austin (2014–2019), postdoc at Harvard, PhD at Stanford. Current NIH-funded work targets >1-year chronic stability, high-density volumetric recording, intracortical microstimulation, and spinal/peripheral-nerve applications.",
                 notable: "Demonstrated reliable, glial-scar-free chronic neural integration with subcellular ultraflexible NET probes (Science Advances, 2017)",
@@ -2438,14 +2128,8 @@
                 topic: "Subcellular-scale ultraflexible nanoelectronic thread probes for glial-scar-free, stable chronic single-neuron recording and stimulation",
                 category: "Implant",
                 tags: {
-                    invasiveness: ["Intracortical", "Spinal"],
-                    modality: ["Microelectrode array", "Electrical stimulation"],
-                    formFactor: ["Flexible", "Fiber"],
-                    materials: [],
-                    paradigm: ["Conventional"],
-                    target: ["Spinal cord", "Peripheral nervous system"],
-                    indication: ["Research-only"],
-                    stage: ["Animal model"]
+                    approach: ["Intracortical", "Spinal"],
+                    stage: ["Preclinical"]
                 },
                 description: "Developed in Chong Xie's lab at Rice University (technology originated during his time at UT Austin). Nanoelectronic thread (NET) probes have subcellular (~1 µm) cross-sections and extreme flexibility, giving a cellular-scale surgical footprint that integrates without chronic glial scarring — enabling stable single-neuron recording over long timescales. The platform has been extended to high-density arrays, intracortical microstimulation, and spinal-cord and peripheral-nerve recording variants, with NIH funding toward untethered >1-year chronic systems.",
                 notable: "Subcellular ultraflexible probes with demonstrated glial-scar-free chronic neural integration; extended to spinal-cord and peripheral-nerve recording",
@@ -2471,11 +2155,8 @@
                 topic: "Federal portfolio for translational invasive implants, IDE-enabling human trials, and microelectrode systems — multiple grant mechanisms running year-round",
                 category: "Funding",
                 tags: {
-                    type:        ["Government grant"],
-                    sector:      ["Both"],
-                    eligibility: ["Postdoc", "Early career PI", "Established PI", "Industry / Startup"],
-                    focus:       ["Translational", "Hardware / Materials", "Clinical trial", "Basic research"],
-                    timeline:    ["Rolling"]
+                    type: ["Government"],
+                    eligibility: ["Industry / Startup", "PI", "PhD / Postdoc"]
                 },
                 description: "The NIH BRAIN Initiative (Brain Research through Advancing Innovative Neurotechnologies) funds a portfolio of mechanisms across the participating NIH Institutes, with U01 cooperative agreements, UH3/UH4 phased translational projects, and R61/R32 phased research awards as the principal vehicles for IDE-enabling work on invasive human implants and microelectrode systems. The portfolio also includes R01 hypothesis-driven research, K mentored career awards, F fellowships, and SBIR/STTR awards. Calls are issued as individual Funding Opportunity Announcements (FOAs) aligned to standing target dates.",
                 notable: "Largest federal funding source for translational invasive neural-interface work in the United States",
@@ -2502,11 +2183,8 @@
                 topic: "Three-year fellowship for graduate students in STEM, including neuroscience, neuroengineering, and materials for bioelectronics",
                 category: "Funding",
                 tags: {
-                    type:        ["Fellowship"],
-                    sector:      ["Academia"],
-                    eligibility: ["Undergraduate", "Graduate / Master's", "PhD"],
-                    focus:       ["Basic research"],
-                    timeline:    ["Opens within 10 months"]
+                    type: ["Fellowship"],
+                    eligibility: ["PhD / Postdoc", "Student"]
                 },
                 description: "The NSF GRFP supports outstanding graduate students pursuing research-based master's and doctoral degrees in NSF-funded STEM fields. Open to U.S. citizens, nationals, and permanent residents in their final year of undergrad, first or second year of graduate study, or returning to graduate study. Provides three years of stipend support within a five-year fellowship window.",
                 notable: "Single largest US fellowship pipeline for early-career neuroscience and neuroengineering researchers",
@@ -2533,11 +2211,8 @@
                 topic: "Frontier-research grants for early-career principal investigators 2-7 years post-PhD, based anywhere in the EU or associated countries",
                 category: "Funding",
                 tags: {
-                    type:        ["Government grant"],
-                    sector:      ["Academia"],
-                    eligibility: ["Early career PI"],
-                    focus:       ["Basic research", "Translational", "Hardware / Materials"],
-                    timeline:    ["Opens within 10 months"]
+                    type: ["Government"],
+                    eligibility: ["PI"]
                 },
                 description: "The ERC Starting Grant funds excellent early-career researchers anywhere in the EU and associated countries to build their own independent group. Applicants must be 2-7 years past their PhD at the call deadline. The selection is single-PI and panel-based, evaluated solely on scientific excellence — no thematic constraints, including for neurotechnology.",
                 notable: "Highly portable single-PI grant — winners can move their funding between European host institutions",
@@ -2564,11 +2239,8 @@
                 topic: "Mobility-driven postdoctoral fellowships for researchers ≤8 years past their PhD relocating to or from Europe",
                 category: "Funding",
                 tags: {
-                    type:        ["Fellowship"],
-                    sector:      ["Academia"],
-                    eligibility: ["Postdoc"],
-                    focus:       ["Basic research", "Translational"],
-                    timeline:    ["Open now"]
+                    type: ["Fellowship"],
+                    eligibility: ["PhD / Postdoc"]
                 },
                 description: "MSCA Postdoctoral Fellowships fund early-stage researchers (≤8 years post-PhD) to undertake a 1-2 year project at a host institution in an EU/associated country (European Fellowships) or, in a Global Fellowships variant, at a host outside Europe with a mandatory return phase. Open to any discipline including neuroscience and bioelectronics. The applicant and a host supervisor co-write the proposal.",
                 notable: "Generous, fully portable postdoc package — covers salary plus mobility, family, and research allowances",
@@ -2595,11 +2267,8 @@
                 topic: "Long-tenure, full-package support for established investigators at US host institutions — people, not projects",
                 category: "Funding",
                 tags: {
-                    type:        ["Foundation / Non-profit"],
-                    sector:      ["Academia"],
-                    eligibility: ["Established PI"],
-                    focus:       ["Basic research"],
-                    timeline:    ["Opens in 10+ months"]
+                    type: ["Foundation"],
+                    eligibility: ["PI"]
                 },
                 description: "HHMI selects scientists who are remaking their fields rather than evaluating individual projects. Investigators remain employees of their host university but are paid and resourced by HHMI for a renewable 7-year appointment. Competitions are held only every few years; recent cycles include 2018, 2021, and 2024.",
                 notable: "Funds people, not projects — recipients get the freedom to pivot mid-appointment without writing new grants",
@@ -2626,11 +2295,8 @@
                 topic: "High-risk, high-reward neural-interface and bioelectronics programmes funded through rolling Broad Agency Announcements",
                 category: "Funding",
                 tags: {
-                    type:        ["Government grant"],
-                    sector:      ["Both"],
-                    eligibility: ["Early career PI", "Established PI", "Industry / Startup"],
-                    focus:       ["Hardware / Materials", "Translational", "Consumer / Augmentation"],
-                    timeline:    ["Rolling"]
+                    type: ["Government"],
+                    eligibility: ["Industry / Startup", "PI"]
                 },
                 description: "DARPA's Biological Technologies Office has been the single largest historical driver of high-risk neural-interface research — funding programmes such as Reliable Neural-Interface Technology (RE-NET), Hand Proprioception and Touch Interfaces (HAPTIX), Neural Engineering System Design (NESD), and Next-Generation Nonsurgical Neurotechnology (N3). Calls are issued as Broad Agency Announcements (BAAs) targeting specific technical objectives, plus a standing BAA for unsolicited white papers.",
                 notable: "Programmes have repeatedly compressed neural-interface roadmaps by 5-10 years through milestone-driven, multi-team contracts",
@@ -2657,11 +2323,8 @@
                 topic: "Seed-stage accelerator and standard $500K deal — has funded multiple neurotech, BCI, and medical-device startups",
                 category: "Funding",
                 tags: {
-                    type:        ["VC / Private"],
-                    sector:      ["Industry"],
-                    eligibility: ["Industry / Startup"],
-                    focus:       ["Hardware / Materials", "Translational", "Consumer / Augmentation"],
-                    timeline:    ["Open now"]
+                    type: ["VC / Private"],
+                    eligibility: ["Industry / Startup"]
                 },
                 description: "Y Combinator runs two batches per year (typically Winter and Summer) supporting early-stage startups across all sectors, including bioelectronics and BCI hardware. The 3-month programme includes investment, mentorship from partners and alumni, weekly office hours, group dinners with founders/operators/investors, and demo day to a curated investor list. Applications are open continuously — companies are placed into the next batch with capacity.",
                 notable: "Standard deal applies uniformly; alumni network includes hundreds of healthtech and hardware founders",
@@ -2688,11 +2351,8 @@
                 topic: "Long, flexible discovery research awards open to PIs at any career stage working anywhere in the world",
                 category: "Funding",
                 tags: {
-                    type:        ["Foundation / Non-profit"],
-                    sector:      ["Academia"],
-                    eligibility: ["Early career PI", "Established PI"],
-                    focus:       ["Basic research", "Translational"],
-                    timeline:    ["Opens within 10 months"]
+                    type: ["Foundation"],
+                    eligibility: ["PI"]
                 },
                 description: "Wellcome Discovery Awards fund mid-career and established researchers with bold, transformative ideas in any area within Wellcome's remit (which includes human health and the technologies that enable it — covering neuroscience and neurotechnology). Open to applicants anywhere in the world. Awards are intentionally long (up to 8 years) to enable risk-taking and direction changes.",
                 notable: "Long-horizon, flexible funding — designed to support the strategy rather than the project",
@@ -2719,11 +2379,8 @@
                 topic: "Radical deep-tech bioelectronics and clinical translation funding — Pathfinder for early-stage research, Transition for technology maturation",
                 category: "Funding",
                 tags: {
-                    type:        ["Government grant"],
-                    sector:      ["Both"],
-                    eligibility: ["Early career PI", "Established PI", "Industry / Startup"],
-                    focus:       ["Basic research", "Translational", "Hardware / Materials", "Clinical trial"],
-                    timeline:    ["Opens within 10 months"]
+                    type: ["Government"],
+                    eligibility: ["Industry / Startup", "PI"]
                 },
                 description: "The European Innovation Council supports breakthrough deep-tech across Horizon Europe. EIC Pathfinder funds early-stage visionary research in single-PI Open calls and thematic Challenge calls. EIC Transition takes results from earlier EU-funded projects toward commercial validation. Both schemes are explicit fits for radical bioelectronics, invasive network mapping, and clinical translation, with a clear pathway to EIC Accelerator equity for spin-outs.",
                 notable: "Single instrument supporting the full discovery-to-translation pipeline for European deep-tech",
@@ -2750,11 +2407,8 @@
                 topic: "Single annual Joint Transnational Call aligning national funders across Europe for collaborative neuroscience and neurotechnology consortia",
                 category: "Funding",
                 tags: {
-                    type:        ["Government grant"],
-                    sector:      ["Academia"],
-                    eligibility: ["Early career PI", "Established PI"],
-                    focus:       ["Translational", "Clinical trial", "Basic research"],
-                    timeline:    ["Opens within 10 months"]
+                    type: ["Government"],
+                    eligibility: ["PI"]
                 },
                 description: "ERA-NET NEURON aligns national funding agencies across Europe (and beyond) into a single annual Joint Transnational Call (JTC), enabling cross-border consortia in clinical and translational neuroscience. Each year sets a thematic focus; recent calls have included neurotechnology, brain disorders, and neural-interface translation. Each consortium partner applies via their home country's participating funder.",
                 notable: "One application, many funders — a single proposal can pull in matched contributions from 3+ countries",
@@ -2781,11 +2435,8 @@
                 topic: "Translational engineering centre for high-channel implantable BCIs, regulatory-grade development, and clinical-stage validation",
                 category: "Funding",
                 tags: {
-                    type:        ["Foundation / Non-profit"],
-                    sector:      ["Both"],
-                    eligibility: ["Early career PI", "Established PI", "Industry / Startup"],
-                    focus:       ["Translational", "Hardware / Materials", "Clinical trial"],
-                    timeline:    ["Rolling"]
+                    type: ["Foundation"],
+                    eligibility: ["Industry / Startup", "PI"]
                 },
                 description: "The Wyss Center for Bio and Neuroengineering at Campus Biotech in Geneva is a non-profit translational research centre that partners with academic groups and companies to engineer, build, and validate clinical-stage neurotechnology. Engagements begin with a direct scientific inquiry; selected programmes receive embedded engineering, regulatory, and IDE-path support inside the Wyss Center's facility.",
                 notable: "Embedded engineering teams take academic prototypes through regulatory and first-in-human readiness",
@@ -2812,11 +2463,8 @@
                 topic: "Largest private US funder for spinal-cord-injury research — funds epidural stimulation, neuroprosthetics, and SCI restoration projects",
                 category: "Funding",
                 tags: {
-                    type:        ["Foundation / Non-profit"],
-                    sector:      ["Academia"],
-                    eligibility: ["Postdoc", "Early career PI", "Established PI"],
-                    focus:       ["Translational", "Clinical trial", "Basic research"],
-                    timeline:    ["Opens in 10+ months"]
+                    type: ["Foundation"],
+                    eligibility: ["PI", "PhD / Postdoc"]
                 },
                 description: "The Craig H. Neilsen Foundation funds SCI-focused research and care across multiple programmes (Senior Research Grants, Pilot Research Grants, Postdoctoral Fellowships, Psychosocial Research). Bioelectronic projects targeting epidural electrical stimulation, intraspinal microstimulation, and invasive neuroprosthetics for SCI restoration are explicit programme priorities.",
                 notable: "Single largest private funder for spinal-cord injury bioelectronics and stimulation research in the United States",
@@ -2843,11 +2491,8 @@
                 topic: "High-velocity DARPA-style health programmes — multi-team, milestone-driven funding for brain mapping and adaptive iBCIs",
                 category: "Funding",
                 tags: {
-                    type:        ["Foundation / Non-profit"],
-                    sector:      ["Both"],
-                    eligibility: ["Early career PI", "Established PI", "Industry / Startup"],
-                    focus:       ["Translational", "Hardware / Materials", "Clinical trial", "Basic research"],
-                    timeline:    ["Rolling"]
+                    type: ["Foundation"],
+                    eligibility: ["Industry / Startup", "PI"]
                 },
                 description: "Wellcome Leap is a non-profit founded by the Wellcome Trust to apply a DARPA-style approach to breakthrough health science. It runs short, high-investment programmes around defined missions — recent and active programmes include brain-mapping and adaptive iBCI efforts — with multi-team, milestone-gated contracts. Performers are selected via global Requests for Proposals tied to each programme launch.",
                 notable: "DARPA-style milestone contracts in a non-profit wrapper — short timelines, deep budgets",
@@ -2874,11 +2519,8 @@
                 topic: "NIH Blueprint MedTech incubator hub accelerating equitable neurotechnologies and invasive solutions toward first-in-human",
                 category: "Funding",
                 tags: {
-                    type:        ["Government grant"],
-                    sector:      ["Both"],
-                    eligibility: ["Early career PI", "Established PI", "Industry / Startup"],
-                    focus:       ["Translational", "Clinical trial", "Hardware / Materials"],
-                    timeline:    ["Opens within 10 months"]
+                    type: ["Government"],
+                    eligibility: ["Industry / Startup", "PI"]
                 },
                 description: "NeuroTech Harbor is one of the NIH Blueprint MedTech Incubator Hubs supporting academic teams and small companies in moving early-stage neurotechnology concepts toward clinical evaluation. Selected projects receive funding plus dedicated regulatory, engineering, business-development, and manufacturing support, with an explicit focus on equitable access and underserved patient populations.",
                 notable: "Combines NIH funding with embedded regulatory, engineering, and business mentorship through an incubator model",
@@ -2905,11 +2547,8 @@
                 topic: "Swiss spin-out seed funding — three-stage competitive process delivering up to CHF 150K of non-dilutive support to university tech startups",
                 category: "Funding",
                 tags: {
-                    type:        ["Foundation / Non-profit"],
-                    sector:      ["Industry"],
-                    eligibility: ["Industry / Startup"],
-                    focus:       ["Hardware / Materials", "Translational", "Consumer / Augmentation"],
-                    timeline:    ["Rolling"]
+                    type: ["Foundation"],
+                    eligibility: ["Industry / Startup"]
                 },
                 description: "Venture Kick is a private initiative that supports Swiss university spin-offs through a competitive three-stage selection process. Teams pitch to a jury of investors and entrepreneurs at each stage and accumulate non-dilutive funding alongside intensive coaching, investor introductions, and access to the wider Venturelab alumni network. Neurotech spin-offs — including soft implantable-electrode startups — have been recurring recipients.",
                 notable: "Non-dilutive seed funding plus structured exposure to Swiss VCs and the global Venturelab network",
@@ -2936,11 +2575,8 @@
                 topic: "Swiss federal innovation agency — co-funds science-based R&D consortia between universities and industry, including invasive recording and DBS implants",
                 category: "Funding",
                 tags: {
-                    type:        ["Government grant"],
-                    sector:      ["Both"],
-                    eligibility: ["Early career PI", "Established PI", "Industry / Startup"],
-                    focus:       ["Translational", "Hardware / Materials"],
-                    timeline:    ["Rolling"]
+                    type: ["Government"],
+                    eligibility: ["Industry / Startup", "PI"]
                 },
                 description: "Innosuisse, the Swiss federal innovation agency, supports science-based innovation through Innovation Projects (industry-academia consortia), Start-up Coaching, BRIDGE (bridging fundamental research and innovation), and Flagship initiatives. Neurotech R&D consortia working on invasive recording, DBS implants, or biosignal-acquisition hardware can apply through standard innovation project calls.",
                 notable: "Federal vehicle bridging Swiss academic research with industrial partners",
@@ -2967,11 +2603,8 @@
                 topic: "Space-tech incubator — supports deep-tech startups adapting microelectronics, advanced materials, and signal-processing IP for biosignal acquisition and implantable hardware",
                 category: "Funding",
                 tags: {
-                    type:        ["Government grant"],
-                    sector:      ["Industry"],
-                    eligibility: ["Industry / Startup"],
-                    focus:       ["Hardware / Materials", "Consumer / Augmentation"],
-                    timeline:    ["Opens within 10 months"]
+                    type: ["Government"],
+                    eligibility: ["Industry / Startup"]
                 },
                 description: "ESA BIC Switzerland is the Swiss node of the European Space Agency Business Incubation Centre network, operated by ETH transfer. It supports young companies leveraging space-grade microelectronics, advanced materials, or signal-processing IP for terrestrial applications — including biosignal acquisition and implantable hardware infrastructure.",
                 notable: "Access to ESA-developed IP, miniaturisation expertise, and the pan-European ESA BIC alumni network",
@@ -2998,11 +2631,8 @@
                 topic: "Mission-driven Dutch ecosystem programmes — co-fund large neuromorphic and BCI consortia connecting universities with clinical and industry partners",
                 category: "Funding",
                 tags: {
-                    type:        ["Government grant"],
-                    sector:      ["Both"],
-                    eligibility: ["Early career PI", "Established PI", "Industry / Startup"],
-                    focus:       ["Hardware / Materials", "Translational", "Basic research"],
-                    timeline:    ["Opens within 10 months"]
+                    type: ["Government"],
+                    eligibility: ["Industry / Startup", "PI"]
                 },
                 description: "NWO's Knowledge and Innovation Covenant (KIC) Long-Term Programmes co-fund large multi-year consortia aligned with Dutch national mission agendas. Programmes connect universities, knowledge institutes, hospitals, and industry partners in large strategic blocks — recent examples include neuromorphic computing and BCI ecosystem initiatives such as the 10X-Factor(y).",
                 notable: "Funds entire bioelectronic and BCI ecosystems rather than individual projects — hospital, university, and industry partners under one programme",
@@ -3029,11 +2659,8 @@
                 topic: "Dutch Top Sector LSH match funding for translational medtech consortia — PPP support for biosignal decoding and long-term implantable monitoring",
                 category: "Funding",
                 tags: {
-                    type:        ["Government grant"],
-                    sector:      ["Both"],
-                    eligibility: ["Early career PI", "Established PI", "Industry / Startup"],
-                    focus:       ["Translational", "Hardware / Materials", "Clinical trial"],
-                    timeline:    ["Opens within 10 months"]
+                    type: ["Government"],
+                    eligibility: ["Industry / Startup", "PI"]
                 },
                 description: "Health~Holland implements the Dutch Top Sector Life Sciences & Health, co-funding Public-Private Partnerships (PPP) through its TKI (Top Consortium for Knowledge and Innovation) instrument. Eligible projects combine academic, clinical, and industry partners, with translational medtech, biosignal decoding, and long-term implantable monitoring as recurring themes. Oncode Institute participates as a partner across adjacent translational programmes.",
                 notable: "TKI match funding multiplies industry investment with public co-funding — designed for translational consortia",
@@ -3060,11 +2687,8 @@
                 topic: "Swedish national neurotechnology excellence cluster coordinating research, validation, and translation around responsible neurotech and brain health",
                 category: "Funding",
                 tags: {
-                    type:        ["Foundation / Non-profit"],
-                    sector:      ["Both"],
-                    eligibility: ["Early career PI", "Established PI", "Industry / Startup"],
-                    focus:       ["Translational", "Hardware / Materials", "Basic research"],
-                    timeline:    ["Rolling"]
+                    type: ["Foundation"],
+                    eligibility: ["Industry / Startup", "PI"]
                 },
                 description: "NeuroXTek is a Swedish national alliance coordinating research, clinical validation, and industrial translation in responsible and ethical neurotechnology. It connects universities, hospitals, and industry partners around an agreed national roadmap; project proposals align with annual multi-centre validation calls and roadmap implementation milestones.",
                 notable: "National coordination layer — a single entry point for multi-site Swedish neurotech validation projects",
@@ -3091,11 +2715,8 @@
                 topic: "Swedish national research council — grants for medicine and health including DBS and international neurodegenerative collaboration projects",
                 category: "Funding",
                 tags: {
-                    type:        ["Government grant"],
-                    sector:      ["Academia"],
-                    eligibility: ["Postdoc", "Early career PI", "Established PI"],
-                    focus:       ["Basic research", "Translational", "Clinical trial"],
-                    timeline:    ["Opens within 10 months"]
+                    type: ["Government"],
+                    eligibility: ["PI", "PhD / Postdoc"]
                 },
                 description: "Vetenskapsrådet, the Swedish Research Council, funds basic and translational research across all disciplines. The Medicine and Health committee covers neurodegeneration interventions, Deep Brain Stimulation projects, and international collaborative consortia. Standard project grants are evaluated by panel; dedicated calls support international cooperation and clinical research infrastructure.",
                 notable: "Sweden's main research-council funding line for DBS, neurodegeneration, and clinical neurotech projects",
@@ -3124,11 +2745,8 @@
                 topic: "8-11 June 2026 · the premier dedicated gathering of the BCI research community",
                 category: "Conference",
                 tags: {
-                    scope:     ["International"],
-                    frequency: ["Biennial"],
-                    focus:     ["General neurotech", "Engineering / Materials"],
-                    timeline:  ["Happening soon"],
-                    character: ["Highly specialized"]
+                    timeline: ["Happening soon"],
+                    focus: ["BCI / Neural engineering", "General", "Hardware"]
                 },
                 description: "Premier dedicated meeting for the BCI community — programme covers soft-electrode materials through human-in-the-loop decoding for invasive motor and speech prostheses. Rotates between Asilomar (US years) and European venues.",
                 notable: "",
@@ -3148,11 +2766,8 @@
                 topic: "26-30 July 2026 · IEEE EMBS flagship engineering-in-medicine annual",
                 category: "Conference",
                 tags: {
-                    scope:     ["International"],
-                    frequency: ["Annual"],
-                    focus:     ["Engineering / Materials", "Hardware & Signal Processing"],
-                    timeline:  ["Upcoming this year"],
-                    character: ["Massive scale"]
+                    timeline: ["Upcoming"],
+                    focus: ["Hardware"]
                 },
                 description: "Massive engineering-first conference. The Neural Engineering tracks are the home venue for iBCI hardware — microelectrode design, chip architecture, and signal processing.",
                 notable: "",
@@ -3172,11 +2787,8 @@
                 topic: "Oct/Nov 2026 · the largest neuroscience gathering in the world",
                 category: "Conference",
                 tags: {
-                    scope:     ["International"],
-                    frequency: ["Annual"],
-                    focus:     ["General neurotech", "Clinical"],
-                    timeline:  ["Later this year"],
-                    character: ["Massive scale"]
+                    timeline: ["Upcoming"],
+                    focus: ["Clinical", "General"]
                 },
                 description: "The largest neuroscience meeting in the world. The Brain-Machine Interfaces and Neuroprosthetics symposia are where leading academic labs unveil their newest non-human-primate and human iBCI data.",
                 notable: "",
@@ -3196,11 +2808,8 @@
                 topic: "January (annual) · clinical home of DBS, SCS, and emerging iBCI surgical techniques",
                 category: "Conference",
                 tags: {
-                    scope:     ["Regional"],
-                    frequency: ["Annual"],
-                    focus:     ["Clinical"],
-                    timeline:  ["Past — plan for next cycle"],
-                    character: ["Highly specialized"]
+                    timeline: ["Past — plan for next cycle"],
+                    focus: ["Clinical"]
                 },
                 description: "Highly clinical. Main gathering for neurosurgeons and clinical researchers working on implanted hardware, deep brain stimulation, spinal cord stimulation, and emerging iBCI surgical techniques. 2026 edition has passed — plan for January 2027.",
                 notable: "",
@@ -3220,11 +2829,8 @@
                 topic: "March (biennial) · off-the-record academic retreat at the bioelectronic interface",
                 category: "Conference",
                 tags: {
-                    scope:     ["International"],
-                    frequency: ["Biennial"],
-                    focus:     ["Engineering / Materials", "General neurotech"],
-                    timeline:  ["Past — plan for next cycle"],
-                    character: ["Intimate academic"]
+                    timeline: ["Past — plan for next cycle"],
+                    focus: ["General", "Hardware"]
                 },
                 description: "Highly exclusive, off-the-record GRC focused on the bio-electronic intersection — glial scarring, electrode failure, and the physics of the brain-machine interface.",
                 notable: "",
@@ -3244,11 +2850,8 @@
                 topic: "April/May (biennial) · IEEE EMBS dedicated neural-engineering conference",
                 category: "Conference",
                 tags: {
-                    scope:     ["International"],
-                    frequency: ["Biennial"],
-                    focus:     ["Engineering / Materials", "Translational"],
-                    timeline:  ["Biennial — varies"],
-                    character: []
+                    timeline: ["Past — plan for next cycle"],
+                    focus: ["BCI / Neural engineering", "Clinical", "Hardware"]
                 },
                 description: "Organized by the IEEE EMBS, NER isolates the neural-engineering tracks into a dedicated conference — heavy emphasis on brain implants, neural recording devices, and computational neuroscience.",
                 notable: "",
@@ -3268,11 +2871,8 @@
                 topic: "Year-round · grassroots chapter meetups and hackathons across major hub cities",
                 category: "Conference",
                 tags: {
-                    scope:     ["International"],
-                    frequency: ["Year-round"],
-                    focus:     ["General neurotech"],
-                    timeline:  ["Ongoing"],
-                    character: ["Community & startups"]
+                    timeline: ["Year-round"],
+                    focus: ["General"]
                 },
                 description: "Grassroots community network with active chapters in major hub cities. Chapter meetings frequently host talks from stealth iBCI startups and engineers — useful for hiring and quiet-mode networking.",
                 notable: "",
@@ -3292,11 +2892,8 @@
                 topic: "17-19 June 2026 · 2026 theme: \"Insight in the Human Brain\" — biennial NIN gathering for early-career researchers",
                 category: "Conference",
                 tags: {
-                    scope:     ["International"],
-                    frequency: ["Biennial"],
-                    focus:     ["General neurotech","Clinical"],
-                    timeline:  ["Happening soon"],
-                    character: ["Intimate academic"]
+                    timeline: ["Happening soon"],
+                    focus: ["Clinical", "General"]
                 },
                 description: "Biennial summer school hosted by the Netherlands Institute for Neuroscience. The 2026 edition (\"Insight in the Human Brain\") spans three days at the Singelkerk in Amsterdam with lectures from leading scientists on human brain tissue research, large-scale neuroscience datasets, and tissue procurement. Open to participants with at least a bachelor-level background in neuroscience; ~170 attendees, €450 registration including lunch and reception.",
                 notable: "",
@@ -3316,11 +2913,8 @@
                 topic: "4-5 June 2026 (+ Neurotech Bootcamp 3 June) · industry-academia workshop on the engineering of active implants",
                 category: "Conference",
                 tags: {
-                    scope:     ["International"],
-                    frequency: ["Annual"],
-                    focus:     ["Hardware & Signal Processing","Engineering / Materials","Translational"],
-                    timeline:  ["Happening soon"],
-                    character: ["Highly specialized"]
+                    timeline: ["Happening soon"],
+                    focus: ["Clinical", "Hardware"]
                 },
                 description: "Industry-academia workshop connecting MedTech engineers, clinicians, and regulators around active implants — neurotechnology, cardiac devices, implantable sensors, wireless power, soft materials, packaging reliability, and MDR/FDA pathways. 2025 edition in Barcelona; 2026 hosted by TU Delft's Bioelectronics group. The 3 June \"Neurotech Bootcamp\" targets students and early-career researchers.",
                 notable: "",
@@ -3341,10 +2935,9 @@
                 topic: "N1 fully implantable BCI — flexible threads inserted by surgical robot, first humans implanted",
                 category: "Industry",
                 tags: {
-                    region:     ["North America"],
-                    indication: ["Motor restoration","Vision restoration","Spinal cord injury"],
-                    approach:   ["Intracortical"],
-                    stage:      ["First-in-human"]
+                    region: ["North America"],
+                    stage: ["Clinical trial"],
+                    focus: ["Motor", "Pain / Spinal", "Vision"]
                 },
                 description: "Developing a fully implantable, high-channel-count (N1) system using flexible thread electrodes inserted via a surgical robot. Initial human trials target tetraplegia; the Blindsight programme targets visual restoration.",
                 notable: "",
@@ -3364,10 +2957,9 @@
                 topic: "Connexus Direct Data Interface — high-data-rate cortical implant for ALS communication and computer control",
                 category: "Industry",
                 tags: {
-                    region:     ["North America"],
-                    indication: ["Motor restoration","Speech","ALS"],
-                    approach:   ["Intracortical"],
-                    stage:      ["First-in-human"]
+                    region: ["North America"],
+                    stage: ["Clinical trial"],
+                    focus: ["Motor"]
                 },
                 description: "Building the Connexus Direct Data Interface — a high-data-rate cortical implant using arrays of penetrating microwires to translate neural signals into text and computer control for patients with severe paralysis.",
                 notable: "",
@@ -3387,10 +2979,9 @@
                 topic: "Layer 7 Cortical Interface — reversible high-density surface electrode array for mapping and motor restoration",
                 category: "Industry",
                 tags: {
-                    region:     ["North America"],
-                    indication: ["Motor restoration","Tumor / Oncology","Paralysis"],
-                    approach:   ["Epicortical (subdural)"],
-                    stage:      ["First-in-human"]
+                    region: ["North America"],
+                    stage: ["Clinical trial"],
+                    focus: ["Motor"]
                 },
                 description: "Layer 7 Cortical Interface — a reversible, high-density microelectrode array that sits on the surface of the brain without penetrating tissue. Used in human trials for mapping during tumor resection; moving toward chronic motor restoration.",
                 notable: "",
@@ -3410,10 +3001,9 @@
                 topic: "Science Eye — optogenetic + micro-LED visual prosthesis for retinitis pigmentosa and macular degeneration",
                 category: "Industry",
                 tags: {
-                    region:     ["North America"],
-                    indication: ["Vision restoration"],
-                    approach:   ["Retinal","Optogenetic"],
-                    stage:      ["Clinical trial"]
+                    region: ["North America"],
+                    stage: ["Clinical trial"],
+                    focus: ["Vision"]
                 },
                 description: "Building the \"Science Eye\" — a visual prosthesis for retinitis pigmentosa and macular degeneration that combines gene therapy (optogenetics) with a thin-film micro-LED display implanted over the retina.",
                 notable: "",
@@ -3433,10 +3023,9 @@
                 topic: "Utah Array originator — chronic intracortical recording with the longest in-human track record",
                 category: "Industry",
                 tags: {
-                    region:     ["North America"],
-                    indication: ["Motor restoration","Speech","ALS"],
-                    approach:   ["Intracortical"],
-                    stage:      ["First-in-human","Clinical trial"]
+                    region: ["North America"],
+                    stage: ["Clinical trial"],
+                    focus: ["Motor"]
                 },
                 description: "Pioneers of the Utah Array with decades of in-human chronic implant experience. Developing the fully implantable Neuralace and MoveAgain systems for severe paralysis and communication.",
                 notable: "",
@@ -3456,10 +3045,9 @@
                 topic: "Stentrode — endovascular BCI delivered through the jugular vein, no open-brain surgery",
                 category: "Industry",
                 tags: {
-                    region:     ["North America"],
-                    indication: ["Motor restoration","Speech","ALS"],
-                    approach:   ["Endovascular"],
-                    stage:      ["Clinical trial"]
+                    region: ["North America"],
+                    stage: ["Clinical trial"],
+                    focus: ["Motor"]
                 },
                 description: "Technically minimally invasive but a major iBCI player. The Stentrode device is delivered via the jugular vein into the motor cortex, avoiding open brain surgery to restore digital communication.",
                 notable: "",
@@ -3479,10 +3067,8 @@
                 topic: "Skull-mounted battery-free brain stimulator for treatment-resistant depression — no tissue penetration",
                 category: "Industry",
                 tags: {
-                    region:     ["North America"],
-                    indication: ["Treatment-resistant depression","Psychiatric"],
-                    approach:   ["Skull-mounted"],
-                    stage:      ["First-in-human"]
+                    region: ["North America"],
+                    stage: ["Clinical trial"]
                 },
                 description: "Miniature, battery-free brain stimulator implanted in the skull (above the dura). Provides targeted cortical stimulation for mental-health disorders without penetrating brain tissue.",
                 notable: "",
@@ -3502,10 +3088,9 @@
                 topic: "Brain Interchange — fully implantable bidirectional closed-loop platform; FDA-approved trial for stroke rehab",
                 category: "Industry",
                 tags: {
-                    region:     ["Europe"],
-                    indication: ["Stroke rehabilitation","Epilepsy","Motor restoration"],
-                    approach:   ["Epicortical (subdural)"],
-                    stage:      ["Clinical trial"]
+                    region: ["Europe"],
+                    stage: ["Clinical trial"],
+                    focus: ["Motor"]
                 },
                 description: "Makers of the Brain Interchange system — a fully implantable, bidirectional (read/write) closed-loop platform. Currently in FDA-approved clinical evaluation for stroke rehabilitation using adaptive cortical stimulation.",
                 notable: "",
@@ -3525,10 +3110,8 @@
                 topic: "Graphene-based neural interfaces for high-resolution tumor mapping and targeted DBS",
                 category: "Industry",
                 tags: {
-                    region:     ["Europe"],
-                    indication: ["Tumor / Oncology","Parkinson's / DBS","Epilepsy"],
-                    approach:   ["Epicortical (subdural)"],
-                    stage:      ["First-in-human","Clinical trial"]
+                    region: ["Europe"],
+                    stage: ["Clinical trial"]
                 },
                 description: "Replacing traditional platinum-iridium electrodes with graphene-based neural interfaces. The high-resolution platform is used for precision mapping during brain tumor resections and targeted deep brain stimulation.",
                 notable: "",
@@ -3548,10 +3131,8 @@
                 topic: "Stretchable, soft subdural electrodes that conform to the brain's folds",
                 category: "Industry",
                 tags: {
-                    region:     ["Europe"],
-                    indication: ["Tinnitus","Epilepsy","Neuromonitoring"],
-                    approach:   ["Epicortical (subdural)"],
-                    stage:      ["Clinical trial"]
+                    region: ["Europe"],
+                    stage: ["Clinical trial"]
                 },
                 description: "Highly stretchable, soft subdural electrodes that conform seamlessly to the folds of the brain. Moving through clinical trials for severe neurological conditions and minimally invasive monitoring.",
                 notable: "",
@@ -3571,10 +3152,9 @@
                 topic: "ARC-IM — implantable epidural spinal stimulation for SCI mobility and blood-pressure recovery",
                 category: "Industry",
                 tags: {
-                    region:     ["Europe"],
-                    indication: ["Spinal cord injury","Motor restoration","Autonomic recovery"],
-                    approach:   ["Spinal"],
-                    stage:      ["Clinical trial"]
+                    region: ["Europe"],
+                    stage: ["Clinical trial"],
+                    focus: ["Motor", "Pain / Spinal"]
                 },
                 description: "Focused on the ARC-IM system — an implantable pulse generator connected to a lead placed on the spinal cord. Delivers epidural electrical stimulation to restore mobility and blood-pressure regulation post-SCI.",
                 notable: "",
@@ -3594,10 +3174,8 @@
                 topic: "Electro-oncology — SOMA-1 BCI implanted at tumor resection to disrupt residual glioma cell division",
                 category: "Industry",
                 tags: {
-                    region:     ["Europe"],
-                    indication: ["Tumor / Oncology"],
-                    approach:   ["Epicortical (subdural)"],
-                    stage:      ["Preclinical","First-in-human"]
+                    region: ["Europe"],
+                    stage: ["Clinical trial", "Preclinical"]
                 },
                 description: "Pioneering \"electro-oncology.\" Developing SOMA-1 — a BCI implanted during tumor resection that monitors bioelectronic signals and delivers targeted electrical stimulation to disrupt remaining cancer cell division.",
                 notable: "",
@@ -3617,10 +3195,9 @@
                 topic: "Cortical visual prosthesis — penetrating microelectrode arrays in V1 to bypass the eyes and optic nerves",
                 category: "Industry",
                 tags: {
-                    region:     ["Europe"],
-                    indication: ["Vision restoration"],
-                    approach:   ["Intracortical"],
-                    stage:      ["Preclinical","First-in-human"]
+                    region: ["Europe"],
+                    stage: ["Clinical trial", "Preclinical"],
+                    focus: ["Vision"]
                 },
                 description: "Spin-off focused on restoring sight to the blind through penetrating microelectrode arrays implanted directly into the visual cortex — bypassing the eyes and optic nerves completely.",
                 notable: "",
@@ -3640,10 +3217,9 @@
                 topic: "Occular — visual cortical prosthesis with thousands of microelectrodes; FDA Breakthrough Device designation",
                 category: "Industry",
                 tags: {
-                    region:     ["Europe"],
-                    indication: ["Vision restoration"],
-                    approach:   ["Intracortical"],
-                    stage:      ["Preclinical","First-in-human"]
+                    region: ["Europe"],
+                    stage: ["Clinical trial", "Preclinical"],
+                    focus: ["Vision"]
                 },
                 description: "Belgian startup developing Occular — a visual cortical prosthesis that bypasses damaged eyes and delivers video directly to the visual cortex via thousands of microelectrodes paired with a camera-mounted wireless headset. Granted FDA Breakthrough Device designation. Backed by EIC Pathfinder and EIC Transition grants; first short-term clinical implant planned during a scheduled brain surgery in October 2026, with first-in-blind-volunteer trials targeted for summer 2027.",
                 notable: "",
@@ -3663,10 +3239,9 @@
                 topic: "FutureLead — intrathecal spinal-cord stimulator for chronic pain; ~120× more energy efficient than epidural SCS",
                 category: "Industry",
                 tags: {
-                    region:     ["Europe"],
-                    indication: ["Chronic pain"],
-                    approach:   ["Spinal"],
-                    stage:      ["Preclinical"]
+                    region: ["Europe"],
+                    stage: ["Preclinical"],
+                    focus: ["Pain / Spinal"]
                 },
                 description: "Spanish neurotech company building the world's first intrathecal spinal-cord interface for chronic pain — the FutureLead. Placing the lead inside the thecal sac (rather than the epidural space) improves stimulation precision and cuts power consumption ~120-fold, extending the recharge interval from days to months. Advancing preclinical studies toward a first-in-human trial; FDA pre-submission planned for early 2026.",
                 notable: "",
@@ -3691,11 +3266,8 @@
                 topic: "The primary scientific body for BCI research; hosts the biennial International BCI Meeting",
                 category: "Society",
                 tags: {
-                    type:       ["Scientific society"],
-                    scope:      ["International"],
-                    focus:      ["BCI / Neural engineering"],
-                    activity:   ["Conferences", "Networking"],
-                    indication: []
+                    type: ["Scientific"],
+                    activity: ["Conferences", "Networking"]
                 },
                 description: "Defines terminology for the BCI field, hosts the definitive International BCI Meeting, and connects global academic labs working on invasive and non-invasive brain-computer interfaces.",
                 notable: "Host of the International BCI Meeting — the field's flagship academic gathering",
@@ -3715,11 +3287,8 @@
                 topic: "Cross-disciplinary IEEE community uniting engineers and computer scientists around neurotechnology standards",
                 category: "Society",
                 tags: {
-                    type:       ["Scientific society", "Professional / Clinical"],
-                    scope:      ["International"],
-                    focus:      ["BCI / Neural engineering"],
-                    activity:   ["Standards", "Conferences"],
-                    indication: []
+                    type: ["Clinical", "Scientific"],
+                    activity: ["Conferences", "Standards"]
                 },
                 description: "Cross-disciplinary IEEE technical community working to standardize neural data formats and hardware interfaces. Hosts the IEEE NER (Neural Engineering Conference) and coordinates IEEE's neurotechnology activities across societies.",
                 notable: "Hosts IEEE NER and coordinates neural-data standardization efforts",
@@ -3739,11 +3308,8 @@
                 topic: "FDA-recognised collaborative community syncing researchers, clinicians, and regulators around invasive BCI trial pathways",
                 category: "Society",
                 tags: {
-                    type:       ["Professional / Clinical"],
-                    scope:      ["International"],
-                    focus:      ["BCI / Neural engineering"],
-                    activity:   ["Trial coordination", "Regulatory pathways"],
-                    indication: []
+                    type: ["Clinical"],
+                    activity: ["Trial coordination"]
                 },
                 description: "Highly specialized hub aligning iBCI researchers, clinicians, manufacturers, and regulatory bodies. Builds shared pathways for human surgical trials and FDA approval of implantable BCIs.",
                 notable: "First FDA-recognised collaborative community focused on implantable BCIs",
@@ -3763,11 +3329,8 @@
                 topic: "The largest grassroots community for neurotech innovators — hackathons, student clubs, and professional networking",
                 category: "Society",
                 tags: {
-                    type:       ["Community / Grassroots"],
-                    scope:      ["International"],
-                    focus:      ["BCI / Neural engineering"],
-                    activity:   ["Hackathons", "Networking"],
-                    indication: []
+                    type: ["Community"],
+                    activity: ["Networking"]
                 },
                 description: "Largest global grassroots community for neurotech innovators. Runs 30+ city chapters, NeuroTech Open hackathons, student clubs, and an active job board — useful for hiring, quiet-mode networking, and meeting stealth-mode iBCI startups.",
                 notable: "30+ city chapters and annual NeuroTech Open hackathons",
@@ -3787,11 +3350,8 @@
                 topic: "Multidisciplinary global network of neurosurgeons and engineers shaping neuromodulation hardware (DBS, SCS, iBCI)",
                 category: "Society",
                 tags: {
-                    type:       ["Professional / Clinical"],
-                    scope:      ["International"],
-                    focus:      ["Neuromodulation / Surgical"],
-                    activity:   ["Conferences", "Networking"],
-                    indication: []
+                    type: ["Clinical"],
+                    activity: ["Conferences", "Networking"]
                 },
                 description: "Multidisciplinary global network of neurosurgeons, engineers, and clinicians focused on scientific development and clinical delivery of neuromodulation hardware — deep brain stimulation, spinal cord stimulation, and emerging iBCI systems.",
                 notable: "33 global chapters spanning the major neuromodulation device markets",
@@ -3811,11 +3371,8 @@
                 topic: "Professional home for the functional neurosurgeons who physically implant invasive BCIs and closed-loop stimulators",
                 category: "Society",
                 tags: {
-                    type:       ["Professional / Clinical"],
-                    scope:      ["National"],
-                    focus:      ["Neuromodulation / Surgical"],
-                    activity:   ["Conferences", "Trial coordination"],
-                    indication: []
+                    type: ["Clinical"],
+                    activity: ["Conferences", "Trial coordination"]
                 },
                 description: "The primary professional society for functional neurosurgeons in the US — the clinicians who physically implant invasive BCI arrays, DBS leads, and responsive neurostimulators. Sets surgical training standards and convenes biennial scientific meetings.",
                 notable: "Convenes the surgeons performing first-in-human iBCI implantations",
@@ -3835,11 +3392,8 @@
                 topic: "Academic society targeting high-density spatial/temporal mapping and signal decoding for multi-electrode arrays",
                 category: "Society",
                 tags: {
-                    type:       ["Scientific society"],
-                    scope:      ["International"],
-                    focus:      ["Decoding / Signal processing"],
-                    activity:   ["Conferences"],
-                    indication: []
+                    type: ["Scientific"],
+                    activity: ["Conferences"]
                 },
                 description: "Academic society focused on high-density spatial and temporal mapping of brain electromagnetic activity, and on the advanced signal-decoding algorithms required for multi-electrode ECoG and EEG arrays.",
                 notable: "Convenes the signal-processing community behind multi-electrode decoding",
@@ -3859,11 +3413,8 @@
                 topic: "Coalition of the world's first iBCI research participants collaborating on ethical trial design and patient care",
                 category: "Society",
                 tags: {
-                    type:       ["Patient-led"],
-                    scope:      ["International"],
-                    focus:      ["Patient experience", "Neuroethics / Policy"],
-                    activity:   ["Patient outreach", "Policy advocacy"],
-                    indication: []
+                    type: ["Patient-led"],
+                    activity: ["Advocacy"]
                 },
                 description: "Unique coalition led by the world's first implantable BCI research participants. Brings lived-experience perspectives into trial design, informed-consent practice, post-trial device support, and the ethics of explant and chronic care.",
                 notable: "First patient-led coalition organised around invasive BCI lived experience",
@@ -3883,11 +3434,8 @@
                 topic: "Advocates for international legal frameworks protecting neural data, mental privacy, and cognitive liberty in the iBCI era",
                 category: "Society",
                 tags: {
-                    type:       ["Advocacy / Ethics"],
-                    scope:      ["International"],
-                    focus:      ["Neuroethics / Policy"],
-                    activity:   ["Policy advocacy"],
-                    indication: []
+                    type: ["Advocacy"],
+                    activity: ["Advocacy"]
                 },
                 description: "Advocates for international legal frameworks to guard neural data, protect mental privacy, and regulate cognitive liberty as implantable BCIs scale. Engages with the UN, national legislatures, and industry to push neurorights into law.",
                 notable: "Drove the world's first neurorights legislation (Chile, 2021)",
@@ -3907,11 +3455,8 @@
                 topic: "Global federation of 90+ neuroscience societies supporting the basic neurobiology that underpins implant engineering",
                 category: "Society",
                 tags: {
-                    type:       ["Federation", "Scientific society"],
-                    scope:      ["International"],
-                    focus:      ["General neuroscience"],
-                    activity:   ["Grants & training", "Networking"],
-                    indication: []
+                    type: ["Scientific"],
+                    activity: ["Networking"]
                 },
                 description: "Global federation of 90+ regional neuroscience societies. Funds early-career training, runs schools and workshops across underserved regions, and supports the foundational animal-model and basic-neurobiology work that implant engineering depends on.",
                 notable: "Federation umbrella for 90+ national neuroscience societies",
@@ -3931,11 +3476,8 @@
                 topic: "Special-interest community for trainees working at the intersection of cognitive testing, data, and implantable tech",
                 category: "Society",
                 tags: {
-                    type:       ["Professional / Clinical"],
-                    scope:      ["National"],
-                    focus:      ["General neuroscience"],
-                    activity:   ["Grants & training", "Networking"],
-                    indication: []
+                    type: ["Clinical"],
+                    activity: ["Networking"]
                 },
                 description: "Special interest community within the Association of Neuropsychology Students in Training for trainees and students working at the intersection of clinical neuropsychology, cognitive assessment, and implantable neurotechnology.",
                 notable: "Bridges clinical neuropsychology trainees into the iBCI assessment pipeline",
@@ -4201,14 +3743,15 @@
 
         // ---- Category-scoped faceted filtering ----
         const CATEGORY_ORDER = ['Implant', 'Researcher', 'Industry', 'Trial', 'Conference', 'Funding', 'Society'];
-        // First three (or fewer) facets shown by default; the rest live behind "More filters".
+        // All facets are shown inline; default-visible kept for parity with renderFacetBar.
         const DEFAULT_VISIBLE_FACETS = {
-            Implant:    ['invasiveness', 'stage', 'target'],
-            Researcher: ['affiliation', 'target', 'topics'],
-            Trial:      ['trialType', 'phase', 'status'],
-            Conference: ['scope', 'focus'],
-            Funding:    ['type', 'eligibility', 'timeline'],
-            Society:    ['type', 'focus', 'activity']
+            Implant:    ['approach', 'stage'],
+            Researcher: ['focus'],
+            Trial:      ['phase', 'status'],
+            Conference: ['timeline', 'focus'],
+            Funding:    ['type', 'eligibility'],
+            Industry:   ['region', 'stage', 'focus'],
+            Society:    ['type', 'activity']
         };
         let activeCategory = 'Implant';
         let activeFilters = {};   // facetKey -> Set of selected values (reset on category switch)
