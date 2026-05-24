@@ -223,6 +223,10 @@
         }
 
         /* Custom Popup Styling — black / white / cyan, matches top bar */
+        /* Render the popup pane above the floating top bar (z-index 1000)
+           so star-marker info windows are never hidden behind it. */
+        .leaflet-popup-pane { z-index: 1100; }
+
         .leaflet-popup-content-wrapper {
             background: #000000;
             color: #ffffff;
