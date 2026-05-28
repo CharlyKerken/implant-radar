@@ -753,7 +753,8 @@
                 label: "Implants",
                 facets: {
                     approach: { label: "Approach", values: ["Intracortical","ECoG / Surface","Endovascular","Spinal","Optical / Optogenetic"] },
-                    stage:    { label: "Stage",    values: ["Preclinical","Clinical trial","Approved"] }
+                    stage:    { label: "Stage",    values: ["Preclinical","Clinical trial","Approved"] },
+                    focus:    { label: "Focus",    values: ["Cancer"] }
                 }
             },
             Researcher: {
@@ -788,7 +789,7 @@
                 facets: {
                     region: { label: "Region", values: ["North America","Europe","Asia","Other"] },
                     stage:  { label: "Stage",  values: ["Preclinical","Clinical trial","Approved"] },
-                    focus:  { label: "Focus",  values: ["Motor","Vision","Pain / Spinal"] }
+                    focus:  { label: "Focus",  values: ["Motor","Vision","Pain / Spinal","Cancer"] }
                 }
             },
             Society: {
@@ -2189,6 +2190,28 @@
                     { label: "Science Advances — Ultraflexible nanoelectronic probes (2017)", url: "https://www.science.org/doi/10.1126/sciadv.1601966" }
                 ]
             },
+            {
+                id: 126,
+                name: "SOMA-1 (Coherence Neuro)",
+                photo: "",
+                institution: "Coherence Neuro",
+                location: "Palo Alto, CA, USA",
+                coords: [37.4419, -122.1430],
+                topic: "Coin-sized thin-film implant placed alongside brain tumors during resection — closed-loop modulation of cancer bioelectric signaling",
+                category: "Implant",
+                tags: {
+                    approach: ["ECoG / Surface"],
+                    stage: ["Preclinical"],
+                    focus: ["Cancer"]
+                },
+                description: "Developed by Coherence Neuro (co-founders Ben Woodington and Elise Jenkins, with origins at the University of Cambridge). SOMA-1 is a coin-sized, wireless implant pairing thin-film recording-and-stimulation electrodes on the front end with a hermetically sealed back end housing compute, power, and an inductive coil. The device is placed alongside a malignant tumor during surgical resection — initial indications are glioblastomas, low-grade gliomas, and astrocytomas, with later expansion planned to peripheral tumors (pancreatic, lung, breast, prostate, skin). An over-ear wearable supplies power and storage, a companion app tracks symptoms, and a closed-loop AI controller continually reads tumor bioelectric activity and delivers targeted stimulation intended to overwrite cancer's electrical signaling — a therapeutic modality the team calls 'electro-oncology'. MRI-transparent and designed for home use. Currently in early-to-late preclinical work across three cancer types; first long-term human SOMA-1 implants targeted for late 2027.",
+                notable: "First implantable BCI explicitly designed as a therapeutic for cancer — closed-loop modulation of tumor bioelectric signaling",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.coherenceneuro.com/",
+                scholar: "",
+                appearances: []
+            },
             // ───────── Funding programmes ─────────
             // Timelines tagged as of 2026-05-23. Specific cycle dates change year
             // to year; always confirm on the official programme page before applying.
@@ -3323,6 +3346,28 @@
                 email: "",
                 phone: "",
                 labWebsite: "https://spinallymedical.com/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 125,
+                name: "Coherence Neuro",
+                photo: "",
+                institution: "Coherence Neuro",
+                location: "San Francisco, CA, USA (research lab in Palo Alto)",
+                coords: [37.7749, -122.4194],
+                topic: "SOMA-1 therapeutic BCI for cancer — closed-loop modulation of tumor bioelectric signaling, defining the emerging field of electro-oncology",
+                category: "Industry",
+                tags: {
+                    region: ["North America"],
+                    stage: ["Preclinical"],
+                    focus: ["Cancer"]
+                },
+                description: "Founded in 2022 by Ben Woodington (CEO) and Elise Jenkins, who first met as neuroengineering researchers at the University of Cambridge. The company is building SOMA-1 — a wireless, coin-sized implantable BCI placed alongside brain tumors at the time of surgical resection — paired with an over-ear wearable that supplies power and storage, and a companion app for symptom tracking. The system reads tumor bioelectric signaling in real time and delivers AI-driven closed-loop stimulation to overwrite the electrical activity that drives cancer growth, an approach the team calls 'electro-oncology'. Initial indications target brain cancers (glioblastomas, low-grade gliomas, astrocytomas), with later expansion to peripheral tumors. Closed a $10M seed round in November 2025 co-led by Artesian and Topology Ventures, with Blackbird Ventures, Possible Ventures, XEIA, Jumpspace, Divergent Capital, SmartGateVC, Spacewalk VC and Xtal participating. Research partners: Monash University, Stanford University, University of Cambridge, UCSF, and University of Leeds.",
+                notable: "First company building an implantable BCI as a therapeutic for cancer; $10M seed (Nov 2025)",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.coherenceneuro.com/",
                 scholar: "",
                 appearances: []
             },
