@@ -224,8 +224,10 @@
         }
 
         /* Custom Popup Styling — black / white / cyan, matches top bar */
-        /* Render the popup pane above the floating top bar (z-index 1000)
-           so star-marker info windows are never hidden behind it. */
+        /* Popups are bound to a custom pane mounted on <body> (see the
+           floatingPopup pane setup in JS) so they overlay the top bar.
+           The fallback rule below keeps any popup rendered in the default
+           pane visually consistent if the pane override ever fails. */
         .leaflet-popup-pane { z-index: 1100; }
 
         .leaflet-popup-content-wrapper {
@@ -777,7 +779,7 @@
             Funding: {
                 label: "Funding",
                 facets: {
-                    type:        { label: "Type",        values: ["Government","Foundation","Prize","Fellowship","VC / Private"] },
+                    type:        { label: "Type",        values: ["Government","Foundation","Prize","Fellowship","VC / Private","Awards"] },
                     eligibility: { label: "Eligibility", values: ["Student","PhD / Postdoc","PI","Industry / Startup"] }
                 }
             },
@@ -2124,6 +2126,46 @@
                 appearances: []
             },
             {
+                id: 124,
+                name: "Sliman Bensmaia (in memoriam)",
+                photo: "",
+                institution: "University of Chicago",
+                location: "Chicago, IL, USA",
+                coords: [41.7886, -87.5987],
+                topic: "Biomimetic somatosensory feedback for neural prosthetics — restoring naturalistic touch and proprioception via intracortical stimulation of S1",
+                category: "Researcher",
+                tags: {
+                    focus: ["Motor", "Decoding"]
+                },
+                description: "Principal architect of the biomimetic approach to restoring touch and proprioception in amputees and paralysed patients. His somatosensory cortex stimulation work underpinned Nathan Copeland's neurally controlled robotic arm with closed-loop touch feedback — a foundational result for every modern bidirectional iBCI. Bensmaia passed away on 11 August 2023 at age 49; his methods continue to shape sensory restoration research.",
+                notable: "Pioneered restoration of naturalistic touch sensation through intracortical microstimulation of somatosensory cortex",
+                email: "",
+                phone: "",
+                labWebsite: "https://en.wikipedia.org/wiki/Sliman_Bensmaia",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 125,
+                name: "Hugh M. Herr",
+                photo: "",
+                institution: "MIT Media Lab — Biomechatronics Group / K. Lisa Yang Center for Bionics",
+                location: "Cambridge, MA, USA",
+                coords: [42.3604, -71.0874],
+                topic: "Bionic limbs and neural-prosthetic interfaces — restoring natural locomotion and proprioception to amputees",
+                category: "Researcher",
+                tags: {
+                    focus: ["Motor", "Biohybrid"]
+                },
+                description: "Directs the Biomechatronics group at MIT Media Lab and co-directs the K. Lisa Yang Center for Bionics. Invented the Rheo Knee and the world's first powered ankle-foot prosthesis (BiOM), and pioneered the agonist-antagonist myoneural interface (AMI) — a surgical-neural construct that gives amputees closed-loop proprioceptive feedback from their bionic limbs. A bilateral below-knee amputee himself since a 1982 climbing accident, Herr's lab now integrates AMI surgery, implanted electrodes, and machine-learning control to make prostheses feel like part of the body.",
+                notable: "Princess of Asturias Award for Technical & Scientific Research (2016); two Time Top-10 Inventions (Rheo Knee, powered ankle); pioneer of the AMI bidirectional neural interface",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.media.mit.edu/groups/biomechatronics/overview/",
+                scholar: "",
+                appearances: []
+            },
+            {
                 id: 65,
                 name: "Ultraflexible NET Probes (Xie Lab, Rice)",
                 photo: "",
@@ -2738,6 +2780,34 @@
                     applyUrl: "https://www.vr.se/english.html"
                 }
             },
+            {
+                id: 126,
+                name: "The Annual BCI Award",
+                photo: "",
+                institution: "g.tec medical engineering GmbH",
+                location: "Schiedlberg, Austria",
+                coords: [48.0500, 14.3833],
+                topic: "Annual international recognition prize for the most innovative Brain-Computer Interface research projects worldwide",
+                category: "Funding",
+                tags: {
+                    type: ["Awards"],
+                    eligibility: ["Student", "PhD / Postdoc", "PI", "Industry / Startup"]
+                },
+                description: "Sponsored by g.tec medical engineering, this annual award honours outstanding and innovative work in Brain-Computer Interfaces. Open to any group or researcher worldwide with no hardware or software restrictions. Twelve nominees are selected each cycle and invited to publish chapters in the Springer BCI State-of-the-Art book series; the top three projects share a USD 6,000 purse. Often described within the field as the closest thing the BCI community has to a Nobel prize.",
+                notable: "Community-recognised flagship prize for BCI research; nominee chapters become part of Springer's BCI State-of-the-Art series",
+                email: "",
+                phone: "",
+                labWebsite: "https://www.bci-award.com/",
+                scholar: "",
+                appearances: [],
+                funding: {
+                    amount: "Total purse USD 6,000 — 1st place $3,000, 2nd $2,000, 3rd $1,000",
+                    support: "Top 12 nominated projects published as chapters in Springer's BCI State-of-the-Art book series",
+                    openWindow: "Annual",
+                    deadline: "Submissions due 1 September 2026; nominees announced 15 September 2026",
+                    applyUrl: "https://www.bci-award.com/"
+                }
+            },
             // ───────── Conferences ─────────
             // Timeline values are anchored to 2026-05-23.
             {
@@ -3192,11 +3262,11 @@
             },
             {
                 id: 106,
-                name: "Phosphenix",
+                name: "Phosphoenix",
                 photo: "",
-                institution: "Phosphenix",
-                location: "Alicante, Spain",
-                coords: [38.3452, -0.4810],
+                institution: "Phosphoenix",
+                location: "Amsterdam, Netherlands",
+                coords: [52.3676, 4.9041],
                 topic: "Cortical visual prosthesis — penetrating microelectrode arrays in V1 to bypass the eyes and optic nerves",
                 category: "Industry",
                 tags: {
@@ -3204,11 +3274,11 @@
                     stage: ["Clinical trial", "Preclinical"],
                     focus: ["Vision"]
                 },
-                description: "Spin-off focused on restoring sight to the blind through penetrating microelectrode arrays implanted directly into the visual cortex — bypassing the eyes and optic nerves completely.",
+                description: "Amsterdam-based spin-off (co-founded out of the Netherlands Institute for Neuroscience) focused on restoring sight to the blind through penetrating microelectrode arrays implanted directly into the visual cortex — bypassing the eyes and optic nerves completely.",
                 notable: "",
                 email: "",
                 phone: "",
-                labWebsite: "",
+                labWebsite: "https://www.phosphoenix.nl/",
                 scholar: "",
                 appearances: []
             },
@@ -3491,6 +3561,69 @@
                 labWebsite: "https://scn40.org/",
                 scholar: "",
                 appearances: []
+            },
+            {
+                id: 122,
+                name: "AIMD Workshop 2026",
+                photo: "",
+                institution: "TU Delft / Healthcare in Shape",
+                location: "Delft, Netherlands",
+                coords: [52.0022, 4.3736],
+                topic: "4-5 June 2026 · two-day workshop on active implantable medical devices — engineering, clinical translation, and regulatory strategy",
+                category: "Conference",
+                tags: {
+                    timeline: ["Happening soon"],
+                    focus: ["Hardware", "Clinical", "BCI / Neural engineering"]
+                },
+                description: "Two-day MedTech event at TU Delft's Aula Congress Centre covering next-generation active implants — neurotech and bioelectronic medicine, cardiac devices, ultra-low-power electronics, wireless power, soft electrode materials, hermetic packaging, and MDR/FDA regulatory pathways. Combines keynotes, industry exhibitions, posters, and panels.",
+                notable: "",
+                email: "contact@healthcareinshape.nl",
+                phone: "",
+                labWebsite: "https://www.aanmelder.nl/aimdworkshop2026/home",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 123,
+                name: "NeuroTechHub (NTH)",
+                photo: "",
+                institution: "NeuroTechHub",
+                location: "Delft, Netherlands",
+                coords: [52.0116, 4.3571],
+                topic: "Open-source neurotech ecosystem — community-built hardware, software, firmware, and communication standards for BCIs and neural prosthetics",
+                category: "Society",
+                tags: {
+                    type: ["Community", "Scientific"],
+                    activity: ["Standards", "Networking"]
+                },
+                description: "Independent community organisation building an open-source ecosystem for neurotech, uniting researchers, engineers, and clinicians around shared hardware, software, and protocol standards. Collaborates with TU Delft on bootcamps, webinars, and student challenges to break down barriers created by proprietary tech.",
+                notable: "Hosts the AIMD NeuroTech Bootcamp and the TU Delft Neuro Challenge",
+                email: "contact@neurotechhub.org",
+                phone: "",
+                labWebsite: "https://neurotechhub.org/",
+                scholar: "",
+                appearances: []
+            },
+            {
+                id: 124,
+                name: "Bidirectional Intraneural Leg Prosthesis (Neural Bionics Lab)",
+                photo: "",
+                institution: "Chalmers University of Technology — Neural Bionics Lab (Valle)",
+                location: "Gothenburg, Sweden",
+                coords: [57.6880, 11.9785],
+                topic: "Hair-thin intraneural electrodes in the tibial nerve enabling simultaneous motor decoding and sensory feedback in transfemoral amputees",
+                category: "Trial",
+                tags: {
+                    phase: ["Pilot / Phase 1"],
+                    status: ["Ongoing"]
+                },
+                description: "Led by Giacomo Valle (Assistant Professor in Bionics, Signal Processing and Biomedical Engineering) at Chalmers' Neural Bionics Lab, with partners at University of Zurich and ETH Zürich, University of Freiburg, University of Belgrade, and Medical University of Vienna. Ultrathin flexible electrodes — developed at Freiburg — are inserted into the tibial branch of the sciatic nerve in above-knee (transfemoral) amputees, providing simultaneous motor decoding and sensory feedback through a single implantable device. A spiking-neural-network decoder modelled on the nervous system's own coding interprets fine voluntary movements, including the will to wiggle phantom toes, directly from intraneural recordings. Two participants completed the decoding phase published in Nature Communications (March 2026); during neural sensory feedback, walking speed and self-reported confidence increased while mental and physical fatigue decreased. The next phase integrates the bidirectional interface into a powered prosthetic leg.",
+                notable: "First single implantable neurotech delivering both natural motor decoding and sensory feedback in leg amputees (Nature Communications, 2026)",
+                email: "valleg@chalmers.se",
+                phone: "+46 31 772 25 10",
+                labWebsite: "http://www.bnl.chalmers.se/wordpress/",
+                scholar: "",
+                appearances: []
             }
         ];
 
@@ -3559,7 +3692,7 @@
         // Initialize map: centered on the world, locked inside world bounds
         // (maxBoundsViscosity: 1.0 makes the edges hard, like Google Maps)
         const map = L.map('map', {
-            center: [20, 0],
+            center: [38, 0],
             zoom: initialMinZoom,
             minZoom: initialMinZoom,
             maxZoom: 10,
@@ -3580,6 +3713,31 @@
             noWrap: true,
             bounds: [[-90, -180], [90, 180]]
         }).addTo(map);
+
+        // Floating popup pane: mounted on <body> (not inside #map) so popups
+        // escape the stacking context that .leaflet-map-pane's transform creates,
+        // letting them render above the z-index:1000 top bar. The container's
+        // transform mirrors #map's screen offset + the map-pane's pan offset so
+        // Leaflet's normal layer-point positioning lands the popup on its marker.
+        const floatingPopupContainer = document.createElement('div');
+        floatingPopupContainer.style.cssText = 'position: fixed; top: 0; left: 0; width: 0; height: 0; pointer-events: none; z-index: 1500;';
+        document.body.appendChild(floatingPopupContainer);
+        map.createPane('floatingPopup', floatingPopupContainer);
+        const floatingPopupPane = map.getPane('floatingPopup');
+        floatingPopupPane.style.zIndex = '1500';
+        floatingPopupPane.style.pointerEvents = 'auto';
+
+        function syncFloatingPopupPane() {
+            const mapEl = document.getElementById('map');
+            const mapRect = mapEl.getBoundingClientRect();
+            const mapPanePos = L.DomUtil.getPosition(map.getPanes().mapPane) || L.point(0, 0);
+            floatingPopupContainer.style.transform =
+                `translate3d(${mapRect.left + mapPanePos.x}px, ${mapRect.top + mapPanePos.y}px, 0)`;
+        }
+        map.on('move zoom viewreset moveend zoomend load', syncFloatingPopupPane);
+        map.on('zoomanim', () => requestAnimationFrame(syncFloatingPopupPane));
+        window.addEventListener('resize', syncFloatingPopupPane);
+        syncFloatingPopupPane();
 
         // Re-lock the minimum zoom on resize so the world keeps filling the viewport
         window.addEventListener('resize', () => {
@@ -3718,7 +3876,7 @@
                     </div>
                 `;
 
-                marker.bindPopup(popupContent);
+                marker.bindPopup(popupContent, { pane: 'floatingPopup' });
                 markers[researcher.id] = marker;
             });
         }
