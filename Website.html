@@ -77,30 +77,13 @@
             height: 52px;
             width: auto;
             display: block;
-            filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.4));
-        }
-
-        .contact-btn {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            background: transparent;
-            color: #22d3ee;
-            border: 1px solid #22d3ee;
-            padding: 0.4rem 1.1rem;
-            border-radius: 9999px;
-            font-size: 0.72rem;
-            font-weight: 500;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            font-family: inherit;
             cursor: pointer;
-            transition: background 0.18s, color 0.18s;
+            filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.4));
+            transition: filter 0.18s;
         }
-        .contact-btn:hover {
-            background: #22d3ee;
-            color: #000000;
+        /* Hover recolors the white logo to cyan (it doubles as the About button) */
+        .header-logo:hover {
+            filter: brightness(0) saturate(100%) invert(72%) sepia(38%) saturate(1352%) hue-rotate(151deg) brightness(95%) contrast(91%) drop-shadow(0 0 12px rgba(34, 211, 238, 0.7));
         }
 
         /* Filter Section — black background, cyan accents */
@@ -641,7 +624,6 @@
             .brand-word { font-size: 1.1rem; }
             .header-brand { gap: 0.55rem; }
             .header-logo { height: 40px; }
-            .contact-btn { padding: 0.3rem 0.75rem; font-size: 0.75rem; }
             .stats { display: none; }
             #map { height: 100vh; }
             .lab-list { display: block; margin-top: 1rem; }
@@ -656,10 +638,9 @@
             <div class="header-content">
                 <div class="header-brand">
                     <span class="brand-word">NEURO</span>
-                    <img class="header-logo" src="images/Logo.png" alt="Neuro Radar logo">
+                    <img class="header-logo" src="images/Logo.png" alt="Neuro Radar logo — About" title="About" role="button" onclick="openContactModal()">
                     <span class="brand-word">RADAR</span>
                 </div>
-                <button class="contact-btn" onclick="openContactModal()">About</button>
             </div>
         </header>
 
