@@ -3985,7 +3985,7 @@
                     </div>
                 `;
 
-                marker.bindPopup(popupContent, { pane: 'floatingPopup' });
+                marker.bindPopup(popupContent, { pane: 'floatingPopup', closeButton: false });
                 markers[researcher.id] = marker;
             });
         }
