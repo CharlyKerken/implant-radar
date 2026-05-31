@@ -79,11 +79,11 @@
             display: block;
             cursor: pointer;
             filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.4));
-            transition: filter 0.18s;
+            transition: filter 0.5s ease;
         }
-        /* Hover recolors the white logo to cyan (it doubles as the About button) */
+        /* Hover gradually recolors the white logo to cyan with a gentle white outer glow (it doubles as the About button) */
         .header-logo:hover {
-            filter: brightness(0) saturate(100%) invert(72%) sepia(38%) saturate(1352%) hue-rotate(151deg) brightness(95%) contrast(91%) drop-shadow(0 0 12px rgba(34, 211, 238, 0.7));
+            filter: brightness(0) saturate(100%) invert(72%) sepia(38%) saturate(1352%) hue-rotate(151deg) brightness(95%) contrast(91%) drop-shadow(0 0 14px rgba(255, 255, 255, 0.55));
         }
 
         /* Filter Section — black background, cyan accents */
