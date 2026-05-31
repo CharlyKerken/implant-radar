@@ -3898,6 +3898,15 @@
 
         map.on('zoomend', repositionMarkers);
 
+        // After a star's popup closes, sink it below its cluster neighbours so the
+        // most-recently-opened star is always easiest to click past.
+        let demoteSeq = 0;
+        map.on('popupclose', (e) => {
+            if (e.popup._source && e.popup._source.setZIndexOffset) {
+                e.popup._source.setZIndexOffset(--demoteSeq * 1000);
+            }
+        });
+
         // Store markers for filtering
         const markers = {};
 
